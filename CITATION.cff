@@ -6,7 +6,7 @@ authors:
   family-names: Scherf
 date-released: '2025-11-08'
 type: software
-repository-code: https://example.com/substrate-theory-canonical
+repository-code: https://github.com/matthew-scherf/substrate
 identifiers:
 - type: other
   value: 'Ethereum Mainnet immutable bytecode: 0xc3b5e182EEECfAF0855b68c1ACcddEeeF0091246'
