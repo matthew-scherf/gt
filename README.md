@@ -26,7 +26,7 @@ lean --version
 lake --version
 ````
 
-2. **Build the project (from repository root):**
+2. **Build the project**
 
 ```bash
 lake update
@@ -45,8 +45,8 @@ The canonical text is immutably encoded as EVM bytecode at a verifiable address.
 
 | Contract                                                                                         | Type                 | Address                                      | Verified | Purpose                                      |
 | ------------------------------------------------------------------------------------------------ | -------------------- | -------------------------------------------- | -------- | -------------------------------------------- |
-| [`OnchainText`](https://etherscan.io/address/0x31218c4d139e373c185732655658315f1892e1ae#code)    | Immutable data store | `0x31218c4d139e373c185732655658315f1892e1ae` | ✅        | Stores the canonical logic text (bytes only) |
-| [`OnchainTextNFT`](https://etherscan.io/address/0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9#code) | ERC-721 wrapper      | `0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9` | ✅        | Mints NFT linking to the canonical text      |
+| [`OnchainText`](https://etherscan.io/address/0x31218c4d139e373c185732655658315f1892e1ae#code)    | Immutable data store | `0x31218c4d139e373c185732655658315f1892e1ae` | Yes       | Stores the canonical logic text (bytes only) |
+| [`OnchainTextNFT`](https://etherscan.io/address/0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9#code) | ERC-721 wrapper      | `0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9` | Yes       | Mints NFT linking to the canonical text      |
 
 ---
 
