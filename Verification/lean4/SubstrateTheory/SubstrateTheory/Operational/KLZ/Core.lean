@@ -1,11 +1,10 @@
-
 import SubstrateTheory.Core.Types
 import SubstrateTheory.Core.Parameters
+import Mathlib.Data.Real.Basic
 
 set_option autoImplicit false
 
-namespace SubstrateTheory.Operational
-
+namespace SubstrateTheory.Operational.KLZ
 
 constant State : Type
 constant join  : List State → State
@@ -57,4 +56,4 @@ theorem R_G1_preserves_grounding (n : List State) :
     exact add_lt_add_left C_mode_lt_c_grounding (K_LZ (join n))
   exact lt_of_le_of_lt h hlt
 
-end SubstrateTheory.Operational
+end SubstrateTheory.Operational.KLZ
