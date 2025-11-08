@@ -34,7 +34,7 @@ If the formalization declares external dependencies, they will be fetched by `la
 
 ## Canonical On‑Chain Record (Ethereum)
 
-The canonical text is immutably encoded as EVM bytecode at a verifiable address. See `onchain/Verification.md` for the full, reproducible procedure (bytecode retrieval → UTF‑8 decode → `keccak256` hash match).
+The canonical text is immutably encoded as EVM bytecode at a verifiable address. See `Ethereum/Verification.md` for the full, reproducible procedure (bytecode retrieval → UTF‑8 decode → `keccak256` hash match).
 
 Key identifiers (as recorded on Ethereum Mainnet):
 - **Immutable Bytecode Storage (“dataPointer”)**: `0xc3b5e182EEECfAF0855b68c1ACcddEeeF0091246`
