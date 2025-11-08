@@ -57,7 +57,7 @@ cast call 0x0027af63Cd8e7De651671240220f2886fF7370d1 "getText()(string)" \
 
 ```bash
 xxd -p -c 999999 CANONICAL_REFERENCE.txt | cast keccak
-# Expected: 0x90147f16c543fe45a92a252340f20d055535a10f12eb43aab87eaa2a4879fbc0
+# Expected: 0x2876b371539188764d172cfdb64a5baff2da0954a1a567c406d5134c3210af10
 ```
 
 ---
