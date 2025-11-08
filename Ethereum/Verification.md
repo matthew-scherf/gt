@@ -1,17 +1,10 @@
 
 # Substrate Theory — Ethereum Mainnet
 
-**Author:** Matthew Scherf
-**Date:** 8 November 2025
-**Network:** Ethereum Mainnet
-**Deployer:** `0x367E6B384b6Ec96Ccec478F7B314d3deB2F01195`
-**Verification:** Etherscan 
-
 ---
 
 ## Overview
 
-This deployment immutably anchors the canonical logical specification of Substrate Theory onto the Ethereum mainnet.
 
 | Contract                                                                                         | Type                 | Address                                      | Verified | Purpose                                      |
 | ------------------------------------------------------------------------------------------------ | -------------------- | -------------------------------------------- | -------- | -------------------------------------------- |
@@ -27,7 +20,7 @@ This deployment immutably anchors the canonical logical specification of Substra
 | **Canonical File**         | `SUBSTRATE_THEORY.txt`                                               |
 | **Size**                   | 11 290 bytes                                                         |
 | **Keccak-256 Hash**        | `0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09` |
-| **contentHash (on-chain)** | identical ✅                                                          |
+| **contentHash (on-chain)** | identical                                                            |
 
 To verify locally:
 
