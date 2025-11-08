@@ -1,7 +1,6 @@
 # Substrate Theory 
 
-> We present a formal system unifying quantum mechanics and general relativity as
-computational regimes of a single substrate governed by algorithmic complexity thresholds. The framework is formalized in Lean 4 (5 300 + LOC across 21 modules) and demonstrates convergence between ideal (non-computable) and operational (computable) layers through eight bridge theorems. A 50-bit complexity threshold determines the quantum–classical transition, with gravity and collapse emerging as the same mechanism.
+> A formal system unifying quantum mechanics and general relativity as computational regimes of a single substrate governed by algorithmic complexity thresholds. The framework is formalized in Lean 4 (5 300 + LOC across 21 modules) and demonstrates convergence between ideal (non-computable) and operational (computable) layers through eight bridge theorems. A 50-bit complexity threshold determines the quantum–classical transition, with gravity and collapse emerging as the same mechanism.
 
 ---
 
