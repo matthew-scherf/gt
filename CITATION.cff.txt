@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: If you use this repository, please cite it using the metadata below.
+title: "Substrate Theory \u2014 Canonical Repository"
+authors:
+- name: Matthew
+  family-names: Scherf
+date-released: '2025-11-08'
+type: software
+repository-code: https://github.com/matthew-scherf/substrate 
+identifiers:
+- type: other
+  value: 'Ethereum Mainnet immutable bytecode: 0xc3b5e182EEECfAF0855b68c1ACcddEeeF0091246'
+- type: other
+  value: keccak256(content) = 0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09
