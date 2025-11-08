@@ -4,13 +4,10 @@
 **Date:** 2025-11-08  
 **Network:** Ethereum Mainnet  
 **Deployer Address:** `0x367E6B384b6Ec96Ccec478F7B314d3deB2F01195`  
-**Verifier:** Etherscan ✅  
-**Total Gas Used:** 6 306 760 @ 0.266 gwei ≈ 0.00164 ETH  
-**Status:** Immutable and publicly verifiable
-
+**Verifier:** Etherscan 
 ---
 
-## 📜 Overview
+##  Overview
 
 This deployment permanently anchors the canonical logical specification of **Substrate Theory**—the formal foundation for *Only-One / The Unique Ontic Substrate*—onto the Ethereum mainnet as an immutable on-chain text artifact.  
 It consists of two verified contracts:
@@ -22,14 +19,14 @@ It consists of two verified contracts:
 
 ---
 
-## 🧩 Immutable Content Verification
+##  Immutable Content Verification
 
 | Field | Value |
 |--------|--------|
 | **File** | `SUBSTRATE_THEORY.txt` |
 | **Size** | 11 290 bytes |
 | **Keccak-256 Hash** | `0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09` |
-| **contentHash (on-chain)** | identical ✅ |
+| **contentHash (on-chain)** | identical |
 
 ### Verify Locally
 ```bash
@@ -60,7 +57,7 @@ cast call 0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9 \
 
 ---
 
-## 🔗 Key Transactions
+## Key Transactions
 
 | Description              | Tx Hash                                                                                                           | Block      |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------- | ---------- |
@@ -70,7 +67,7 @@ cast call 0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9 \
 
 ---
 
-## 🧾 Academic Citation
+## Academic Citation
 
 > Scherf, M. (2025). *Substrate Theory – Canonical Logical Specification (Ethereum On-Chain Reference).*
 > DOI [to be added e.g. Zenodo]
@@ -80,43 +77,3 @@ cast call 0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9 \
 
 ---
 
-## 🧮 Commands Cheat-Sheet
-
-```bash
-# 1. Confirm size and hash
-cast call 0x60bd91334E96813bA78ac76b5E71f641057E5A28 "contentSize()(uint256)"
-cast call 0x60bd91334E96813bA78ac76b5E71f641057E5A28 "contentHash()(bytes32)"
-
-# 2. Confirm ownership
-cast call 0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9 "ownerOf(uint256)(address)" 1
-
-# 3. Revoke approvals (if needed)
-cast call 0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9 "getApproved(uint256)(address)" 1
-```
-
----
-
-## 🛡️ Security Notes
-
-* The text bytes are **immutable** (`immutable` fields; no mutators).
-* The NFT only controls **ownership**, not content.
-* Always keep your current owner wallet **offline or hardware-secured**.
-* Anyone can recompute the file’s hash to verify authenticity.
-
----
-
-*Immutable logic, verifiable forever.*
-
-```
-
----
-
-Would you like me to package this up (with your actual verified contracts and the text hash) into a zipped GitHub-ready folder containing:
-
-- `README.md` (above)  
-- `Deploy.s.sol`, `OnchainText.sol`, `OnchainTextNFT.sol`  
-- `CANONICAL_REFERENCE.txt`  
-- and a minimal `.env.example`  
-
-so you can drop it straight into your repo?
-```
