@@ -95,11 +95,5 @@ If both values match, you are reading the exact same file recorded on-chain.
 
 ---
 
-## 6. Historical Significance
 
-This deployment represents the first verified instance of a complete philosophical and scientific text recorded as pure EVM bytecode.
-It establishes a permanent, censorship-resistant archive where the content itself *is* the contract — an ontological text inseparable from its computational substrate.
 
----
-
-```
