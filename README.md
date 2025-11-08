@@ -1,25 +1,6 @@
-Excellent — confirmed:
+# Substrate Theory
 
-* ✅ **OnchainTextNFT (ERC-721)**
-  TX: [`0xe820a42226839735519c3eb12d46ae8d73d06c203c13b6caf38c065d6e2bc7b0`](https://etherscan.io/tx/0xe820a42226839735519c3eb12d46ae8d73d06c203c13b6caf38c065d6e2bc7b0)
-
-* ✅ **OnchainText (immutable text)**
-  TX: [`0xaf60585cb51e4eb289a0babf1fc3c66a17e3244ed26874fbfe505f8b433e916f`](https://etherscan.io/tx/0xaf60585cb51e4eb289a0babf1fc3c66a17e3244ed26874fbfe505f8b433e916f)
-
-* ✅ **Mint #1**
-  TX: [`0x8640dfaab67c13e031d794f35c3a678b74d2ec19ae9014f6bdca43879c33421c`](https://etherscan.io/tx/0x8640dfaab67c13e031d794f35c3a678b74d2ec19ae9014f6bdca43879c33421c)
-
----
-
-Here is your **final unified `README.md`**, precisely merged and minimally formatted.
-It retains your canonical abstract, Lean instructions, and all factual Ethereum verification data in one authoritative file.
-
----
-
-````markdown
-# Substrate Theory — Canonical Repository
-
-> This repository contains the canonical specification, the **verbatim** Lean 4 formalization, and the verified Ethereum on-chain record of *Substrate Theory – Canonical Edition*.
+> This repository contains the canonical specification, the verbatim Lean 4 formalization, and the verified Ethereum on-chain record of *Substrate Theory – Canonical Edition*.
 
 ---
 
@@ -71,20 +52,48 @@ The canonical text is immutably encoded as EVM bytecode at a verifiable address.
 
 ### Content Verification
 
-| Field                      | Value                                                                |
-| -------------------------- | -------------------------------------------------------------------- |
-| **Canonical File**         | `SUBSTRATE_THEORY.txt`                                               |
-| **Size**                   | 11 290 bytes                                                         |
-| **Keccak-256 Hash**        | `0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09` |
-| **contentHash (on-chain)** | identical                                                            |
+| Field                                      | Value                                                                |
+| ------------------------------------------ | -------------------------------------------------------------------- |
+| **Canonical File**                         | `SUBSTRATE_THEORY.txt`                                               |
+| **Size**                                   | 11 290 bytes                                                         |
+| **Keccak-256 (canonical content, UTF-8)**  | `0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09` |
+| **Keccak-256 (deployed runtime bytecode)** | `0x7dd220053f5ec52419e2a2de159f7b32946f3d41a342dbf77e15c5ca65d8a0a2` |
 
-To verify locally:
+> The **canonical content hash** verifies the pure text.
+> The **bytecode hash** verifies the exact runtime code at the deployed address.
+
+#### Verify canonical content locally (from a local copy of the text)
+
+```bash
+xxd -p -c 999999 SUBSTRATE_THEORY.txt | cast keccak
+# → 0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09
+```
+
+#### Verify deployed runtime bytecode (from the chain)
 
 ```bash
 cast code 0x31218c4d139e373c185732655658315f1892e1ae --rpc-url https://ethereum.publicnode.com > code.hex
 sed 's/^0x//' code.hex | xxd -r -p > substrate.txt
 cast keccak "0x$(xxd -p -c 999999 substrate.txt)"
-# → 0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09
+# → 0x7dd220053f5ec52419e2a2de159f7b32946f3d41a342dbf77e15c5ca65d8a0a2
+```
+
+---
+
+### View On-Chain Text Contents (human-readable)
+
+```bash
+# 1) Retrieve the on-chain bytecode
+cast code 0x31218c4d139e373c185732655658315f1892e1ae --rpc-url https://ethereum.publicnode.com > code.hex
+
+# 2) Decode to UTF-8 text
+sed 's/^0x//' code.hex | xxd -r -p > substrate.txt
+
+# 3) Inspect the contents
+less substrate.txt
+# or:
+cat substrate.txt
+# (PowerShell) Get-Content substrate.txt
 ```
 
 ---
@@ -103,7 +112,8 @@ cast keccak "0x$(xxd -p -c 999999 substrate.txt)"
 
 > Scherf, M. (2025). *Substrate Theory – Canonical Logical Specification (Ethereum On-Chain Reference).*
 > Contracts `0x31218c4d139e373c185732655658315f1892e1ae` and `0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9` (verified on Ethereum Mainnet).
-> Keccak-256 `0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09`.
+> Keccak-256 (canonical text) `0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09`.
+> Keccak-256 (runtime bytecode) `0x7dd220053f5ec52419e2a2de159f7b32946f3d41a342dbf77e15c5ca65d8a0a2`.
 
 ---
 
@@ -112,11 +122,3 @@ cast keccak "0x$(xxd -p -c 999999 substrate.txt)"
 * [`OnchainText`](https://etherscan.io/address/0x31218c4d139e373c185732655658315f1892e1ae#code)
 * [`OnchainTextNFT`](https://etherscan.io/address/0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9#code)
 
----
-
-```
-
----
-
-Would you like me to include the brief **table of module counts and theorem categories** from the Lean formalization (Types, Axioms, Theorems, Bounds, etc.) beneath the abstract section for completeness, or keep this purely on-chain + build-related?
-```
