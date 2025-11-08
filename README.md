@@ -1,8 +1,8 @@
 # Substrate Theory — Canonical Repository
 
-> This repository contains the canonical specification, the **verbatim** Lean 4 formalization, and an Ethereum on‑chain verification record. Language is taken **exactly** from the canonical sources without paraphrase.
+> This repository contains the canonical specification, the **verbatim** Lean 4 formalization, and an Ethereum on‑chain verification record. 
 
-## Abstract (verbatim)
+## Abstract
 
 We present a complete formal system establishing quantum mechanics and general relativity
 as computational regimes of a single substrate governed by algorithmic complexity thresholds.
@@ -13,10 +13,6 @@ determines the quantum-classical transition, with gravity and quantum collapse e
 same mechanism. The formalization establishes universal grounding through a rank system and
 proposes information-theoretic interpretations of fundamental physical constants.
 
-## Repository Layout
-
-- Lean 4 project files (`lakefile.lean`, `lake-manifest.json`, `lean/` and/or `SubstrateTheory/`) — canonical formalization.
-- `onchain/Verification.md` — canonical on‑chain record and independent verification guide.
 
 ## Build & Verify (Lean 4)
 
@@ -38,7 +34,7 @@ If the formalization declares external dependencies, they will be fetched by `la
 
 ## Canonical On‑Chain Record (Ethereum)
 
-The canonical text is immutably encoded as EVM bytecode at a verifiable address. See `onchain/Verification.md` for the full, reproducible procedure (bytecode retrieval → UTF‑8 decode → `keccak256` hash match).
+The canonical text is immutably encoded as EVM bytecode at a verifiable address. See `Ethereum/Verification.md` for the full, reproducible procedure (bytecode retrieval → UTF‑8 decode → `keccak256` hash match).
 
 Key identifiers (as recorded on Ethereum Mainnet):
 - **Immutable Bytecode Storage (“dataPointer”)**: `0xc3b5e182EEECfAF0855b68c1ACcddEeeF0091246`
@@ -57,5 +53,3 @@ cast keccak "0x$(xxd -p -c 999999 substrate.txt)"
 Cite the on‑chain canonical edition via the contract address and hash recorded in `onchain/Verification.md`.
 
 ---
-
-This repository is intentionally **maximally minimal**: only the canonical formal content and its verification pathways are included.
