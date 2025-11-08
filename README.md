@@ -26,7 +26,7 @@ lean --version
 lake --version
 ````
 
-2. **Build the project (from repository root):**
+2. **Build the project**
 
 ```bash
 lake update
