@@ -50,6 +50,6 @@ cast keccak "0x$(xxd -p -c 999999 substrate.txt)"
 
 ## Citation
 
-Cite the on‑chain canonical edition via the contract address and hash recorded in `onchain/Verification.md`.
+> Scherf, M. (2025). *Substrate Theory — Canonical On-Chain Edition (Ethereum Mainnet)* [Smart Contract 0xc3b5e182EEECfAF0855b68c1ACcddEeeF0091246]. Ethereum Blockchain. [https://etherscan.io/address/0xc3b5e182EEECfAF0855b68c1ACcddEeeF0091246#code](https://etherscan.io/address/0xc3b5e182EEECfAF0855b68c1ACcddEeeF0091246#code)
 
 ---
