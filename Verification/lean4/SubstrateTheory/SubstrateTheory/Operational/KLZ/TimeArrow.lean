@@ -1,13 +1,13 @@
 
 import SubstrateTheory.Core.Types
 import SubstrateTheory.Core.Parameters
-import «Operational/KLZ/Core»
+import SubstrateTheory.Operational.KLZ.Core
 
 set_option autoImplicit false
 
 namespace SubstrateTheory.Operational
 
-open SubstrateTheory.Operational
+open SubstrateTheory.Operational.KLZ
 
 
 noncomputable constant R_Cohesion : List State → State → State

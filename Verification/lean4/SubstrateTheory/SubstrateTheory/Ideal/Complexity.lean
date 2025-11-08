@@ -70,7 +70,7 @@ axiom conditional_reduction : ∀ e₁ e₂,
   ∃ r : ℝ, r ≥ 0 ∧ K e₂ ≥ (1 + r) * K_cond e₁ e₂
 
 noncomputable def Coh (es : List Entity) (times : List Time) : ℝ :=
-  if h : K_sum (times.flatMap (temporal_slice es)) = 0 then 0
+  if K_sum (times.flatMap (temporal_slice es)) = 0 then 0
   else 1 - K_joint (times.flatMap (temporal_slice es)) / K_sum (times.flatMap (temporal_slice es))
 
 axiom coherence_bounds : ∀ es times,
@@ -79,6 +79,9 @@ axiom coherence_bounds : ∀ es times,
 
 noncomputable def Coh_t (e : Entity) (t : Time) : ℝ :=
   Coh [e] [t]
+
+noncomputable def coh_t_func (e : Entity) : Time → ℝ :=
+  fun t => Coh_t e t
 
 noncomputable def dCoh_dt (e : Entity) (t : Time) : ℝ :=
   deriv (coh_t_func e) t

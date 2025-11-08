@@ -1,125 +1,70 @@
-import SubstrateTheory.Core.Types
-import SubstrateTheory.Core.Parameters
-import SubstrateTheory.Core.Axioms
-import SubstrateTheory.Ideal.Complexity
-import SubstrateTheory.Operational.Complexity
-import Mathlib.Data.Finset.Basic
-import Mathlib.Combinatorics.SimpleGraph.Basic
+# Grounding.lean Compilation Fixes
 
-namespace SubstrateTheory.Core
+## Errors Fixed
 
-open SubstrateTheory SubstrateTheory.Ideal SubstrateTheory.Operational
+### 1. Line 20: Function Definition Order (CRITICAL)
+**Error:** `grounds_C` used before defined in axiom `groundsC_to_ideal`
 
-
-
-noncomputable axiom rank_K : Entity → ℕ
-axiom rank_K_substrate : rank_K Ω = 0
-axiom rank_K_grounding : ∀ e₁ e₂, grounds e₁ e₂ → rank_K e₂ < rank_K e₁
-axiom rank_K_exists : ∀ e, ∃ n, rank_K e = n
-axiom groundsC_to_ideal (e₁ e₂ : Entity) (p : ℕ) :
-  grounds_C e₁ e₂ p → grounds e₁ e₂
-noncomputable axiom rank_C : Entity → ℕ → ℕ
-
+**Fix:** Moved `grounds_C` definition from line 23 to line 20, BEFORE the axiom that references it:
+```lean
 def grounds_C (e₁ e₂ : Entity) (p : ℕ) : Prop :=
   C_cond e₁ e₂ p < C e₂ p - C e₁ p + c_grounding
 
+axiom groundsC_to_ideal (e₁ e₂ : Entity) (p : ℕ) :
+  grounds_C e₁ e₂ p → grounds e₁ e₂
+```
 
+### 2. Line 63: Missing Decidability Instance
+**Error:** `failed to synthesize DecidablePred fun parent => grounds_C parent e p`
+
+**Fix:** Added `open Classical in` to enable classical decidability:
+```lean
 open Classical in
-noncomputable def grounds_graph (S : Finset Entity) (p : ℕ) : Finset (Entity × Entity) :=
-  (S.product S).filter (fun (e₁, e₂) => grounds_C e₁ e₂ p)
-
-
-
-
-
-
-noncomputable def grounding_graph_struct (S : Finset Entity) (p : ℕ) : SimpleGraph {e // e ∈ S} :=
-
-  {
-    Adj := fun (v₁ v₂ : {e // e ∈ S}) => grounds_C v₁.val v₂.val p,
-    symm := by
-
-
-
-
-
-
-
-
-
-
-
-      sorry
-    loopless := by
-
-      sorry
-  }
-
-
-
-
-
 noncomputable def parents_C (e : Entity) (S : Finset Entity) (p : ℕ) : Finset Entity :=
   S.filter (fun (parent : Entity) => grounds_C parent e p)
+```
 
+### 3. Line 72: Invalid Empty Check
+**Error:** `Invalid field 'Empty': The environment does not contain Finset.Empty`
 
+**Fix:** Changed `current_level.Empty` to `current_level = ∅`:
+```lean
+if current_level = ∅ then
+  Finset.empty
+```
 
+### 4. Lines 75-78: Multiple Decidability Issues
+**Errors:**
+- `failed to synthesize DecidableEq (Entity × ℕ)`
+- `failed to synthesize DecidableEq Entity`
+- `failed to synthesize Union (Finset Entity)`
+- `failed to synthesize Union (Finset (Entity × ℕ))`
 
-
+**Fix:** Added `open Classical in` to bfs_depth_C_aux:
+```lean
 @[simp]
-noncomputable def bfs_depth_C_aux (p : ℕ) (S : Finset Entity)
-  (current_level : Finset Entity) (visited : Finset Entity) (depth : ℕ) : Finset (Entity × ℕ) :=
-  if current_level.Empty then
-    Finset.empty
-  else
-    let current_with_depth := current_level.image (fun e => (e, depth))
-    let new_neighbors := (current_level.biUnion (fun e => parents_C e S p)).filter (fun e => e ∉ visited)
-    let next_visited := visited ∪ new_neighbors
-    current_with_depth ∪ (bfs_depth_C_aux p S new_neighbors next_visited (depth + 1))
+open Classical in
+noncomputable def bfs_depth_C_aux (p : ℕ) (S : Finset Entity) ...
+```
 
+### 5. Line 88: Pattern Matching Syntax Error
+**Error:** `unexpected token 'by'; expected 'with'`
+
+**Fix:** Changed `match ... by` to `match ... with` and used `max?` instead of `max`:
+```lean
+open Classical in
 noncomputable def bfs_depth_C (e : Entity) (p : ℕ) (S : Finset Entity) : ℕ :=
-
-
-
-
-
   let all_depths := bfs_depth_C_aux p S {Ω} {Ω} 0
-
-  match (all_depths.filter (fun (x, d) => x = e)).max by
-    | some (e, depth) => depth
+  match (all_depths.filter (fun (x, d) => x = e)).max? with
+    | some (_, depth) => depth
     | none => 0
+```
 
+### 6. Line 98: Unused Variables Warning
+**Warning:** `unused variable 'e', 'S', 'p'`
 
-
-
-
-
-
-noncomputable def bfs_grounding_path (e : Entity) (S : Finset Entity) (p : ℕ) : Option (List Entity) :=
-
-
+**Fix:** Prefixed unused parameters with underscore:
+```lean
+noncomputable def bfs_grounding_path (_e : Entity) (_S : Finset Entity) (_p : ℕ) : Option (List Entity) :=
   none
-
-
-
-
-axiom rank_C_def : ∀ e p S,
-  e ∈ S → rank_C e p = bfs_depth_C e p S
-
-
-
-axiom universal_grounding : ∀ e,
-  is_presentation e →
-  ∃ path : List Entity,
-    path.head? = some Ω ∧
-    path.getLast? = some e ∧
-    ∀ i : ℕ, ∀ h1 : i < path.length, ∀ h2 : i + 1 < path.length,
-      grounds path[i] path[i+1]
-
-axiom grounding_transitive : ∀ e₁ e₂ e₃,
-  grounds e₁ e₂ → grounds e₂ e₃ → grounds e₁ e₃
-
-axiom grounding_acyclic : ∀ e,
-  ¬grounds e e
-
-end SubstrateTheory.Core
+```

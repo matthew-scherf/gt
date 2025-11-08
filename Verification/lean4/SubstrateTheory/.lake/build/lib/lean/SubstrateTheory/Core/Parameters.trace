@@ -1,0 +1,33 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["d3be769958076aa3.olean"],
+  "i": "e7023ea5f3b14131.ilean",
+  "c": "065bdc4032372867.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean;C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean;C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean;C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean;C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean;C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean;C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean;C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean;C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean;C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\build\\lib\\lean c:\\Users\\matts\\.elan\\toolchains\\leanprover--lean4---v4.25.0-rc2\\bin\\lean.exe C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\SubstrateTheory\\Core\\Parameters.lean -o C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\build\\lib\\lean\\SubstrateTheory\\Core\\Parameters.olean -i C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\build\\lib\\lean\\SubstrateTheory\\Core\\Parameters.ilean -c C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\build\\ir\\SubstrateTheory\\Core\\Parameters.c --setup C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\build\\ir\\SubstrateTheory\\Core\\Parameters.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["SubstrateTheory.Core.Parameters:deps",
+   [["deps",
+     [["SubstrateTheory/SubstrateTheory:extraDep",
+       [["@SubstrateTheory:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["SubstrateTheory.Core.Types transitive imports (legacy)",
+         "7d109f2ae402b4e6"],
+        ["SubstrateTheory.Core.Types:importAllArts", "49943bae36da2dc9"],
+        ["Mathlib transitive imports (legacy)", "63eb25d6369278b9"],
+        ["Mathlib:importAllArts", "365a696578df661e"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.25.0, commit 744f98064b056ee27fc8c97f524797c8cc96f436",
+   "4bbac11c6209e48b"],
+  ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\SubstrateTheory\\Core\\Parameters.lean",
+   "d949a561916cffbd"],
+  ["options", "00000000000006bb"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "68892146619c96b0"}
