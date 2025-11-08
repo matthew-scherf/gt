@@ -2,7 +2,7 @@
 
 > This repository contains the canonical specification, the **verbatim** Lean 4 formalization, and an Ethereum on‑chain verification record. 
 
-## Abstract (verbatim)
+## Abstract
 
 We present a complete formal system establishing quantum mechanics and general relativity
 as computational regimes of a single substrate governed by algorithmic complexity thresholds.
