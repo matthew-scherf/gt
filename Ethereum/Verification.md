@@ -1,54 +1,54 @@
-# Substrate Theory — Canonical On-Chain Deployment (Ethereum Mainnet)
 
-**Author:** Matthew Scherf  
-**Date:** 2025-11-08  
-**Network:** Ethereum Mainnet  
-**Deployer Address:** `0x367E6B384b6Ec96Ccec478F7B314d3deB2F01195`  
-**Verifier:** Etherscan 
----
+# Substrate Theory — Ethereum Mainnet
 
-##  Overview
-
-This deployment permanently anchors the canonical logical specification of **Substrate Theory**—the formal foundation for *Only-One / The Unique Ontic Substrate*—onto the Ethereum mainnet as an immutable on-chain text artifact.  
-It consists of two verified contracts:
-
-| Contract | Type | Address | Verified | Purpose |
-|-----------|------|----------|-----------|----------|
-| [`OnchainText`](https://etherscan.io/address/0x60bd91334E96813bA78ac76b5E71f641057E5A28#code) | Immutable data store | `0x60bd91334E96813bA78ac76b5E71f641057E5A28` | ✅ | Stores raw canonical logic bytes |
-| [`OnchainTextNFT`](https://etherscan.io/address/0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9#code) | ERC-721 wrapper | `0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9` | ✅ | Mints NFT that references the above bytes |
+**Author:** Matthew Scherf
+**Date:** 8 November 2025
+**Network:** Ethereum Mainnet
+**Deployer:** `0x367E6B384b6Ec96Ccec478F7B314d3deB2F01195`
+**Verification:** Etherscan 
 
 ---
 
-##  Immutable Content Verification
+## Overview
 
-| Field | Value |
-|--------|--------|
-| **File** | `SUBSTRATE_THEORY.txt` |
-| **Size** | 11 290 bytes |
-| **Keccak-256 Hash** | `0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09` |
-| **contentHash (on-chain)** | identical |
+This deployment immutably anchors the canonical logical specification of Substrate Theory onto the Ethereum mainnet.
 
-### Verify Locally
+| Contract                                                                                         | Type                 | Address                                      | Verified | Purpose                                      |
+| ------------------------------------------------------------------------------------------------ | -------------------- | -------------------------------------------- | -------- | -------------------------------------------- |
+| [`OnchainText`](https://etherscan.io/address/0x60bd91334E96813bA78ac76b5E71f641057E5A28#code)    | Immutable data store | `0x60bd91334E96813bA78ac76b5E71f641057E5A28` | ✅        | Stores the canonical logic text (bytes only) |
+| [`OnchainTextNFT`](https://etherscan.io/address/0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9#code) | ERC-721 wrapper      | `0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9` | ✅        | Mints NFT linking to the canonical text      |
+
+---
+
+## Content Verification
+
+| Field                      | Value                                                                |
+| -------------------------- | -------------------------------------------------------------------- |
+| **Canonical File**         | `SUBSTRATE_THEORY.txt`                                               |
+| **Size**                   | 11 290 bytes                                                         |
+| **Keccak-256 Hash**        | `0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09` |
+| **contentHash (on-chain)** | identical ✅                                                          |
+
+To verify locally:
+
 ```bash
-# Hash the file you published
 xxd -p -c 999999 SUBSTRATE_THEORY.txt | cast keccak
-# Expected output:
-# 0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09
-````
+# → 0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09
+```
 
 ---
 
-## 🖼 NFT Metadata Integrity
+## NFT Metadata Integrity
 
-| Property         | Value                                            |
-| ---------------- | ------------------------------------------------ |
-| Token ID         | `1`                                              |
-| Owner            | `0x367E6B384b6Ec96Ccec478F7B314d3deB2F01195`     |
-| getApproved      | `0x0000000000000000000000000000000000000000`     |
-| isApprovedForAll | `false`                                          |
-| tokenURI         | on-chain JSON referencing `OnchainText` contract |
+| Property              | Value                                                          |
+| --------------------- | -------------------------------------------------------------- |
+| **Token ID**          | 1                                                              |
+| **Owner**             | `0x367E6B384b6Ec96Ccec478F7B314d3deB2F01195`                   |
+| **Approved**          | `0x0000000000000000000000000000000000000000`                   |
+| **tokenURI**          | on-chain JSON → references `OnchainText` contract              |
+| **Image / Thumbnail** | Embedded SVG render of title “Substrate Theory Canonical Text” |
 
-### Inspect Metadata
+Inspect with:
 
 ```bash
 cast call 0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9 \
@@ -70,10 +70,14 @@ cast call 0x9Af3B1e2986Ca245542EF135A24DcF691d57f2E9 \
 ## Academic Citation
 
 > Scherf, M. (2025). *Substrate Theory – Canonical Logical Specification (Ethereum On-Chain Reference).*
-> DOI [to be added e.g. Zenodo]
+> DOI (registered via Zenodo or similar)
 > Contract `0x60bd91334E96813bA78ac76b5E71f641057E5A28`
 > Keccak-256 `0x552901c27d17488e6edea08f34db085f2959bcc8eb3f7f0c8869560c4f89ec09`
-> Immutable record on Ethereum Mainnet verifying canonical logic source.
+
+
+---
+
+ **External Link:** [https://etherscan.io/address/0x60bd91334E96813bA78ac76b5E71f641057E5A28#code](https://etherscan.io/address/0x60bd91334E96813bA78ac76b5E71f641057E5A28#code)
 
 ---
 
