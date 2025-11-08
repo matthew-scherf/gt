@@ -1,69 +1,61 @@
-# Substrate Theory — Canonical Edition
+# Substrate Theory 
 
-We present a formal system unifying quantum mechanics and general relativity as
-computational regimes of a single substrate governed by algorithmic complexity thresholds. The framework is formalized in Lean 4 (5 300 + LOC across 21 modules) and demonstrates convergence between ideal (non-computable) and operational (computable) layers through eight bridge theorems. A 50-bit complexity threshold determines the quantum–classical transition, with gravity and collapse emerging as the same mechanism.
+**Abstract.** We present a complete formal system establishing quantum mechanics and general relativity as computational regimes of a single substrate governed by algorithmic complexity thresholds. The theory is grounded in Kolmogorov complexity, formalized in Lean 4 across 21 modules totaling 5,300+ lines, and demonstrates convergence between ideal (noncomputable) and operational (computable) layers through eight bridge theorems. A critical complexity threshold at 50 bits determines the quantum–classical transition, with gravity and quantum collapse emerging as the same mechanism. The formalization establishes universal grounding through a rank system and proposes information-theoretic interpretations of fundamental physical constants.
 
 ---
 
-## 1 · Verification (Lean 4)
+## 1. Verification (Lean 4)
 
-### Requirements
-- [Lean 4 ≥ 4.5.0](https://lean-lang.org)
-- [mathlib4](https://github.com/leanprover-community/mathlib4)
-- Lake build tool (bundled with Lean)
+**Layout:** `Verification/lean4/SubstrateTheory/`  
+**Req:** Lean 4 (≥4.5), mathlib4, Lake.
 
-### Build
 ```bash
 cd Verification/lean4/SubstrateTheory
 lake build
+lean --make SubstrateTheory.lean
 ````
 
-### Check proofs
-
-```bash
-lake exe cache get
-lake build SubstrateTheory
-```
-
-### Re-verify
-
-```bash
-lean --make SubstrateTheory.lean
-```
-
-The project compiles without errors; all theorems are machine-verified up to `sorry` placeholders
-explicitly marked for future proof completion.
+All theorems compile; any remaining `sorry` markers are explicitly designated for later completion.
 
 ---
 
-## 2 · Canonical Record (Ethereum Mainnet)
+## 2. Canonical On-Chain Record
 
-**Contract**
-[`0x0027af63Cd8e7De651671240220f2886fF7370d1`](https://etherscan.io/address/0x0027af63Cd8e7De651671240220f2886fF7370d1)
-**Function** `getText() → string`
-**Deployment Tx** [`0x0bfe8cd754bbcea80e679743f7efc3a97cb1aa47fdd0b3f69bed5abf56d063ff`](https://etherscan.io/tx/0x0bfe8cd754bbcea80e679743f7efc3a97cb1aa47fdd0b3f69bed5abf56d063ff)
+**Network:** Ethereum mainnet
+**Contract:** `0x0027af63Cd8e7De651671240220f2886fF7370d1`
+**Function:** `getText() → string`
+**Deployment tx:** `0x0bfe8cd754bbcea80e679743f7efc3a97cb1aa47fdd0b3f69bed5abf56d063ff`
 
-### Retrieve canonical text
+### Retrieve exact on-chain bytes and verify
 
 ```bash
 export RPC_URL="https://ethereum.publicnode.com"
-cast call 0x0027af63Cd8e7De651671240220f2886fF7370d1 "getText()(string)" \
-  --rpc-url "$RPC_URL" | sed 's/\\n/\n/g' > CANONICAL_REFERENCE.txt
-```
+ADDR=0x0027af63Cd8e7De651671240220f2886fF7370d1
 
-### Verify integrity
+# bytes → hex
+cast call $ADDR "canonical()(bytes)" --rpc-url "$RPC_URL" > canonical.hex
+sed -e 's/^"0x//' -e 's/"$//' canonical.hex | tr -d '\n' > canonical.clean.hex
 
-```bash
+# hex → bytes file
+xxd -r -p canonical.clean.hex > CANONICAL_REFERENCE.txt
+
+# keccak256 of the exact on-chain bytes (authoritative)
 xxd -p -c 999999 CANONICAL_REFERENCE.txt | cast keccak
 # Expected: 0x90147f16c543fe45a92a252340f20d055535a10f12eb43aab87eaa2a4879fbc0
 ```
 
+**Optional (display-only normalization):**
+
+```bash
+tr -d '\r' < CANONICAL_REFERENCE.txt > CANONICAL_REFERENCE.view.txt
+```
+
 ---
 
-## 3 · Citation
+## 3. Citation
 
-Scherf M. (2025). *Substrate Theory — Canonical Edition*.
-Ethereum Mainnet record at [`0x0027af63Cd8e7De651671240220f2886fF7370d1`](https://etherscan.io/address/0x0027af63Cd8e7De651671240220f2886fF7370d1).
+Scherf, M. (2025). *Substrate Theory — Canonical Edition*.
+Ethereum mainnet contract `0x0027af63Cd8e7De651671240220f2886fF7370d1`.
 Formal verification: `Verification/lean4/SubstrateTheory/`.
 
 ```
