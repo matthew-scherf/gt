@@ -52,6 +52,6 @@ xxd -p -c 999999 CANONICAL_REFERENCE.txt | cast keccak
 
 ## 3 · Citation
 
-Scherf M. (2025). *Substrate Theory"*
+Scherf M. (2025). *"Substrate Theory"*
 
 Ethereum Mainnet record at [`0x0027af63Cd8e7De651671240220f2886fF7370d1`](https://etherscan.io/address/0x0027af63Cd8e7De651671240220f2886fF7370d1).
