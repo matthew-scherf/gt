@@ -278,13 +278,13 @@ $$\left| \frac{\{Coh\textunderscore op}([e], [t+\delta], p) - \{Coh\textundersco
 $F : \text{KLZ.State} \rightarrow \text{KLZ.State} \text{ (noncomputable)}$
 $\text{merge} : \text{KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State} \text{ (noncomputable)}$
 
-$\{R\underscore Cohesion} : \{List KLZ.State} \rightarrow \{KLZ.State} \rightarrow \{KLZ.State} \{ (noncomputable axiom)}$
-$$\{R\textunderscore Cohesion}(n, h) := \{merge}(F(\text{join}(n)), h)$$
+$\{R\textunderscore Cohesion} : \text{List KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State} \text{ (noncomputable axiom)}$
+$$\{R\textunderscore Cohesion}(n, h) := \text{merge}(F(\text{join}(n)), h)$$
 
-$\{R\underscore Reduction} : \{List KLZ.State} \rightarrow \{KLZ.State}$
-$$\{R\textunderscore Reduction}(n) := \{mode}(\{join}(n))$$
+$\{R\textunderscore Reduction} : \text{List KLZ.State} \rightarrow \text{KLZ.State}$
+$$\{R\textunderscore Reduction}(n) := \text{mode}(\text{join}(n))$$
 
-$\{R\textunderscore G1} : \{List KLZ.State} \rightarrow \{KLZ.State} \rightarrow \{KLZ.State}$
+$\text{R\textunderscore G1} : \text{List KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State}$
 $$\text{R\textunderscore G1}(n, h) := \begin{cases} \text{R\textunderscore Cohesion}(n, h) & \text{if } \text{K\textunderscore LZ}(\text{join}(n)) \leq \text{c\textunderscore grounding} \\ \text{R\textunderscore Reduction}(n) & \text{otherwise} \end{cases}$$
 
 $\text{coherent\textunderscore state} : \text{KLZ.State} \rightarrow \text{Prop}$
