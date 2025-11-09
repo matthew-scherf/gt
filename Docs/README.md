@@ -367,7 +367,7 @@ $\{K\textunderscore joint\textunderscore nonneg} : \forall es. 0 \leq \{K\textun
 $\{K\textunderscore joint\textunderscore nil} : \{K\textunderscore joint}([]) = 0$
 $\{K\textunderscore joint\textunderscore singleton} : \forall e. \{K\textunderscore joint}([e]) = K(e)$
 
-$**compression\textunderscoreaxiom :**$
+$\**compression\textunderscoreaxiom :**\$
 $\forall es. (\forall e \in es. \{is\textunderscore presentation}(e)) \wedge es.\{length} \geq 2 \rightarrow$
 $$\{K\textunderscore joint}(es) < \{K\textunderscore sum}(es)$$
 
