@@ -39,7 +39,7 @@ xxd -r -p canonical.clean.hex > CANONICAL_REFERENCE.txt
 
 # keccak256 of the exact on-chain bytes (authoritative)
 xxd -p -c 999999 CANONICAL_REFERENCE.txt | cast keccak
-# Expected: 0xfaf86019e11e421075183d8aefae86b9f1ef489f8afa65ef6a92314d83fe2e0a
+# Expected: 0x90147f16c543fe45a92a252340f20d055535a10f12eb43aab87eaa2a4879fbc0
 ```
 
 ## 3. Citation
