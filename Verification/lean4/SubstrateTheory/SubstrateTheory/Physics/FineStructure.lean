@@ -4,7 +4,6 @@ import SubstrateTheory.Ideal.Complexity
 import Mathlib.Data.Real.Basic
 
 namespace SubstrateTheory.Physics
-
 open SubstrateTheory SubstrateTheory.Ideal
 
 axiom fine_structure_derivation :

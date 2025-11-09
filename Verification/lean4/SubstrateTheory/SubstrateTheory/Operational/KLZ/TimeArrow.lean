@@ -1,26 +1,20 @@
 import SubstrateTheory.Core.Types
 import SubstrateTheory.Core.Parameters
 import SubstrateTheory.Operational.KLZ.Core
-
 set_option autoImplicit false
 
 namespace SubstrateTheory.Operational
-
 noncomputable axiom R_Cohesion : List KLZ.State → KLZ.State → KLZ.State
 
 axiom C_coh : ℝ
-
 axiom K_LZ_cohesion_bound_raw (n : List KLZ.State) (h : KLZ.State) :
   KLZ.K_LZ (R_Cohesion n h) ≤ C_coh
 
--- THE KEY AXIOM: mode produces bounded-complexity output
--- This is theoretically justified because mode extracts the dominant pattern
 axiom K_LZ_mode_absolute_bound : ∀ s, (KLZ.K_LZ (KLZ.mode s) : ℝ) ≤ KLZ.C_mode
 
 noncomputable def c_time_reduction : ℝ := KLZ.c_sub + KLZ.C_mode
 noncomputable def c_time_cohesion  : ℝ := KLZ.c_sub + C_coh
 
--- Now these are THEOREMS, provable from axiomsa
 theorem time_arrow_reduction (hist n : List KLZ.State) :
   (KLZ.K_LZ (KLZ.join (KLZ.mode (KLZ.join n) :: hist)) : ℝ)
     ≤ (KLZ.K_LZ (KLZ.join hist) : ℝ) + c_time_reduction := by

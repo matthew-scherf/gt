@@ -1,8 +1,8 @@
 {"synthetic": false,
  "schemaVersion": "2025-09-10",
  "outputs":
- {"o": ["b09b4f44488e4c5b.olean"],
-  "i": "350808147b3efca7.ilean",
+ {"o": ["4031114f18efc610.olean"],
+  "i": "ee2f80f63dd4ee49.ilean",
   "c": "b33b1b052e1202be.c"},
  "log":
  [{"message":
@@ -15,15 +15,15 @@
        [["@SubstrateTheory:extraDep", "00000000000006bb"]]],
       ["imports",
        [["SubstrateTheory.Error.Bounds transitive imports (legacy)",
-         "96952a6b79f68abf"],
-        ["SubstrateTheory.Error.Bounds:importAllArts", "bbf8acc9cf36bf35"],
+         "eed0b669accbe7f7"],
+        ["SubstrateTheory.Error.Bounds:importAllArts", "73415be6f7d03939"],
         ["SubstrateTheory.Error.Composition transitive imports (legacy)",
-         "df0bbbffd1643ff2"],
-        ["SubstrateTheory.Error.Composition:importAllArts", "b3c1c5ee4572ad9a"],
+         "3e235426fa1fd359"],
+        ["SubstrateTheory.Error.Composition:importAllArts", "2dda8dc0f23aebc2"],
         ["SubstrateTheory.Bridge.Convergence transitive imports (legacy)",
-         "5c69c8212612787f"],
+         "276e935e84f03720"],
         ["SubstrateTheory.Bridge.Convergence:importAllArts",
-         "d4459095d2209749"],
+         "153c2c0e0f90d1a8"],
         ["Mathlib.Data.Real.Basic transitive imports (legacy)",
          "14782b623b95e6ee"],
         ["Mathlib.Data.Real.Basic:importAllArts", "d94a8c86272d2e03"]]]]],
@@ -35,7 +35,7 @@
   ["Lean 4.25.0, commit 744f98064b056ee27fc8c97f524797c8cc96f436",
    "4bbac11c6209e48b"],
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\SubstrateTheory\\Error\\Convergence.lean",
-   "ea4a98a5872abc05"],
+   "196ee5390f4c682a"],
   ["options", "00000000000006bb"],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "cde491b0258e96bd"}
+ "depHash": "4b2a06a1f04d5857"}

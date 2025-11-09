@@ -6,15 +6,11 @@ import SubstrateTheory.Operational.KLZ.Core
 import SubstrateTheory.Operational.KLZ.TimeArrow
 
 namespace SubstrateTheory.CA
-
 open SubstrateTheory SubstrateTheory.Operational
-
 abbrev State := KLZ.State
 
 noncomputable def F (s : State) : State := s
-
 noncomputable def merge (s1 s2 : State) : State := s2
-
 noncomputable def R_Cohesion (n : List State) (h : State) : State :=
   merge (F (KLZ.join n)) h
 

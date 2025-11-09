@@ -4,7 +4,6 @@ import SubstrateTheory.Ideal.Complexity
 import Mathlib.Data.Real.Basic
 
 namespace SubstrateTheory.Core
-
 open SubstrateTheory SubstrateTheory.Ideal
 
 axiom E_K_energy_complexity : ∀ e,
@@ -36,7 +35,6 @@ noncomputable def Coh_trajectory (e : Entity) : ℝ :=
   let times := trajectory.map (fun p => p.2)
   Coh [e] times
 
--- Axiomatize that P_total is positive (sum of positive reals)
 axiom P_total_positive (e : Entity) (h : is_temporal_presentation e) :
   0 < P_total e
 

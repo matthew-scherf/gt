@@ -1,8 +1,8 @@
 {"synthetic": false,
  "schemaVersion": "2025-09-10",
  "outputs":
- {"o": ["aa4136c31ce84c6c.olean"],
-  "i": "d8a131db043d4f76.ilean",
+ {"o": ["d29874ab6c682317.olean"],
+  "i": "075b49368c73df43.ilean",
   "c": "215ee4facc54de17.c"},
  "log":
  [{"message":
@@ -28,7 +28,7 @@
   ["Lean 4.25.0, commit 744f98064b056ee27fc8c97f524797c8cc96f436",
    "4bbac11c6209e48b"],
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\SubstrateTheory\\Core\\Types.lean",
-   "a48896b800db272c"],
+   "96d0438904f9a8d0"],
   ["options", "00000000000006bb"],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "1c1d63be7e703f14"}
+ "depHash": "520c417709fb66c5"}

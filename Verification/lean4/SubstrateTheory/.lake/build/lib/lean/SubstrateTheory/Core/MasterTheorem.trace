@@ -1,8 +1,8 @@
 {"synthetic": false,
  "schemaVersion": "2025-09-10",
  "outputs":
- {"o": ["60e5a21c720556a7.olean"],
-  "i": "0081080e4f9fe631.ilean",
+ {"o": ["81266c6578f65110.olean"],
+  "i": "8a512f6720d44b35.ilean",
   "c": "c00508deeb69d930.c"},
  "log":
  [{"message":
@@ -15,14 +15,14 @@
        [["@SubstrateTheory:extraDep", "00000000000006bb"]]],
       ["imports",
        [["SubstrateTheory.Core.Axioms transitive imports (legacy)",
-         "0c36369544298455"],
-        ["SubstrateTheory.Core.Axioms:importAllArts", "92e6ed5510a3575d"],
+         "421815f1ee008170"],
+        ["SubstrateTheory.Core.Axioms:importAllArts", "ed2ecd65ae85f0c7"],
         ["SubstrateTheory.Core.Grounding transitive imports (legacy)",
-         "d006da32769ea355"],
-        ["SubstrateTheory.Core.Grounding:importAllArts", "337d83b7e0815731"],
+         "7a824aca36865269"],
+        ["SubstrateTheory.Core.Grounding:importAllArts", "8fd3030be19ee03f"],
         ["SubstrateTheory.Ideal.Complexity transitive imports (legacy)",
-         "bfed084a199e2c0d"],
-        ["SubstrateTheory.Ideal.Complexity:importAllArts", "b554fdccc68f1c32"],
+         "db9296084a6ec72d"],
+        ["SubstrateTheory.Ideal.Complexity:importAllArts", "f0540d1cca0c7557"],
         ["Mathlib.Data.Real.Basic transitive imports (legacy)",
          "14782b623b95e6ee"],
         ["Mathlib.Data.Real.Basic:importAllArts", "d94a8c86272d2e03"]]]]],
@@ -34,7 +34,7 @@
   ["Lean 4.25.0, commit 744f98064b056ee27fc8c97f524797c8cc96f436",
    "4bbac11c6209e48b"],
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\SubstrateTheory\\Core\\MasterTheorem.lean",
-   "b1a64f8e404d313a"],
+   "f09dd79fc130ba22"],
   ["options", "00000000000006bb"],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "fa1a8f306409d8ab"}
+ "depHash": "016aa041498fb470"}

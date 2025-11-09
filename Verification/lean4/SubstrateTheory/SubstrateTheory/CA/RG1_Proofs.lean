@@ -3,15 +3,10 @@ import SubstrateTheory.Core.Parameters
 import SubstrateTheory.Core.Axioms
 import SubstrateTheory.CA.Mechanistic
 import SubstrateTheory.Operational.KLZ.Core
-
 set_option autoImplicit false
 
 namespace SubstrateTheory.CA
-
 open SubstrateTheory.Core SubstrateTheory.Operational
-
-
-
 
 theorem R_G1_grounding_reduction_done
   (n : List State) (h : State)

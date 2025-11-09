@@ -6,7 +6,6 @@ import SubstrateTheory.Operational.Complexity
 import Mathlib.Data.Real.Basic
 
 namespace SubstrateTheory.Physics
-
 open SubstrateTheory SubstrateTheory.Ideal SubstrateTheory.Operational SubstrateTheory.Core
 
 axiom vacuum_energy_density : ∀ (vacuum : Entity) (Volume : ℝ),

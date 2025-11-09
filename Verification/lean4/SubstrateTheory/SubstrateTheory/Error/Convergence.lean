@@ -4,7 +4,6 @@ import SubstrateTheory.Bridge.Convergence
 import Mathlib.Data.Real.Basic
 
 namespace SubstrateTheory.Error
-
 open SubstrateTheory SubstrateTheory.Ideal SubstrateTheory.Operational SubstrateTheory.Bridge
 
 theorem convergence_rate_linear : ∀ e,

@@ -4,7 +4,6 @@ import SubstrateTheory.Ideal.Complexity
 import Mathlib.Data.Real.Basic
 
 namespace SubstrateTheory.Core
-
 open SubstrateTheory SubstrateTheory.Ideal
 
 axiom K2_substrate_minimality : K Substrate = 0

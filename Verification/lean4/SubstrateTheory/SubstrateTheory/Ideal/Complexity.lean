@@ -2,46 +2,35 @@ import SubstrateTheory.Core.Types
 import SubstrateTheory.Core.Parameters
 import Mathlib.Data.Real.Basic
 import Mathlib.Analysis.Calculus.Deriv.Basic
+
 namespace SubstrateTheory.Ideal
-
 open SubstrateTheory
-
 noncomputable axiom K : Entity → ℝ
 
 noncomputable def K_sum (es : List Entity) : ℝ :=
   (es.map K).sum
-
 @[simp] lemma K_sum_nil : K_sum [] = 0 := by
   simp [K_sum]
-
 @[simp] lemma K_sum_cons (e : Entity) (es : List Entity) :
     K_sum (e :: es) = K e + K_sum es := by
   simp [K_sum]
-
 @[simp] lemma K_sum_singleton (e : Entity) : K_sum [e] = K e := by
   simp [K_sum]
-
 @[simp] lemma K_sum_pair (e₁ e₂ : Entity) : K_sum [e₁, e₂] = K e₁ + K e₂ := by
   simp [K_sum]
-
 noncomputable axiom K_joint : List Entity → ℝ
 
 axiom K_joint_nonneg : ∀ es, 0 ≤ K_joint es
-
 axiom K_joint_nil : K_joint [] = 0
-
 axiom K_joint_singleton : ∀ e, K_joint [e] = K e
 
 noncomputable def K_cond (e₁ e₂ : Entity) : ℝ :=
   K_joint [e₁, e₂] - K e₁
 
 axiom complexity_positive : ∀ e, is_presentation e → 0 < K e
-
 axiom substrate_complexity : K Substrate = 0
 axiom K2_substrate_minimality : K Ω = 0
-
 axiom substrate_minimal : ∀ e, is_presentation e → K Substrate ≤ K e
-
 axiom compression_axiom : ∀ (es : List Entity),
   (∀ e ∈ es, is_presentation e) →
   es.length ≥ 2 →

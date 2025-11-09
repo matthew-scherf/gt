@@ -3,9 +3,7 @@ import SubstrateTheory.Operational.Complexity
 import Mathlib.Data.Real.Basic
 
 namespace SubstrateTheory.Error
-
 open SubstrateTheory SubstrateTheory.Ideal SubstrateTheory.Operational
-
 structure ErrorBound where
   absolute : ℝ
   relative : ℝ
@@ -36,7 +34,6 @@ axiom error_bound_polynomial : ∃ c α : ℝ, 0 < c ∧ 1 < α ∧
   ∀ e p, is_presentation e → 0 < p →
   abs (C e p - K e) ≤ c / (p : ℝ)^α
 
--- Axiomatize a general bound for all p (including 0)
 axiom error_bound_general : ∃ M : ℝ, 0 < M ∧
   ∀ e p, is_presentation e →
   abs (C e p - K e) ≤ M / (p + 1 : ℝ)

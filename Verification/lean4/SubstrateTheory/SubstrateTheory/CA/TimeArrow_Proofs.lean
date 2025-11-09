@@ -3,18 +3,12 @@ import SubstrateTheory.Core.Parameters
 import SubstrateTheory.Core.Axioms
 import SubstrateTheory.Operational.KLZ.Core
 import SubstrateTheory.Operational.KLZ.TimeArrow
-
 set_option autoImplicit false
 
 namespace SubstrateTheory.CA
-
 open SubstrateTheory.Core SubstrateTheory.Operational
-
--- State alias
 abbrev State := KLZ.State
 
--- Coherent evolution preserves complexity (consequence of C6)
--- When the system is in a coherent state, R_Cohesion preserves the complexity of h
 axiom K_LZ_cohesion_preserves_h : ∀ (n : List State) (h : State),
   (KLZ.K_LZ (KLZ.join n) : ℝ) ≤ c_grounding →
   KLZ.K_LZ (R_Cohesion n h) = KLZ.K_LZ h
@@ -23,12 +17,11 @@ noncomputable def R_G1 (n : List State) (h : State) : State :=
   if (KLZ.K_LZ (KLZ.join n) : ℝ) ≤ c_grounding then
     R_Cohesion n h
   else
-    KLZ.mode (KLZ.join n)  -- This is R_Reduction
+    KLZ.mode (KLZ.join n)
 
 noncomputable def coherent_state (s : State) : Prop :=
   (KLZ.K_LZ s : ℝ) ≤ c_grounding
 
--- Make c_time noncomputable since it depends on noncomputable defs
 noncomputable def c_time : ℝ := max c_time_reduction c_time_cohesion
 
 theorem P3_C6_preservation : ∀ n h,
@@ -55,7 +48,7 @@ theorem R_G1_preserves_time_arrow
   (hist n : List State) (h : State) :
   (KLZ.K_LZ (KLZ.join (R_G1 n h :: hist)) : ℝ) ≤ (KLZ.K_LZ (KLZ.join hist) : ℝ) + c_time := by
   by_cases hle : (KLZ.K_LZ (KLZ.join n) : ℝ) ≤ c_grounding
-  · -- Case: coherent (uses R_Cohesion)
+  ·
     have h_eq : R_G1 n h = R_Cohesion n h := by
       simp only [R_G1, hle, ite_true]
     calc (KLZ.K_LZ (KLZ.join (R_G1 n h :: hist)) : ℝ)
@@ -64,7 +57,7 @@ theorem R_G1_preserves_time_arrow
       _ ≤ (KLZ.K_LZ (KLZ.join hist) : ℝ) + c_time := by
           gcongr
           exact le_max_right _ _
-  · -- Case: decoherent (uses R_Reduction)
+  ·
     have hgt : (KLZ.K_LZ (KLZ.join n) : ℝ) > c_grounding := by linarith
     have h_eq : R_G1 n h = KLZ.mode (KLZ.join n) := by
       simp only [R_G1, hle, ite_false]

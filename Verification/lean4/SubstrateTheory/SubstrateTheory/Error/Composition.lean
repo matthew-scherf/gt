@@ -2,7 +2,6 @@ import SubstrateTheory.Error.Bounds
 import Mathlib.Analysis.SpecialFunctions.Exp
 
 namespace SubstrateTheory.Error
-
 open SubstrateTheory
 
 def compose_additive (ε₁ ε₂ : ℝ) : ℝ :=

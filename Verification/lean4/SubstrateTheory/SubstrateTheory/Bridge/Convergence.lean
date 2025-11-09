@@ -1,4 +1,3 @@
-
 import SubstrateTheory.Ideal.Complexity
 import SubstrateTheory.Operational.Complexity
 import SubstrateTheory.Core.Grounding
@@ -7,9 +6,7 @@ import Mathlib.Analysis.SpecialFunctions.Exp
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
 
 namespace SubstrateTheory.Bridge
-
 open SubstrateTheory SubstrateTheory.Ideal SubstrateTheory.Operational SubstrateTheory.Core
-
 private noncomputable def two_to_neg (x : ℝ) : ℝ := Real.exp (-(x) * Real.log 2)
 
 noncomputable def Z_ideal (S : Finset SubstrateTheory.Entity) : ℝ :=
@@ -17,7 +14,6 @@ noncomputable def Z_ideal (S : Finset SubstrateTheory.Entity) : ℝ :=
 
 noncomputable def Z_op (S : Finset SubstrateTheory.Entity) (p : ℕ) : ℝ :=
   Finset.sum S (fun e => two_to_neg (C e p))
-
 noncomputable axiom Coh : List SubstrateTheory.Entity → List ℝ → ℝ
 noncomputable axiom Coh_op : List SubstrateTheory.Entity → List ℝ → ℕ → ℝ
 noncomputable axiom dCoh_dt : SubstrateTheory.Entity → ℝ → ℝ

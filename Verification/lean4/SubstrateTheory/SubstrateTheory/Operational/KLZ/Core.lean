@@ -1,27 +1,20 @@
 import SubstrateTheory.Core.Types
 import SubstrateTheory.Core.Parameters
 import Mathlib.Data.Real.Basic
-
 set_option autoImplicit false
 
 namespace SubstrateTheory.Operational.KLZ
 
 axiom State : Type
 axiom join  : List State → State
-
 noncomputable axiom mode : State → State
-
--- K_LZ returns ℕ per canonical spec
 noncomputable axiom K_LZ : State → ℕ
-
 
 axiom c_sub : ℝ
 axiom c_single : ℝ
 axiom C_mode : ℝ
-
 axiom K_LZ_nonneg (s : State) : 0 ≤ K_LZ s
 axiom K_LZ_empty : K_LZ (join []) = 0
--- Cast to ℝ for comparison with ℝ constants
 axiom K_LZ_subadditive_cons
   (x : State) (xs : List State) :
   (K_LZ (join (x :: xs)) : ℝ) ≤ (K_LZ (join xs) : ℝ) + (K_LZ x : ℝ) + c_sub
@@ -31,7 +24,6 @@ axiom K_LZ_prefix
   K_LZ (join [b]) ≤ K_LZ (join (b :: s))
 
 axiom K_LZ_singleton_bound : ∀ b : State, (K_LZ (join [b]) : ℝ) ≤ c_single
-
 axiom K_LZ_mode_le (s : State) :
   (K_LZ (mode s) : ℝ) ≤ (K_LZ s : ℝ) + C_mode
 
