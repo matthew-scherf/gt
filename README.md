@@ -13,7 +13,6 @@ We present a complete formal system establishing quantum mechanics and general r
 ```bash
 cd Verification/lean4/SubstrateTheory
 lake build
-lean --make SubstrateTheory.lean
 ````
 ---
 
@@ -48,7 +47,7 @@ xxd -p -c 999999 CANONICAL_REFERENCE.txt | cast keccak
 Scherf, M. (2025). *Substrate Theory*.
 Ethereum mainnet contract `0xAc3E75445Ad35F4E902d5356F23B8aFadb772f6C`.
 Formal verification: `https://github.com/matthew-scherf/Verification/`.
-Ethereum Mainnet record at [`0xAc3E75445Ad35F4E902d5356F23B8aFadb772f6C`](https://etherscan.io/address/0xAc3E75445Ad35F4E902d5356F23B8aFadb772f6C).
+Ethereum Mainnet record at https://etherscan.io/address/0xAc3E75445Ad35F4E902d5356F23B8aFadb772f6C.
 DOI: 
 
 ```
