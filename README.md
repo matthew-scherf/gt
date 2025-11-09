@@ -39,7 +39,7 @@ sed -e 's/^"0x//' -e 's/"$//' canonical.hex | tr -d '\n' > canonical.clean.hex
 # hex → bytes file
 xxd -r -p canonical.clean.hex > CANONICAL_REFERENCE.txt
 
-# keccak256 of the exact on-chain bytes (authoritative)
+# keccak256 of the exact on-chain bytes
 xxd -p -c 999999 CANONICAL_REFERENCE.txt | cast keccak
 # Expected: 0x90147f16c543fe45a92a252340f20d055535a10f12eb43aab87eaa2a4879fbc0
 ```
@@ -51,5 +51,4 @@ Ethereum mainnet contract `0xAc3E75445Ad35F4E902d5356F23B8aFadb772f6C`.
 Formal verification: `https://github.com/matthew-scherf/Verification/`.
 Ethereum Mainnet record at https://etherscan.io/tx/0xfaf86019e11e421075183d8aefae86b9f1ef489f8afa65ef6a92314d83fe2e0a
 DOI: 10.5281/zenodo.17563183
-
 ```
