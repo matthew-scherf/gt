@@ -351,11 +351,11 @@ $\forall e. \{is\textunderscore presentation}(e) \rightarrow \exists \{path.}$
 $$\{path.head} = \Omega \wedge \{path.last} = e \wedge$$
 $$\forall i. i+1 < \{path.length} \rightarrow \{grounds}(\{path}[i], \{path}[i+1])$$
 
-**grounding\textunderscoretransitive :**
+**grounding_transitive :**
 $\forall e_1, e_2, e_3.$
 $$\{grounds}(e_1, e_2) \wedge \{grounds}(e_2, e_3) \rightarrow \{grounds}(e_1, e_3)$$
 
-**grounding\textunderscoreacyclic :**
+**grounding_acyclic :**
 $\forall e. \neg\{grounds}(e, e)$
 
 ---
@@ -370,13 +370,13 @@ $\**compression\textunderscoreaxiom :**\$
 $\forall es. (\forall e \in es. \{is\textunderscore presentation}(e)) \wedge es.\{length} \geq 2 \rightarrow$
 $$\{K\textunderscore joint}(es) < \{K\textunderscore sum}(es)$$
 
-**joint\textunderscorele\textunderscoresum :**
+**joint_le_sum :**
 $\forall es. (\forall e \in es. \{is\textunderscore presentation}(e)) \rightarrow \{K\textunderscore joint}(es) \leq \{K\textunderscore sum}(es)$
 
-**complexity\textunderscorepositive :**
+**complexity_positive :**
 $\forall e. \{is\textunderscore presentation}(e) \rightarrow 0 < K(e)$
 
-**substrate\textunderscoreminimal :**
+**substrate_minimal :**
 $\forall e. \{is\textunderscore presentation}(e) \rightarrow K(\{Substrate}) \leq K(e)$
 
 ---
@@ -403,25 +403,25 @@ $\{K\textunderscore toy\textunderscore upper\textunderscore bound} : \forall s. 
 
 ### KLZ AXIOMS
 
-**K\textunderscoreLZ\textunderscoresubadditive\textunderscorecons :**
+**K_LZ_subadditive_cons :**
 $\forall x, xs. \{K\textunderscore LZ}(\{join}(x::xs)) \leq \{K\textunderscore LZ}(\{join}(xs)) + \{K\textunderscore LZ}(x) + \{c\textunderscore sub}$
 
-**K\textunderscoreLZ\textunderscoreprefix :**
+**K_LZ_prefix :**
 $\forall b, s. \{K\textunderscore LZ}(\{join}([b])) \leq \{K\textunderscore LZ}(\{join}(b::s))$
 
-**K\textunderscoreLZ\textunderscoresingleton\textunderscorebound :**
+**K_LZ_singleton_bound :**
 $\forall b. \{K\textunderscore LZ}(\{join}([b])) \leq \{c\textunderscore single}$
 
-**K\textunderscoreLZ\textunderscoremode\textunderscorele :**
+**K_LZ_mode_le :**
 $\forall s. \{K\textunderscore LZ}(\{mode}(s)) \leq \{K\textunderscore LZ}(s) + \{C\textunderscore mode}$
 
-**K\textunderscoreLZ\textunderscoremode\textunderscoreabsolute\textunderscorebound :**
+**K_LZ_mode_absolute_bound :**
 $\forall s. \{K\textunderscore LZ}(\{mode}(s)) \leq \{C\textunderscore mode}$
 
-**C\textunderscoremode\textunderscorelt\textunderscorec\textunderscoregrounding :**
+**C_mode_lt_c_grounding :**
 $\{C\textunderscore mode} < \{c\textunderscore grounding}$
 
-**K\textunderscoreLZ\textunderscorecohesion\textunderscorebound\textunderscoreraw :**
+**K_LZ_cohesion_bound_raw :**
 $\forall n, h. \{K\textunderscore LZ}(\{R\textunderscore Cohesion}(n, h)) \leq \{C\textunderscore coh}$
 
 ---
@@ -440,11 +440,11 @@ $$\{K\textunderscore LZ}(\{join}(\{R\textunderscore Cohesion}(n, h) :: \{hist}))
 
 ### COHERENCE BOUNDS
 
-**coherence\textunderscorebounds :**
+**coherence_bounds :**
 $\forall es, \{times}.$
 $$(\forall e \in es. \{is\textunderscore presentation}(e)) \rightarrow 0 \leq \{Coh}(es, \{times}) \wedge \{Coh}(es, \{times}) \leq 1$$
 
-**compression\textunderscoreratio\textunderscorege\textunderscoreone :**
+**compression_ratio_ge_one :**
 $\forall es, \{times}.$
 $$(\forall e \in es. \{is\textunderscore presentation}(e)) \rightarrow 1 \leq \{compression\textunderscore ratio}(es, \{times})$$
 
@@ -452,15 +452,15 @@ $$(\forall e \in es. \{is\textunderscore presentation}(e)) \rightarrow 1 \leq \{
 
 ### ERROR BOUNDS
 
-**error\textunderscorebound\textunderscorelinear :**
+**error_bound_linear :**
 $\exists c > 0. \forall e, p. \{is\textunderscore presentation}(e) \rightarrow 0 < p \rightarrow$
 $$|C(e, p) - K(e)| \leq c/p$$
 
-**error\textunderscorebound\textunderscorepolynomial :**
+**error_bound_polynomial :**
 $\exists c, \alpha. 0 < c \wedge 1 < \alpha \wedge \forall e, p. \{is\textunderscore presentation}(e) \rightarrow 0 < p \rightarrow$
 $$|C(e, p) - K(e)| \leq c/p^\alpha$$
 
-**error\textunderscorebound\textunderscoregeneral :**
+**error_bound_general :**
 $\exists M > 0. \forall e, p. \{is\textunderscore presentation}(e) \rightarrow$
 $$|C(e, p) - K(e)| \leq M/(p+1)$$
 
@@ -512,14 +512,14 @@ $\{is\textunderscore grounded} : \{Entity} \rightarrow \{Entity} \rightarrow \{P
 
 ### ENTITY CLASSIFICATION
 
-**entity\textunderscoreclassification :**
+**entity_classification :**
 $\forall e. (\{is\textunderscore substrate}(e) \wedge e = \{Substrate}) \vee \{is\textunderscore presentation}(e) \vee \{is\textunderscore emergent}(e)$
 
 $\{substrate\textunderscore not\textunderscore presentation} : \forall e. \neg(\{is\textunderscore substrate}(e) \wedge \{is\textunderscore presentation}(e))$
 $\{substrate\textunderscore not\textunderscore emergent} : \forall e. \neg(\{is\textunderscore substrate}(e) \wedge \{is\textunderscore emergent}(e))$
 $\{presentation\textunderscore not\textunderscore emergent} : \forall e. \neg(\{is\textunderscore presentation}(e) \wedge \{is\textunderscore emergent}(e))$
 
-**presentation\textunderscoretemporal\textunderscoreor\textunderscorestatic :**
+**presentation_temporal_or_static :**
 $\forall e. \{is\textunderscore presentation}(e) \rightarrow$
 $$(\{is\textunderscore temporal\textunderscore presentation}(e) \vee \{is\textunderscore static\textunderscore presentation}(e)) \wedge$$
 $$\neg(\{is\textunderscore temporal\textunderscore presentation}(e) \wedge \{is\textunderscore static\textunderscore presentation}(e))$$
@@ -537,10 +537,10 @@ $\{Omega\textunderscore eq\textunderscore Substrate} : \Omega = \{Substrate}$
 
 ### TEMPORAL PRESERVATION
 
-**indexed\textunderscorepreserves\textunderscorepresentation :**
+**indexed_preserves_presentation :**
 $\forall e, t. \{is\textunderscore presentation}(e) \rightarrow \{is\textunderscore presentation}(\{indexed}(e, t))$
 
-**temporal\textunderscoreslice\textunderscorepreserves\textunderscorepresentation :**
+**temporal_slice_preserves_presentation :**
 $\forall es, t. (\forall e \in es. \{is\textunderscore presentation}(e)) \rightarrow$
 $$(\forall e \in \{temporal\textunderscore slice}(es, t). \{is\textunderscore presentation}(e))$$
 
@@ -548,58 +548,58 @@ $$(\forall e \in \{temporal\textunderscore slice}(es, t). \{is\textunderscore pr
 
 ### ASSOCIATIVITY
 
-**join\textunderscoreassociative :**
+**join_associative :**
 $\forall s_1, s_2, s_3. \{join}([\{join}([s_1, s_2]), s_3]) = \{join}([s_1, \{join}([s_2, s_3])])$
 
 ---
 
 ### VERIFIED THEOREMS
 
-**energy\textunderscorefrom\textunderscorecomplexity :**
+**energy_from_complexity :**
 $\forall e. \{is\textunderscore presentation}(e) \rightarrow \{has\textunderscore mass}(e) \rightarrow$
 $$\exists m > 0. m = \{energy\textunderscore of}(e)/c^2$$
 
-**entropy\textunderscorefrom\textunderscorecomplexity :**
+**entropy_from_complexity :**
 $\forall e. \{is\textunderscore presentation}(e) \rightarrow \exists S.$
 $$S = k_B \cdot \log(2) \cdot K(e)$$
 
-**coherence\textunderscoreparticipation\textunderscoreinvariant :**
+**coherence_participation_invariant :**
 $\forall e. \{is\textunderscore temporal\textunderscore presentation}(e) \rightarrow \{coherent}(e) \rightarrow$
 $$0 < \{P\textunderscore total}(e) \wedge \{Coh\textunderscore trajectory}(e) = 1/\{P\textunderscore total}(e)$$
 
-**joint\textunderscorele\textunderscoresum :**
+**joint_le_sum :**
 $\forall es. (\forall e \in es. \{is\textunderscore presentation}(e)) \rightarrow \{K\textunderscore joint}(es) \leq \{K\textunderscore sum}(es)$
 
-**complexity\textunderscoresubadditive :**
+**complexity_subadditive :**
 $\forall e_1, e_2. \{is\textunderscore presentation}(e_1) \rightarrow \{is\textunderscore presentation}(e_2) \rightarrow$
 $$\{K\textunderscore joint}([e_1, e_2]) \leq K(e_1) + K(e_2)$$
 
-**compression\textunderscoreratio\textunderscorege\textunderscoreone :**
+**compression_ratio_ge_one :**
 $\forall es, \{times}. (\forall e \in es. \{is\textunderscore presentation}(e)) \rightarrow$
 $$1 \leq \{Compression\textunderscore ratio}(es, \{times})$$
 
-**R\textunderscoreG1\textunderscorepreserves\textunderscoregrounding :**
+**R_G1_preserves_grounding :**
 $\forall n. \{K\textunderscore LZ}(\{mode}(\{join}(n))) < \{K\textunderscore LZ}(\{join}(n)) + \{c\textunderscore grounding}$
 
-**time\textunderscorearrow\textunderscorereduction :**
+**time_arrow_reduction :**
 $\forall \{hist}, n. \{K\textunderscore LZ}(\{join}(\{mode}(\{join}(n))::\{hist})) \leq \{K\textunderscore LZ}(\{join}(\{hist})) + \{c\textunderscore time\textunderscore reduction}$
 
-**time\textunderscorearrow\textunderscorecohesion :**
+**time_arrow_cohesion :**
 $\forall \{hist}, n, h. \{K\textunderscore LZ}(\{join}(\{R\textunderscore Cohesion}(n, h)::\{hist})) \leq \{K\textunderscore LZ}(\{join}(\{hist})) + \{c\textunderscore time\textunderscore cohesion}$
 
-**P3\textunderscoreC6\textunderscorepreservation :**
+**P3_C6_preservation :**
 $\forall n, h. \{coherent\textunderscore state}(\{join}(n)) \rightarrow \{K\textunderscore LZ}(\{R\textunderscore G1}(n, h)) = \{K\textunderscore LZ}(h)$
 
-**R\textunderscoreG1\textunderscoregrounding\textunderscorereduction :**
+**R_G1_grounding_reduction :**
 $\forall n, h. \{K\textunderscore LZ}(\{join}(n)) > \{c\textunderscore grounding} \rightarrow$
 $$\{K\textunderscore LZ}(\{R\textunderscore G1}(n, h)) < \{K\textunderscore LZ}(\{join}(n)) + \{c\textunderscore grounding}$$
 
-**R\textunderscoreG1\textunderscorepreserves\textunderscoretime\textunderscorearrow :**
+**R_G1_preserves_time_arrow :**
 $\forall \{hist}, n, h.$
 $$\{K\textunderscore LZ}(\{join}(\{R\textunderscore G1}(n, h)::\{hist})) \leq \{K\textunderscore LZ}(\{join}(\{Lz}(\{hist})) + \max(\{c\textunderscore time\textunderscore reduction}, \{c\textunderscore time\textunderscore cohesion})$$
 
-**planck\textunderscoreunits\textunderscorepositive :**
+**planck_units_positive :**
 $0 < \ell_{Planck} \wedge 0 < t_{Planck} \wedge 0 < M_{Planck} \wedge 0 < E_{Planck} \wedge 0 < T_{Planck}$
 
-**error\textunderscorebound\textunderscoreexists :**
+**error_bound_exists :**
 $\forall e, p. \{is\textunderscore presentation}(e) \rightarrow \exists \epsilon. |C(e, p) - K(e)| \leq \epsilon.\{absolute}$
