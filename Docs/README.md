@@ -21,40 +21,40 @@ $\{KLZ.State} : \{Type}$ (axiom)
 ### COMPLEXITY FUNCTIONS
 
 $K : \{Entity} \rightarrow \mathbb{R}$ (noncomputable axiom)
-$\{K\underscore sum} : \{List Entity} \rightarrow \mathbb{R}$
-$$\{K\underscore sum}(es) := \sum_{e \in es} K(e)$$
+$\{K\_ sum} : \{List Entity} \rightarrow \mathbb{R}$
+$$\{K\_ sum}(es) := \sum_{e \in es} K(e)$$
 
-$\{K\underscore joint} : \{List Entity} \rightarrow \mathbb{R}$ (noncomputable axiom)
-$\{K\underscore cond} : \{Entity} \rightarrow \{Entity} \rightarrow \mathbb{R}$
-$$\{K\underscore cond}(e_1,e_2) := \{K\underscore joint}([e_1,e_2]) - K(e_1)$$
+$\{K\_ joint} : \{List Entity} \rightarrow \mathbb{R}$ (noncomputable axiom)
+$\{K\_ cond} : \{Entity} \rightarrow \{Entity} \rightarrow \mathbb{R}$
+$$\{K\_ cond}(e_1,e_2) := \{K\_ joint}([e_1,e_2]) - K(e_1)$$
 
 $C : \{Entity} \rightarrow \mathbb{N} \rightarrow \mathbb{R}$ (noncomputable axiom)
-$\{C\underscore sum} : \{List Entity} \rightarrow \mathbb{N} \rightarrow \mathbb{R}$
-$$\{C\underscore sum}(es,p) := \sum_{e \in es} C(e,p)$$
+$\{C\_ sum} : \{List Entity} \rightarrow \mathbb{N} \rightarrow \mathbb{R}$
+$$\{C\_ sum}(es,p) := \sum_{e \in es} C(e,p)$$
 
-$\{C\underscore joint} : \{List Entity} \rightarrow \mathbb{N} \rightarrow \mathbb{R}$ (noncomputable axiom)
-$\{C\underscore cond} : \{Entity} \rightarrow \{Entity} \rightarrow \mathbb{N} \rightarrow \mathbb{R}$
-$$\{C\underscore cond}(e_1,e_2,p) := \{C\underscore joint}([e_1,e_2],p) - C(e_1,p)$$
+$\{C\_ joint} : \{List Entity} \rightarrow \mathbb{N} \rightarrow \mathbb{R}$ (noncomputable axiom)
+$\{C\_ cond} : \{Entity} \rightarrow \{Entity} \rightarrow \mathbb{N} \rightarrow \mathbb{R}$
+$$\{C\_ cond}(e_1,e_2,p) := \{C\_ joint}([e_1,e_2],p) - C(e_1,p)$$
 
-$\{K\underscore LZ} : \{State} \rightarrow \mathbb{N}$ (noncomputable axiom, operational)
-$\{K\underscore LZ} : \{KLZ.State} \rightarrow \mathbb{N}$ (noncomputable axiom, KLZ module)
+$\{K\_ LZ} : \{State} \rightarrow \mathbb{N}$ (noncomputable axiom, operational)
+$\{K\_ LZ} : \{KLZ.State} \rightarrow \mathbb{N}$ (noncomputable axiom, KLZ module)
 
-$\{K\underscore toy} : \{State} \rightarrow \mathbb{N}$
-$$\{K\underscore toy}(s) := |\{dedup}(s)|$$
+$\{K\_ toy} : \{State} \rightarrow \mathbb{N}$
+$$\{K\_ toy}(s) := |\{dedup}(s)|$$
 
 ---
 
 ### RANK FUNCTIONS
 
-$\{rank\underscore K} : \{Entity} \rightarrow \mathbb{N}$ (noncomputable axiom)
-$\{rank\underscore C} : \{Entity} \rightarrow \mathbb{N} \rightarrow \mathbb{N}$ (noncomputable axiom)
+$\{rank\_ K} : \{Entity} \rightarrow \mathbb{N}$ (noncomputable axiom)
+$\{rank\_ C} : \{Entity} \rightarrow \mathbb{N} \rightarrow \mathbb{N}$ (noncomputable axiom)
 
 ---
 
 ### TEMPORAL FUNCTIONS
 
 $\{indexed} : \{Entity} \rightarrow \{Time} \rightarrow \{Entity}$ (axiom)
-$\{temporal\underscore slice} : \{List Entity} \rightarrow \{Time} \rightarrow \{List Entity}$
+$\{temporal\_ slice} : \{List Entity} \rightarrow \{Time} \rightarrow \{List Entity}$
 $\{slice} : \{List} (\{Entity} \times \{Time}) \rightarrow \{Time} \rightarrow \{List Entity}$
 
 $\{join} : \{List State} \rightarrow \{State}$ (axiom)
@@ -65,38 +65,38 @@ $\{mode} : \{KLZ.State} \rightarrow \{KLZ.State}$ (noncomputable axiom)
 $\{traj} : \{Entity} \rightarrow \{List} (\{Entity} \times \{Time})$
 $$\{traj}(e) := (\{List.range 1000}).\{map} (\lambda n. (\{indexed } e \{ } n, n))$$
 
-$\{P\underscore total} : \{Entity} \rightarrow \mathbb{R}$
-$$\{P\underscore total}(e) := 1 \{ (sum of uniform weights over trajectory)}$$
+$\{P\_ total} : \{Entity} \rightarrow \mathbb{R}$
+$$\{P\_ total}(e) := 1 \{ (sum of uniform weights over trajectory)}$$
 
 ---
 
 ### COHERENCE FUNCTIONS
 
 $\{Coh} : \{List Entity} \rightarrow \{List Time} \rightarrow \mathbb{R}$ (noncomputable axiom)
-$\{Coh\underscore op} : \{List Entity} \rightarrow \{List Time} \rightarrow \mathbb{N} \rightarrow \mathbb{R}$ (noncomputable axiom)
-$\{Coh\underscore trajectory} : \{Entity} \rightarrow \mathbb{R}$
-$\{dCoh\underscore dt} : \{Entity} \rightarrow \{Time} \rightarrow \mathbb{R}$ (noncomputable axiom)
+$\{Coh\_ op} : \{List Entity} \rightarrow \{List Time} \rightarrow \mathbb{N} \rightarrow \mathbb{R}$ (noncomputable axiom)
+$\{Coh\_ trajectory} : \{Entity} \rightarrow \mathbb{R}$
+$\{dCoh\_ dt} : \{Entity} \rightarrow \{Time} \rightarrow \mathbb{R}$ (noncomputable axiom)
 
-$\{compression\underscore ratio} : \{List Entity} \rightarrow \{List Time} \rightarrow \mathbb{R}$
+$\{compression\_ ratio} : \{List Entity} \rightarrow \{List Time} \rightarrow \mathbb{R}$
 
 ---
 
 ### PARTITION FUNCTIONS
 
-$\{Z\underscore ideal} : \{Finset Entity} \rightarrow \mathbb{R}$
-$$\{Z\underscore ideal}(S) := \sum_{e \in S} 2^{-K(e)}$$
+$\{Z\_ ideal} : \{Finset Entity} \rightarrow \mathbb{R}$
+$$\{Z\_ ideal}(S) := \sum_{e \in S} 2^{-K(e)}$$
 
-$\{Z\underscore op} : \{Finset Entity} \rightarrow \mathbb{N} \rightarrow \mathbb{R}$
-$$\{Z\underscore op}(S,p) := \sum_{e \in S} 2^{-C(e,p)}$$
+$\{Z\_ op} : \{Finset Entity} \rightarrow \mathbb{N} \rightarrow \mathbb{R}$
+$$\{Z\_ op}(S,p) := \sum_{e \in S} 2^{-C(e,p)}$$
 
 ---
 
 ### GROUNDING FUNCTIONS
 
 $\{grounds} : \{Entity} \rightarrow \{Entity} \rightarrow \{Prop}$ (axiom)
-$\{temporal\underscore grounds} : \{Entity} \rightarrow \{Time} \rightarrow \{Entity} \rightarrow \{Time} \rightarrow \{Prop}$ (axiom)
-$\{bfs\underscore depth\underscore C} : \{Entity} \rightarrow \mathbb{N} \rightarrow \{Finset Entity} \rightarrow \mathbb{N}$ (noncomputable axiom)
-$\{bfs\underscore grounding\underscore path} : \{Entity} \rightarrow \{Finset Entity} \rightarrow \mathbb{N} \rightarrow \{Option} (\{List Entity})$
+$\{temporal\_ grounds} : \{Entity} \rightarrow \{Time} \rightarrow \{Entity} \rightarrow \{Time} \rightarrow \{Prop}$ (axiom)
+$\{bfs\_ depth\_ C} : \{Entity} \rightarrow \mathbb{N} \rightarrow \{Finset Entity} \rightarrow \mathbb{N}$ (noncomputable axiom)
+$\{bfs\_ grounding\_ path} : \{Entity} \rightarrow \{Finset Entity} \rightarrow \mathbb{N} \rightarrow \{Option} (\{List Entity})$
 
 ---
 
@@ -142,37 +142,37 @@ $z_{transition} : \mathbb{R}$ ($0.6 < z_{transition} < 0.8$, matter-$\Lambda$ tr
 
 ### GROUNDING CONSTANTS
 
-$\{c\underscore grounding} := 50 \{ (bits)}$
-$\{c\underscore margin} := 5 \{ (bits)}$
+$\{c\_ grounding} := 50 \{ (bits)}$
+$\{c\_ margin} := 5 \{ (bits)}$
 
 ---
 
 ### KLZ CONSTANTS
 
-$\{c\underscore sub} : \mathbb{R} \{ (constant)}$
-$\{c\underscore single} : \mathbb{R} \{ (constant)}$
-$\{C\underscore mode} : \mathbb{R} \{ (constant)}$
-$\{C\underscore coh} : \mathbb{R} \{ (constant)}$
+$\{c\_ sub} : \mathbb{R} \{ (constant)}$
+$\{c\_ single} : \mathbb{R} \{ (constant)}$
+$\{C\_ mode} : \mathbb{R} \{ (constant)}$
+$\{C\_ coh} : \mathbb{R} \{ (constant)}$
 
-$\{c\underscore time\underscore reduction} := \{c\underscore sub} + \{C\underscore mode}$
-$\{c\underscore time\underscore cohesion} := \{c\underscore sub} + \{C\underscore coh}$
+$\{c\_ time\_ reduction} := \{c\_ sub} + \{C\_ mode}$
+$\{c\_ time\_ cohesion} := \{c\_ sub} + \{C\_ coh}$
 
 ---
 
 ### THRESHOLD PARAMETERS
 
-$\{measured\underscore inseparability\underscore threshold} : \mathbb{R}$ ($0 < \cdot < 1$)
-$\{strong\underscore compression\underscore threshold} : \mathbb{R}$ ($0 < \cdot < \{measured\underscore inseparability\underscore threshold}$)
-$\{temporal\underscore coherence\underscore threshold} : \mathbb{R}$ ($0 < \cdot < 1$)
-$\{phase\underscore coupling\underscore threshold} : \mathbb{R}$ ($0 < \cdot \leq 1$)
-$\{baseline\underscore maximal\underscore compression} : \mathbb{R}$ ($1 < \cdot$)
+$\{measured\_ inseparability\_ threshold} : \mathbb{R}$ ($0 < \cdot < 1$)
+$\{strong\_ compression\_ threshold} : \mathbb{R}$ ($0 < \cdot < \{measured\_ inseparability\_ threshold}$)
+$\{temporal\_ coherence\_ threshold} : \mathbb{R}$ ($0 < \cdot < 1$)
+$\{phase\_ coupling\_ threshold} : \mathbb{R}$ ($0 < \cdot \leq 1$)
+$\{baseline\_ maximal\_ compression} : \mathbb{R}$ ($1 < \cdot$)
 
-$\{weak\underscore coupling\underscore threshold} : \mathbb{R}$
-$\{moderate\underscore coupling\underscore threshold} : \mathbb{R}$
-$\{strong\underscore coupling\underscore threshold} : \mathbb{R}$
+$\{weak\_ coupling\_ threshold} : \mathbb{R}$
+$\{moderate\_ coupling\_ threshold} : \mathbb{R}$
+$\{strong\_ coupling\_ threshold} : \mathbb{R}$
 
 **Hierarchy:**
-$1 < \{weak\underscore coupling\underscore threshold} < \{moderate\underscore coupling\underscore threshold} < \{strong\underscore coupling\underscore threshold} < \{baseline\underscore maximal\underscore compression}$
+$1 < \{weak\_ coupling\_ threshold} < \{moderate\_ coupling\_ threshold} < \{strong\_ coupling\_ threshold} < \{baseline\_ maximal\_ compression}$
 
 ---
 
@@ -183,49 +183,49 @@ $K(\{Substrate}) = 0$
 $K(\Omega) = 0$
 
 #### G1 (Substrate Grounds All)
-$\forall e. \{is\underscore presentation}(e) \rightarrow \{is\underscore grounded}(e, \{Substrate})$
-$$\{where } \{is\underscore grounded}(e, \{ctx}) := \{K\underscore cond}(\{ctx}, e) < K(e) - K(\{ctx}) + \{c\underscore grounding}$$
+$\forall e. \{is\_ presentation}(e) \rightarrow \{is\_ grounded}(e, \{Substrate})$
+$$\{where } \{is\_ grounded}(e, \{ctx}) := \{K\_ cond}(\{ctx}, e) < K(e) - K(\{ctx}) + \{c\_ grounding}$$
 
 #### T7 (Time Arrow)
 $\forall \{hist, next.}$
 $$\{hist.length} \geq 2 \rightarrow$$
-$$(\forall e \in \{hist. is\underscore temporal\underscore presentation}(e)) \rightarrow$$
-$$\{is\underscore temporal\underscore presentation}(\{next}) \rightarrow$$
-$$\{K\underscore joint}(\{next}::\{hist}) - \{K\underscore joint}(\{hist}) \leq \{K\underscore joint}([\{hist.last}, \{hist.init}]) - K(\{hist.init})$$
+$$(\forall e \in \{hist. is\_ temporal\_ presentation}(e)) \rightarrow$$
+$$\{is\_ temporal\_ presentation}(\{next}) \rightarrow$$
+$$\{K\_ joint}(\{next}::\{hist}) - \{K\_ joint}(\{hist}) \leq \{K\_ joint}([\{hist.last}, \{hist.init}]) - K(\{hist.init})$$
 
 #### T4 (Emergence/Collapse)
 $\forall e_{classical}, e_{quantum}.$
-$$\{is\underscore presentation}(e_{classical}) \rightarrow$$
-$$\{is\underscore quantum\underscore state}(e_{quantum}) \rightarrow$$
+$$\{is\_ presentation}(e_{classical}) \rightarrow$$
+$$\{is\_ quantum\_ state}(e_{quantum}) \rightarrow$$
 $$\{emergent}(e_{classical}, e_{quantum}) \rightarrow$$
-$$\{is\underscore measurement\underscore device}(e_{classical}) \vee \{is\underscore observable}(e_{classical})$$
-$$\{where } \{emergent}(e_{classical}, e_{quantum}) := \{K\underscore cond}(\{Substrate}, e_{classical}) < K(e_{quantum})$$
+$$\{is\_ measurement\_ device}(e_{classical}) \vee \{is\_ observable}(e_{classical})$$
+$$\{where } \{emergent}(e_{classical}, e_{quantum}) := \{K\_ cond}(\{Substrate}, e_{classical}) < K(e_{quantum})$$
 
 #### C6 (Coherence Preservation)
 $\forall e.$
-$$\{is\underscore quantum\underscore state}(e) \rightarrow \{coherent}(e)$$
+$$\{is\_ quantum\_ state}(e) \rightarrow \{coherent}(e)$$
 $$\{where } \{coherent}(e) := \forall t_1, t_2. t_1 < t_2 \rightarrow$$
-$$\{K\underscore cond}(\{indexed}(e, t_1), \{indexed}(e, t_2)) = \{K\underscore cond}(\{indexed}(e, t_2), \{indexed}(e, t_1))$$
+$$\{K\_ cond}(\{indexed}(e, t_1), \{indexed}(e, t_2)) = \{K\_ cond}(\{indexed}(e, t_2), \{indexed}(e, t_1))$$
 
 ---
 
 ### AXIOM CONSEQUENCES
 
 **substrate\_ultimate\_ground :**
-$\forall e. \{is\underscore presentation}(e) \rightarrow \exists \{path.}$
+$\forall e. \{is\_ presentation}(e) \rightarrow \exists \{path.}$
 $$\{path.head} = \{Substrate} \wedge \{path.last} = e \wedge$$
-$$\forall i. i+1 < \{path.length} \rightarrow \{is\underscore grounded}(\{path}[i+1], \{path}[i])$$
+$$\forall i. i+1 < \{path.length} \rightarrow \{is\_ grounded}(\{path}[i+1], \{path}[i])$$
 
 **decoherence\_implies\_classical :**
-$\forall e. \{is\underscore presentation}(e) \wedge \neg\{coherent}(e) \rightarrow$
-$$\exists t_0. \forall t > t_0. \neg\{is\underscore quantum\underscore state}(\{indexed}(e, t))$$
+$\forall e. \{is\_ presentation}(e) \wedge \neg\{coherent}(e) \rightarrow$
+$$\exists t_0. \forall t > t_0. \neg\{is\_ quantum\_ state}(\{indexed}(e, t))$$
 
 **measurement\_breaks\_coherence :**
 $\forall e_q, e_c.$
-$$\{is\underscore quantum\underscore state}(e_q) \wedge \{coherent}(e_q) \wedge \{emergent}(e_c, e_q) \rightarrow \neg\{coherent}(e_c)$$
+$$\{is\_ quantum\_ state}(e_q) \wedge \{coherent}(e_q) \wedge \{emergent}(e_c, e_q) \rightarrow \neg\{coherent}(e_c)$$
 
 **indexed\_preserves\_presentation :**
-$\forall e, t. \{is\underscore presentation}(e) \rightarrow \{is\underscore presentation}(\{indexed}(e, t))$
+$\forall e, t. \{is\_ presentation}(e) \rightarrow \{is\_ presentation}(\{indexed}(e, t))$
 
 ---
 
@@ -233,43 +233,43 @@ $\forall e, t. \{is\underscore presentation}(e) \rightarrow \{is\underscore pres
 
 #### BRIDGE1 (Pointwise Convergence)
 $\forall e, \epsilon > 0.$
-$$\{is\underscore presentation}(e) \rightarrow \exists p_0. \forall p \geq p_0. |C(e, p) - K(e)| < \epsilon$$
+$$\{is\_ presentation}(e) \rightarrow \exists p_0. \forall p \geq p_0. |C(e, p) - K(e)| < \epsilon$$
 
 #### BRIDGE2 (Uniform Convergence)
-$\forall S, \epsilon > 0. (\forall e \in S. \{is\underscore presentation}(e)) \rightarrow$
+$\forall S, \epsilon > 0. (\forall e \in S. \{is\_ presentation}(e)) \rightarrow$
 $$\exists p_0. \forall p \geq p_0, e \in S. |C(e, p) - K(e)| < \epsilon$$
 
 #### BRIDGE3 (Probability Convergence)
-$\forall S, \epsilon > 0. (\forall e \in S. \{is\underscore presentation}(e)) \wedge \{Z\underscore ideal}(S) > 0 \rightarrow$
-$$\exists p_0. \forall p \geq p_0. \frac{|\{Z\underscore op}(S, p) - \{Z\underscore ideal}(S)|}{\{Z\underscore ideal}(S)} < \epsilon$$
+$\forall S, \epsilon > 0. (\forall e \in S. \{is\_ presentation}(e)) \wedge \{Z\_ ideal}(S) > 0 \rightarrow$
+$$\exists p_0. \forall p \geq p_0. \frac{|\{Z\_ op}(S, p) - \{Z\_ ideal}(S)|}{\{Z\_ ideal}(S)} < \epsilon$$
 
 #### BRIDGE4 (Grounding Convergence)
-$\forall S, \epsilon > 0, e_1, e_2. e_1, e_2 \in S \wedge \{is\underscore presentation}(e_1) \wedge \{is\underscore presentation}(e_2) \rightarrow$
-$$\exists p_0. \forall p \geq p_0. \{grounds\underscore K}(e_1, e_2) \leftrightarrow \{grounds\underscore C}(e_1, e_2, p)$$
+$\forall S, \epsilon > 0, e_1, e_2. e_1, e_2 \in S \wedge \{is\_ presentation}(e_1) \wedge \{is\_ presentation}(e_2) \rightarrow$
+$$\exists p_0. \forall p \geq p_0. \{grounds\_ K}(e_1, e_2) \leftrightarrow \{grounds\_ C}(e_1, e_2, p)$$
 **where:**
-$$\{grounds\underscore K}(e_1, e_2) := \{K\underscore cond}(e_1, e_2) < K(e_2) - K(e_1) + \{c\underscore grounding}$$
-$$\{grounds\underscore C}(e_1, e_2, p) := \{C\underscore cond}(e_1, e_2, p) < C(e_2, p) - C(e_1, p) + \{c\underscore grounding}$$
+$$\{grounds\_ K}(e_1, e_2) := \{K\_ cond}(e_1, e_2) < K(e_2) - K(e_1) + \{c\_ grounding}$$
+$$\{grounds\_ C}(e_1, e_2, p) := \{C\_ cond}(e_1, e_2, p) < C(e_2, p) - C(e_1, p) + \{c\_ grounding}$$
 
 #### BRIDGE5 (Rank Stability)
 $\forall S, e.$
-$$e \in S \wedge \{is\underscore presentation}(e) \rightarrow \exists p_0. \forall p \geq p_0. \{rank\underscore C}(e, p) = \{rank\underscore K}(e)$$
+$$e \in S \wedge \{is\_ presentation}(e) \rightarrow \exists p_0. \forall p \geq p_0. \{rank\_ C}(e, p) = \{rank\_ K}(e)$$
 
 #### BRIDGE6 (Temporal Continuity)
-$\forall e, \{times}, \epsilon > 0. \{is\underscore temporal\underscore presentation}(e) \rightarrow$
-$$\exists p_0. \forall p \geq p_0, t \in \{times}. |\{Coh\underscore op}([e], [t], p) - \{Coh}([e], [t])| < \epsilon$$
+$\forall e, \{times}, \epsilon > 0. \{is\_ temporal\_ presentation}(e) \rightarrow$
+$$\exists p_0. \forall p \geq p_0, t \in \{times}. |\{Coh\_ op}([e], [t], p) - \{Coh}([e], [t])| < \epsilon$$
 
 #### BRIDGE7 (Conditional Convergence)
-$\forall e_1, e_2, \epsilon > 0. \{is\underscore presentation}(e_1) \wedge \{is\underscore presentation}(e_2) \rightarrow$
-$$\exists p_0. \forall p \geq p_0. |\{C\underscore cond}(e_1, e_2, p) - \{K\underscore cond}(e_1, e_2)| < \epsilon$$
+$\forall e_1, e_2, \epsilon > 0. \{is\_ presentation}(e_1) \wedge \{is\_ presentation}(e_2) \rightarrow$
+$$\exists p_0. \forall p \geq p_0. |\{C\_ cond}(e_1, e_2, p) - \{K\_ cond}(e_1, e_2)| < \epsilon$$
 
 #### BRIDGE7_joint (Joint Convergence)
-$\forall es, \epsilon > 0. (\forall e \in es. \{is\underscore presentation}(e)) \rightarrow$
-$$\exists p_0. \forall p \geq p_0. |\{C\underscore joint}(es, p) - \{K\underscore joint}(es)| < \epsilon$$
+$\forall es, \epsilon > 0. (\forall e \in es. \{is\_ presentation}(e)) \rightarrow$
+$$\exists p_0. \forall p \geq p_0. |\{C\_ joint}(es, p) - \{K\_ joint}(es)| < \epsilon$$
 
 #### BRIDGE8 (Continuum Limit)
-$\forall e, \{times}, \epsilon > 0. \{is\underscore temporal\underscore presentation}(e) \rightarrow$
+$\forall e, \{times}, \epsilon > 0. \{is\_ temporal\_ presentation}(e) \rightarrow$
 $$\exists p_0, \delta. \delta > 0 \wedge \forall p \geq p_0, t \in \{times}.$$
-$$\left| \frac{\{Coh\underscore op}([e], [t+\delta], p) - \{Coh\underscore op}([e], [t], p)}{\delta} - \{dCoh\underscore dt}(e, t) \right| < \epsilon$$
+$$\left| \frac{\{Coh\_ op}([e], [t+\delta], p) - \{Coh\_ op}([e], [t], p)}{\delta} - \{dCoh\_ dt}(e, t) \right| < \epsilon$$
 
 ---
 
@@ -278,17 +278,17 @@ $$\left| \frac{\{Coh\underscore op}([e], [t+\delta], p) - \{Coh\underscore op}([
 $F : \{KLZ.State} \rightarrow \{KLZ.State}$ (noncomputable)
 $\{merge} : \{KLZ.State} \rightarrow \{KLZ.State} \rightarrow \{KLZ.State}$ (noncomputable)
 
-$\{R\underscore Cohesion} : \{List KLZ.State} \rightarrow \{KLZ.State} \rightarrow \{KLZ.State}$ (noncomputable axiom)
-$$\{R\underscore Cohesion}(n, h) := \{merge}(F(\{join}(n)), h)$$
+$\{R\_ Cohesion} : \{List KLZ.State} \rightarrow \{KLZ.State} \rightarrow \{KLZ.State}$ (noncomputable axiom)
+$$\{R\_ Cohesion}(n, h) := \{merge}(F(\{join}(n)), h)$$
 
-$\{R\underscore Reduction} : \{List KLZ.State} \rightarrow \{KLZ.State}$
-$$\{R\underscore Reduction}(n) := \{mode}(\{join}(n))$$
+$\{R\_ Reduction} : \{List KLZ.State} \rightarrow \{KLZ.State}$
+$$\{R\_ Reduction}(n) := \{mode}(\{join}(n))$$
 
-$\{R\underscore G1} : \{List KLZ.State} \rightarrow \{KLZ.State} \rightarrow \{KLZ.State}$
-$$\{R\underscore G1}(n, h) := \begin{cases} \{R\underscore Cohesion}(n, h) & \{if } \{K\underscore LZ}(\{join}(n)) \leq \{c\underscore grounding} \\ \{R\underscore Reduction}(n) & \{otherwise} \end{cases}$$
+$\{R\_ G1} : \{List KLZ.State} \rightarrow \{KLZ.State} \rightarrow \{KLZ.State}$
+$$\{R\_ G1}(n, h) := \begin{cases} \{R\_ Cohesion}(n, h) & \{if } \{K\_ LZ}(\{join}(n)) \leq \{c\_ grounding} \\ \{R\_ Reduction}(n) & \{otherwise} \end{cases}$$
 
-$\{coherent\underscore state} : \{KLZ.State} \rightarrow \{Prop}$
-$$\{coherent\underscore state}(s) := \{K\underscore LZ}(s) \leq \{c\underscore grounding}$$
+$\{coherent\_ state} : \{KLZ.State} \rightarrow \{Prop}$
+$$\{coherent\_ state}(s) := \{K\_ LZ}(s) \leq \{c\_ grounding}$$
 
 ---
 
@@ -296,16 +296,16 @@ $$\{coherent\underscore state}(s) := \{K\underscore LZ}(s) \leq \{c\underscore g
 
 #### P3 (C6 Preservation)
 $\forall n, h.$
-$$\{coherent\underscore state}(\{join}(n)) \rightarrow \{K\underscore LZ}(\{R\underscore G1}(n, h)) = \{K\underscore LZ}(h)$$
+$$\{coherent\_ state}(\{join}(n)) \rightarrow \{K\_ LZ}(\{R\_ G1}(n, h)) = \{K\_ LZ}(h)$$
 
 **R\_G1\_grounding\_reduction**
-$\forall n, h. \{K\underscore LZ}(\{join}(n)) > \{c\underscore grounding} \rightarrow$
-$$\{K\underscore LZ}(\{R\underscore G1}(n, h)) < \{K\underscore LZ}(\{join}(n)) + \{c\underscore grounding}$$
+$\forall n, h. \{K\_ LZ}(\{join}(n)) > \{c\_ grounding} \rightarrow$
+$$\{K\_ LZ}(\{R\_ G1}(n, h)) < \{K\_ LZ}(\{join}(n)) + \{c\_ grounding}$$
 
 **R\_G1\_preserves\_time\_arrow**
 $\forall \{hist}, n, h.$
-$$\{K\underscore LZ}(\{join}(\{R\underscore G1}(n, h)::\{hist})) \leq \{K\underscore LZ}(\{join}(\{hist})) + \{c\underscore time}$$
-$$\{where } \{c\underscore time} := \max(\{c\underscore time\underscore reduction}, \{c\underscore time\underscore cohesion})$$
+$$\{K\_ LZ}(\{join}(\{R\_ G1}(n, h)::\{hist})) \leq \{K\_ LZ}(\{join}(\{hist})) + \{c\_ time}$$
+$$\{where } \{c\_ time} := \max(\{c\_ time\_ reduction}, \{c\_ time\_ cohesion})$$
 
 ---
 
@@ -313,42 +313,42 @@ $$\{where } \{c\underscore time} := \max(\{c\underscore time\underscore reductio
 
 #### E_K (Energy-Complexity Equivalence)
 $\forall e.$
-$$\{is\underscore presentation}(e) \rightarrow$$
-$$(\{has\underscore mass}(e) \rightarrow \exists \Delta > 0. K(e) = K(\Omega) + \Delta) \wedge$$
-$$\{energy\underscore of}(e) = \kappa_{energy} \cdot K(e)$$
+$$\{is\_ presentation}(e) \rightarrow$$
+$$(\{has\_ mass}(e) \rightarrow \exists \Delta > 0. K(e) = K(\Omega) + \Delta) \wedge$$
+$$\{energy\_ of}(e) = \kappa_{energy} \cdot K(e)$$
 
 #### G_Ψ (Grounding Stability)
 $\forall e.$
-$$\{stable}(e) \leftrightarrow \{K\underscore cond}(\Omega, e) > \{c\underscore grounding}$$
-$$\{where } \{stable}(e) := \{is\underscore presentation}(e) \wedge \{K\underscore cond}(\Omega, e) > \{c\underscore grounding}$$
+$$\{stable}(e) \leftrightarrow \{K\_ cond}(\Omega, e) > \{c\_ grounding}$$
+$$\{where } \{stable}(e) := \{is\_ presentation}(e) \wedge \{K\_ cond}(\Omega, e) > \{c\_ grounding}$$
 
 #### B_Ω (Holographic Bound)
 $\forall \{region, Area.}$
-$$\{is\underscore presentation}(\{region}) \wedge \{Area} > 0 \rightarrow K(\{region}) \leq \frac{\{Area}}{4\ell_{Planck}^2}$$
+$$\{is\_ presentation}(\{region}) \wedge \{Area} > 0 \rightarrow K(\{region}) \leq \frac{\{Area}}{4\ell_{Planck}^2}$$
 
 #### Ψ_I (Coherence Invariant)
 $\forall e.$
-$$\{is\underscore temporal\underscore presentation}(e) \wedge \{coherent}(e) \rightarrow \{Coh\underscore trajectory}(e) \cdot \{P\underscore total}(e) = 1$$
+$$\{is\_ temporal\_ presentation}(e) \wedge \{coherent}(e) \rightarrow \{Coh\_ trajectory}(e) \cdot \{P\_ total}(e) = 1$$
 
 #### U_Ω (Uncertainty Principle)
 $\forall e, \Delta K, \Delta t.$
-$$\{is\underscore temporal\underscore presentation}(e) \wedge \Delta K > 0 \wedge \Delta t > 0 \rightarrow \Delta K \cdot \Delta t \geq \hbar_{eff}$$
+$$\{is\_ temporal\_ presentation}(e) \wedge \Delta K > 0 \wedge \Delta t > 0 \rightarrow \Delta K \cdot \Delta t \geq \hbar_{eff}$$
 
 ---
 
 ### RANK SYSTEM
 
-$\{rank\underscore K}(\Omega) = 0$
-$\{grounds}(e_1, e_2) \rightarrow \{rank\underscore K}(e_2) < \{rank\underscore K}(e_1)$
-$\forall e. \exists n. \{rank\underscore K}(e) = n$
+$\{rank\_ K}(\Omega) = 0$
+$\{grounds}(e_1, e_2) \rightarrow \{rank\_ K}(e_2) < \{rank\_ K}(e_1)$
+$\forall e. \exists n. \{rank\_ K}(e) = n$
 
-$\{rank\underscore C}(e, p) = \{bfs\underscore depth\underscore C}(e, p, S) \{ for } e \in S$
+$\{rank\_ C}(e, p) = \{bfs\_ depth\_ C}(e, p, S) \{ for } e \in S$
 
 ---
 
 ### UNIVERSAL GROUNDING
 
-$\forall e. \{is\underscore presentation}(e) \rightarrow \exists \{path.}$
+$\forall e. \{is\_ presentation}(e) \rightarrow \exists \{path.}$
 $$\{path.head} = \Omega \wedge \{path.last} = e \wedge$$
 $$\forall i. i+1 < \{path.length} \rightarrow \{grounds}(\{path}[i], \{path}[i+1])$$
 
@@ -363,67 +363,67 @@ $\forall e. \neg\{grounds}(e, e)$
 
 ### COMPLEXITY BOUNDS
 
-$\{K\underscore joint\underscore nonneg} : \forall es. 0 \leq \{K\underscore joint}(es)$
-$\{K\underscore joint\underscore nil} : \{K\underscore joint}([]) = 0$
-$\{K\underscore joint\underscore singleton} : \forall e. \{K\underscore joint}([e]) = K(e)$
+$\{K\_ joint\_ nonneg} : \forall es. 0 \leq \{K\_ joint}(es)$
+$\{K\_ joint\_ nil} : \{K\_ joint}([]) = 0$
+$\{K\_ joint\_ singleton} : \forall e. \{K\_ joint}([e]) = K(e)$
 
 **compression\_axiom :**
-$\forall es. (\forall e \in es. \{is\underscore presentation}(e)) \wedge es.\{length} \geq 2 \rightarrow$
-$$\{K\underscore joint}(es) < \{K\underscore sum}(es)$$
+$\forall es. (\forall e \in es. \{is\_ presentation}(e)) \wedge es.\{length} \geq 2 \rightarrow$
+$$\{K\_ joint}(es) < \{K\_ sum}(es)$$
 
 **joint\_le\_sum :**
-$\forall es. (\forall e \in es. \{is\underscore presentation}(e)) \rightarrow \{K\underscore joint}(es) \leq \{K\underscore sum}(es)$
+$\forall es. (\forall e \in es. \{is\_ presentation}(e)) \rightarrow \{K\_ joint}(es) \leq \{K\_ sum}(es)$
 
 **complexity\_positive :**
-$\forall e. \{is\underscore presentation}(e) \rightarrow 0 < K(e)$
+$\forall e. \{is\_ presentation}(e) \rightarrow 0 < K(e)$
 
 **substrate\_minimal :**
-$\forall e. \{is\underscore presentation}(e) \rightarrow K(\{Substrate}) \leq K(e)$
+$\forall e. \{is\_ presentation}(e) \rightarrow K(\{Substrate}) \leq K(e)$
 
 ---
 
 ### OPERATIONAL BOUNDS
 
-$\{C\underscore nonneg} : \forall e, p. 0 \leq C(e, p)$
-$\{C\underscore monotone} : \forall e, p_1, p_2. p_1 \leq p_2 \rightarrow C(e, p_2) \leq C(e, p_1)$
+$\{C\_ nonneg} : \forall e, p. 0 \leq C(e, p)$
+$\{C\_ monotone} : \forall e, p_1, p_2. p_1 \leq p_2 \rightarrow C(e, p_2) \leq C(e, p_1)$
 
-$\{C\underscore joint\underscore nonneg} : \forall es, p. 0 \leq \{C\underscore joint}(es, p)$
+$\{C\_ joint\_ nonneg} : \forall es, p. 0 \leq \{C\_ joint}(es, p)$
 
-$\{K\underscore LZ\underscore nonneg} : \forall s. 0 \leq \{K\underscore LZ}(s)$
-$\{K\underscore LZ\underscore empty} : \{K\underscore LZ}(\{join}([])) = 0$
-$\{K\underscore LZ\underscore monotone} : \forall s_1, s_2. s_1.\{length} \leq s_2.\{length} \rightarrow \{K\underscore LZ}(s_1) \leq \{K\underscore LZ}(s_2)$
+$\{K\_ LZ\_ nonneg} : \forall s. 0 \leq \{K\_ LZ}(s)$
+$\{K\_ LZ\_ empty} : \{K\_ LZ}(\{join}([])) = 0$
+$\{K\_ LZ\_ monotone} : \forall s_1, s_2. s_1.\{length} \leq s_2.\{length} \rightarrow \{K\_ LZ}(s_1) \leq \{K\_ LZ}(s_2)$
 
 ---
 
 ### TOY COMPRESSOR BOUNDS
 
-$\{K\underscore toy\underscore lower\underscore bound} : \forall s. \{K\underscore LZ}(s) \leq \{K\underscore toy}(s)$
-$\{K\underscore toy\underscore upper\underscore bound} : \forall s. \{K\underscore toy}(s) \leq \{K\underscore LZ}(s) + \log_2(s.\{length})$
+$\{K\_ toy\_ lower\_ bound} : \forall s. \{K\_ LZ}(s) \leq \{K\_ toy}(s)$
+$\{K\_ toy\_ upper\_ bound} : \forall s. \{K\_ toy}(s) \leq \{K\_ LZ}(s) + \log_2(s.\{length})$
 
 ---
 
 ### KLZ AXIOMS
 
 **K\_LZ\_subadditive\_cons :**
-$\forall x, xs. \{K\underscore LZ}(\{join}(x::xs)) \leq \{K\underscore LZ}(\{join}(xs)) + \{K\underscore LZ}(x) + \{c\underscore sub}$
+$\forall x, xs. \{K\_ LZ}(\{join}(x::xs)) \leq \{K\_ LZ}(\{join}(xs)) + \{K\_ LZ}(x) + \{c\_ sub}$
 
 **K\_LZ\_prefix :**
-$\forall b, s. \{K\underscore LZ}(\{join}([b])) \leq \{K\underscore LZ}(\{join}(b::s))$
+$\forall b, s. \{K\_ LZ}(\{join}([b])) \leq \{K\_ LZ}(\{join}(b::s))$
 
 **K\_LZ\_singleton\_bound :**
-$\forall b. \{K\underscore LZ}(\{join}([b])) \leq \{c\underscore single}$
+$\forall b. \{K\_ LZ}(\{join}([b])) \leq \{c\_ single}$
 
 **K\_LZ\_mode\_le :**
-$\forall s. \{K\underscore LZ}(\{mode}(s)) \leq \{K\underscore LZ}(s) + \{C\underscore mode}$
+$\forall s. \{K\_ LZ}(\{mode}(s)) \leq \{K\_ LZ}(s) + \{C\_ mode}$
 
 **K\_LZ\_mode\_absolute\_bound :**
-$\forall s. \{K\underscore LZ}(\{mode}(s)) \leq \{C\underscore mode}$
+$\forall s. \{K\_ LZ}(\{mode}(s)) \leq \{C\_ mode}$
 
 **C\_mode\_lt\_c\_grounding :**
-$\{C\underscore mode} < \{c\underscore grounding}$
+$\{C\_ mode} < \{c\_ grounding}$
 
 **K\_LZ\_cohesion\_bound\_raw :**
-$\forall n, h. \{K\underscore LZ}(\{R\underscore Cohesion}(n, h)) \leq \{C\underscore coh}$
+$\forall n, h. \{K\_ LZ}(\{R\_ Cohesion}(n, h)) \leq \{C\_ coh}$
 
 ---
 
@@ -431,11 +431,11 @@ $\forall n, h. \{K\underscore LZ}(\{R\underscore Cohesion}(n, h)) \leq \{C\under
 
 **time\_arrow\_reduction :**
 $\forall \{hist}, n.$
-$$\{K\underscore LZ}(\{join}(\{mode}(\{join}(n)) :: \{hist})) \leq \{K\underscore LZ}(\{join}(\{hist})) + \{c\underscore time\underscore reduction}$$
+$$\{K\_ LZ}(\{join}(\{mode}(\{join}(n)) :: \{hist})) \leq \{K\_ LZ}(\{join}(\{hist})) + \{c\_ time\_ reduction}$$
 
 **time\_arrow\_cohesion :**
 $\forall \{hist}, n, h.$
-$$\{K\underscore LZ}(\{join}(\{R\underscore Cohesion}(n, h) :: \{hist})) \leq \{K\underscore LZ}(\{join}(\{hist})) + \{c\underscore time\underscore cohesion}$$
+$$\{K\_ LZ}(\{join}(\{R\_ Cohesion}(n, h) :: \{hist})) \leq \{K\_ LZ}(\{join}(\{hist})) + \{c\_ time\_ cohesion}$$
 
 ---
 
@@ -443,107 +443,107 @@ $$\{K\underscore LZ}(\{join}(\{R\underscore Cohesion}(n, h) :: \{hist})) \leq \{
 
 **coherence\_bounds :**
 $\forall es, \{times}.$
-$$(\forall e \in es. \{is\underscore presentation}(e)) \rightarrow 0 \leq \{Coh}(es, \{times}) \wedge \{Coh}(es, \{times}) \leq 1$$
+$$(\forall e \in es. \{is\_ presentation}(e)) \rightarrow 0 \leq \{Coh}(es, \{times}) \wedge \{Coh}(es, \{times}) \leq 1$$
 
 **compression\_ratio\_ge\_one :**
 $\forall es, \{times}.$
-$$(\forall e \in es. \{is\underscore presentation}(e)) \rightarrow 1 \leq \{compression\underscore ratio}(es, \{times})$$
+$$(\forall e \in es. \{is\_ presentation}(e)) \rightarrow 1 \leq \{compression\_ ratio}(es, \{times})$$
 
 ---
 
 ### ERROR BOUNDS
 
 **error\_bound\_linear :**
-$\exists c > 0. \forall e, p. \{is\underscore presentation}(e) \rightarrow 0 < p \rightarrow$
+$\exists c > 0. \forall e, p. \{is\_ presentation}(e) \rightarrow 0 < p \rightarrow$
 $$|C(e, p) - K(e)| \leq c/p$$
 
 **error\_bound\_polynomial :**
-$\exists c, \alpha. 0 < c \wedge 1 < \alpha \wedge \forall e, p. \{is\underscore presentation}(e) \rightarrow 0 < p \rightarrow$
+$\exists c, \alpha. 0 < c \wedge 1 < \alpha \wedge \forall e, p. \{is\_ presentation}(e) \rightarrow 0 < p \rightarrow$
 $$|C(e, p) - K(e)| \leq c/p^\alpha$$
 
 **error\_bound\_general :**
-$\exists M > 0. \forall e, p. \{is\underscore presentation}(e) \rightarrow$
+$\exists M > 0. \forall e, p. \{is\_ presentation}(e) \rightarrow$
 $$|C(e, p) - K(e)| \leq M/(p+1)$$
 
 ---
 
 ### PHYSICS CORRESPONDENCES
 
-$\{energy\underscore of}(e) = \kappa_{energy} \cdot K(e)$
-$\{mass}(e) = \{energy\underscore of}(e)/c^2$
+$\{energy\_ of}(e) = \kappa_{energy} \cdot K(e)$
+$\{mass}(e) = \{energy\_ of}(e)/c^2$
 $\{entropy}(e) = k_B \cdot \log(2) \cdot K(e)$
 
-$\{is\underscore quantum}(\{nbhd}) := \{K\underscore LZ}(\{join}(\{nbhd})) \leq \{c\underscore grounding}$
-$\{is\underscore classical}(\{nbhd}) := \{K\underscore LZ}(\{join}(\{nbhd})) > \{c\underscore grounding}$
+$\{is\_ quantum}(\{nbhd}) := \{K\_ LZ}(\{join}(\{nbhd})) \leq \{c\_ grounding}$
+$\{is\_ classical}(\{nbhd}) := \{K\_ LZ}(\{join}(\{nbhd})) > \{c\_ grounding}$
 
 ---
 
 ### PREDICATES
 
-$\{is\underscore substrate} : \{Entity} \rightarrow \{Prop}$ (axiom)
-$\{is\underscore presentation} : \{Entity} \rightarrow \{Prop}$ (axiom)
-$\{is\underscore emergent} : \{Entity} \rightarrow \{Prop}$ (axiom)
-$\{is\underscore temporal\underscore presentation} : \{Entity} \rightarrow \{Prop}$ (axiom)
-$\{is\underscore static\underscore presentation} : \{Entity} \rightarrow \{Prop}$ (axiom)
-$\{is\underscore quantum\underscore state} : \{Entity} \rightarrow \{Prop}$ (axiom)
-$\{is\underscore measurement\underscore device} : \{Entity} \rightarrow \{Prop}$ (axiom)
-$\{is\underscore observable} : \{Entity} \rightarrow \{Prop}$ (axiom)
+$\{is\_ substrate} : \{Entity} \rightarrow \{Prop}$ (axiom)
+$\{is\_ presentation} : \{Entity} \rightarrow \{Prop}$ (axiom)
+$\{is\_ emergent} : \{Entity} \rightarrow \{Prop}$ (axiom)
+$\{is\_ temporal\_ presentation} : \{Entity} \rightarrow \{Prop}$ (axiom)
+$\{is\_ static\_ presentation} : \{Entity} \rightarrow \{Prop}$ (axiom)
+$\{is\_ quantum\_ state} : \{Entity} \rightarrow \{Prop}$ (axiom)
+$\{is\_ measurement\_ device} : \{Entity} \rightarrow \{Prop}$ (axiom)
+$\{is\_ observable} : \{Entity} \rightarrow \{Prop}$ (axiom)
 
 $\{phenomenal} : \{Entity} \rightarrow \{Prop}$ (axiom)
-$\{has\underscore mass} : \{Entity} \rightarrow \{Prop}$ (axiom)
+$\{has\_ mass} : \{Entity} \rightarrow \{Prop}$ (axiom)
 
 $\{grounds} : \{Entity} \rightarrow \{Entity} \rightarrow \{Prop}$ (axiom)
-$\{temporal\underscore grounds} : \{Entity} \rightarrow \{Time} \rightarrow \{Entity} \rightarrow \{Time} \rightarrow \{Prop}$ (axiom)
+$\{temporal\_ grounds} : \{Entity} \rightarrow \{Time} \rightarrow \{Entity} \rightarrow \{Time} \rightarrow \{Prop}$ (axiom)
 $\{interacts} : \{Entity} \rightarrow \{Entity} \rightarrow \{Prop}$ (axiom)
 $\{inseparable} : \{Entity} \rightarrow \{Entity} \rightarrow \{Prop}$ (axiom)
-$\{emerges\underscore from} : \{Entity} \rightarrow \{List Entity} \rightarrow \{Prop}$ (axiom)
-$\{phase\underscore coupled} : \{Entity} \rightarrow \{Entity} \rightarrow \{Phase} \rightarrow \{Prop}$ (axiom)
+$\{emerges\_ from} : \{Entity} \rightarrow \{List Entity} \rightarrow \{Prop}$ (axiom)
+$\{phase\_ coupled} : \{Entity} \rightarrow \{Entity} \rightarrow \{Phase} \rightarrow \{Prop}$ (axiom)
 
 $\{coherent} : \{Entity} \rightarrow \{Prop}$
 $\{decoherent} : \{Entity} \rightarrow \{Prop}$
 $\{stable} : \{Entity} \rightarrow \{Prop}$
 
-$\{is\underscore quantum} : \{List State} \rightarrow \{Prop}$
-$\{is\underscore classical} : \{List State} \rightarrow \{Prop}$
-$\{coherent\underscore state} : \{KLZ.State} \rightarrow \{Prop}$
+$\{is\_ quantum} : \{List State} \rightarrow \{Prop}$
+$\{is\_ classical} : \{List State} \rightarrow \{Prop}$
+$\{coherent\_ state} : \{KLZ.State} \rightarrow \{Prop}$
 
-$\{is\underscore grounded} : \{Entity} \rightarrow \{Entity} \rightarrow \{Prop}$
+$\{is\_ grounded} : \{Entity} \rightarrow \{Entity} \rightarrow \{Prop}$
 
 ---
 
 ### ENTITY CLASSIFICATION
 
 **entity\_classification :**
-$\forall e. (\{is\underscore substrate}(e) \wedge e = \{Substrate}) \vee \{is\underscore presentation}(e) \vee \{is\underscore emergent}(e)$
+$\forall e. (\{is\_ substrate}(e) \wedge e = \{Substrate}) \vee \{is\_ presentation}(e) \vee \{is\_ emergent}(e)$
 
-$\{substrate\underscore not\underscore presentation} : \forall e. \neg(\{is\underscore substrate}(e) \wedge \{is\underscore presentation}(e))$
-$\{substrate\underscore not\underscore emergent} : \forall e. \neg(\{is\underscore substrate}(e) \wedge \{is\underscore emergent}(e))$
-$\{presentation\underscore not\underscore emergent} : \forall e. \neg(\{is\underscore presentation}(e) \wedge \{is\underscore emergent}(e))$
+$\{substrate\_ not\_ presentation} : \forall e. \neg(\{is\_ substrate}(e) \wedge \{is\_ presentation}(e))$
+$\{substrate\_ not\_ emergent} : \forall e. \neg(\{is\_ substrate}(e) \wedge \{is\_ emergent}(e))$
+$\{presentation\_ not\_ emergent} : \forall e. \neg(\{is\_ presentation}(e) \wedge \{is\_ emergent}(e))$
 
 **presentation\_temporal\_or\_static :**
-$\forall e. \{is\underscore presentation}(e) \rightarrow$
-$$(\{is\underscore temporal\underscore presentation}(e) \vee \{is\underscore static\underscore presentation}(e)) \wedge$$
-$$\neg(\{is\underscore temporal\underscore presentation}(e) \wedge \{is\underscore static\underscore presentation}(e))$$
+$\forall e. \{is\_ presentation}(e) \rightarrow$
+$$(\{is\_ temporal\_ presentation}(e) \vee \{is\_ static\_ presentation}(e)) \wedge$$
+$$\neg(\{is\_ temporal\_ presentation}(e) \wedge \{is\_ static\_ presentation}(e))$$
 
 ---
 
 ### SUBSTRATE PROPERTIES
 
-$\{substrate\underscore unique} : \forall x, y. \{is\underscore substrate}(x) \wedge \{is\underscore substrate}(y) \rightarrow x = y$
-$\{substrate\underscore is\underscore Substrate} : \{is\underscore substrate}(\{Substrate})$
-$\{Omega\underscore is\underscore substrate} : \{is\underscore substrate}(\Omega)$
-$\{Omega\underscore eq\underscore Substrate} : \Omega = \{Substrate}$
+$\{substrate\_ unique} : \forall x, y. \{is\_ substrate}(x) \wedge \{is\_ substrate}(y) \rightarrow x = y$
+$\{substrate\_ is\_ Substrate} : \{is\_ substrate}(\{Substrate})$
+$\{Omega\_ is\_ substrate} : \{is\_ substrate}(\Omega)$
+$\{Omega\_ eq\_ Substrate} : \Omega = \{Substrate}$
 
 ---
 
 ### TEMPORAL PRESERVATION
 
 **indexed\_preserves\_presentation :**
-$\forall e, t. \{is\underscore presentation}(e) \rightarrow \{is\underscore presentation}(\{indexed}(e, t))$
+$\forall e, t. \{is\_ presentation}(e) \rightarrow \{is\_ presentation}(\{indexed}(e, t))$
 
 **temporal\_slice\_preserves\_presentation :**
-$\forall es, t. (\forall e \in es. \{is\underscore presentation}(e)) \rightarrow$
-$$(\forall e \in \{temporal\underscore slice}(es, t). \{is\underscore presentation}(e))$$
+$\forall es, t. (\forall e \in es. \{is\_ presentation}(e)) \rightarrow$
+$$(\forall e \in \{temporal\_ slice}(es, t). \{is\_ presentation}(e))$$
 
 ---
 
@@ -557,50 +557,50 @@ $\forall s_1, s_2, s_3. \{join}([\{join}([s_1, s_2]), s_3]) = \{join}([s_1, \{jo
 ### VERIFIED THEOREMS
 
 **energy\_from\_complexity :**
-$\forall e. \{is\underscore presentation}(e) \rightarrow \{has\underscore mass}(e) \rightarrow$
-$$\exists m > 0. m = \{energy\underscore of}(e)/c^2$$
+$\forall e. \{is\_ presentation}(e) \rightarrow \{has\_ mass}(e) \rightarrow$
+$$\exists m > 0. m = \{energy\_ of}(e)/c^2$$
 
 **entropy\_from\_complexity :**
-$\forall e. \{is\underscore presentation}(e) \rightarrow \exists S.$
+$\forall e. \{is\_ presentation}(e) \rightarrow \exists S.$
 $$S = k_B \cdot \log(2) \cdot K(e)$$
 
 **coherence\_participation\_invariant :**
-$\forall e. \{is\underscore temporal\underscore presentation}(e) \rightarrow \{coherent}(e) \rightarrow$
-$$0 < \{P\underscore total}(e) \wedge \{Coh\underscore trajectory}(e) = 1/\{P\underscore total}(e)$$
+$\forall e. \{is\_ temporal\_ presentation}(e) \rightarrow \{coherent}(e) \rightarrow$
+$$0 < \{P\_ total}(e) \wedge \{Coh\_ trajectory}(e) = 1/\{P\_ total}(e)$$
 
 **joint\_le\_sum :**
-$\forall es. (\forall e \in es. \{is\underscore presentation}(e)) \rightarrow \{K\underscore joint}(es) \leq \{K\underscore sum}(es)$
+$\forall es. (\forall e \in es. \{is\_ presentation}(e)) \rightarrow \{K\_ joint}(es) \leq \{K\_ sum}(es)$
 
 **complexity\_subadditive :**
-$\forall e_1, e_2. \{is\underscore presentation}(e_1) \rightarrow \{is\underscore presentation}(e_2) \rightarrow$
-$$\{K\underscore joint}([e_1, e_2]) \leq K(e_1) + K(e_2)$$
+$\forall e_1, e_2. \{is\_ presentation}(e_1) \rightarrow \{is\_ presentation}(e_2) \rightarrow$
+$$\{K\_ joint}([e_1, e_2]) \leq K(e_1) + K(e_2)$$
 
 **compression\_ratio\_ge\_one :**
-$\forall es, \{times}. (\forall e \in es. \{is\underscore presentation}(e)) \rightarrow$
-$$1 \leq \{Compression\underscore ratio}(es, \{times})$$
+$\forall es, \{times}. (\forall e \in es. \{is\_ presentation}(e)) \rightarrow$
+$$1 \leq \{Compression\_ ratio}(es, \{times})$$
 
 **R\_G1\_preserves\_grounding :**
-$\forall n. \{K\underscore LZ}(\{mode}(\{join}(n))) < \{K\underscore LZ}(\{join}(n)) + \{c\underscore grounding}$
+$\forall n. \{K\_ LZ}(\{mode}(\{join}(n))) < \{K\_ LZ}(\{join}(n)) + \{c\_ grounding}$
 
 **time\_arrow\_reduction :**
-$\forall \{hist}, n. \{K\underscore LZ}(\{join}(\{mode}(\{join}(n))::\{hist})) \leq \{K\underscore LZ}(\{join}(\{hist})) + \{c\underscore time\underscore reduction}$
+$\forall \{hist}, n. \{K\_ LZ}(\{join}(\{mode}(\{join}(n))::\{hist})) \leq \{K\_ LZ}(\{join}(\{hist})) + \{c\_ time\_ reduction}$
 
 **time\_arrow\_cohesion :**
-$\forall \{hist}, n, h. \{K\underscore LZ}(\{join}(\{R\underscore Cohesion}(n, h)::\{hist})) \leq \{K\underscore LZ}(\{join}(\{hist})) + \{c\underscore time\underscore cohesion}$
+$\forall \{hist}, n, h. \{K\_ LZ}(\{join}(\{R\_ Cohesion}(n, h)::\{hist})) \leq \{K\_ LZ}(\{join}(\{hist})) + \{c\_ time\_ cohesion}$
 
 **P3\_C6\_preservation :**
-$\forall n, h. \{coherent\underscore state}(\{join}(n)) \rightarrow \{K\underscore LZ}(\{R\underscore G1}(n, h)) = \{K\underscore LZ}(h)$
+$\forall n, h. \{coherent\_ state}(\{join}(n)) \rightarrow \{K\_ LZ}(\{R\_ G1}(n, h)) = \{K\_ LZ}(h)$
 
 **R\_G1\_grounding\_reduction :**
-$\forall n, h. \{K\underscore LZ}(\{join}(n)) > \{c\underscore grounding} \rightarrow$
-$$\{K\underscore LZ}(\{R\underscore G1}(n, h)) < \{K\underscore LZ}(\{join}(n)) + \{c\underscore grounding}$$
+$\forall n, h. \{K\_ LZ}(\{join}(n)) > \{c\_ grounding} \rightarrow$
+$$\{K\_ LZ}(\{R\_ G1}(n, h)) < \{K\_ LZ}(\{join}(n)) + \{c\_ grounding}$$
 
 **R\_G1\_preserves\_time\_arrow :**
 $\forall \{hist}, n, h.$
-$$\{K\underscore LZ}(\{join}(\{R\underscore G1}(n, h)::\{hist})) \leq \{K\underscore LZ}(\{join}(\{Lz}(\{hist})) + \max(\{c\underscore time\underscore reduction}, \{c\underscore time\underscore cohesion})$$
+$$\{K\_ LZ}(\{join}(\{R\_ G1}(n, h)::\{hist})) \leq \{K\_ LZ}(\{join}(\{Lz}(\{hist})) + \max(\{c\_ time\_ reduction}, \{c\_ time\_ cohesion})$$
 
 **planck\_units\_positive :**
 $0 < \ell_{Planck} \wedge 0 < t_{Planck} \wedge 0 < M_{Planck} \wedge 0 < E_{Planck} \wedge 0 < T_{Planck}$
 
 **error\_bound\_exists :**
-$\forall e, p. \{is\underscore presentation}(e) \rightarrow \exists \epsilon. |C(e, p) - K(e)| \leq \epsilon.\{absolute}$
+$\forall e, p. \{is\_ presentation}(e) \rightarrow \exists \epsilon. |C(e, p) - K(e)| \leq \epsilon.\{absolute}$
