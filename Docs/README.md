@@ -284,11 +284,11 @@ $$\{R\textunderscore Cohesion}(n, h) := \text{merge}(F(\text{join}(n)), h)$$
 $\{R\textunderscore Reduction} : \text{List KLZ.State} \rightarrow \text{KLZ.State}$
 $$\{R\textunderscore Reduction}(n) := \text{mode}(\text{join}(n))$$
 
-$\text{R\textunderscore G1} : \text{List KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State}$
-$$\text{R\textunderscore G1}(n, h) := \begin{cases} \text{R\textunderscore Cohesion}(n, h) & \text{if } \text{K\textunderscore LZ}(\text{join}(n)) \leq \text{c\textunderscore grounding} \\ \text{R\textunderscore Reduction}(n) & \text{otherwise} \end{cases}$$
+$\{R\textunderscore G1} : \text{List KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State}$
+$$\{R\textunderscore G1}(n, h) := \begin{cases} \{R\textunderscore Cohesion}(n, h) & \text{if } \{K\textunderscore LZ}(\text{join}(n)) \leq \{c\textunderscore grounding} \\ \{R\textunderscore Reduction}(n) & \text{otherwise} \end{cases}$$
 
-$\text{coherent\textunderscore state} : \text{KLZ.State} \rightarrow \text{Prop}$
-$$\text{coherent\textunderscore state}(s) := \text{K\textunderscore LZ}(s) \leq \text{c\textunderscore grounding}$$
+$\{coherent\textunderscore state} : \text{KLZ.State} \rightarrow \text{Prop}$
+$$\{coherent\textunderscore state}(s) := \{K\textunderscore LZ}(s) \leq \{c\textunderscore grounding}$$
 
 ---
 
