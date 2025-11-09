@@ -275,37 +275,34 @@ $$\left| \frac{\{Coh\textunderscore op}([e], [t+\delta], p) - \{Coh\textundersco
 
 ### CA RULES
 
-$F : \{KLZ.State} \rightarrow \{KLZ.State}$ (noncomputable)
-$\{merge} : \{KLZ.State} \rightarrow \{KLZ.State} \rightarrow \{KLZ.State}$ (noncomputable)
+$F : \text{KLZ.State} \rightarrow \text{KLZ.State} \text{ (noncomputable)}$
+$\text{merge} : \text{KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State} \text{ (noncomputable)}$
 
-$\{R\textunderscore Cohesion} : \{List KLZ.State} \rightarrow \{KLZ.State} \rightarrow \{KLZ.State}$ (noncomputable axiom)
-$$\{R\textunderscore Cohesion}(n, h) := \{merge}(F(\{join}(n)), h)$$
+$\text{R\textunderscore Cohesion} : \text{List KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State} \text{ (noncomputable axiom)}$
+$$\text{R\textunderscore Cohesion}(n, h) := \text{merge}(F(\text{join}(n)), h)$$
 
-$\{R\textunderscore Reduction} : \{List KLZ.State} \rightarrow \{KLZ.State}$
-$$\{R\textunderscore Reduction}(n) := \{mode}(\{join}(n))$$
+$\text{R\textunderscore Reduction} : \text{List KLZ.State} \rightarrow \text{KLZ.State}$
+$$\text{R\textunderscore Reduction}(n) := \text{mode}(\text{join}(n))$$
 
-$\{R\textunderscore G1} : \{List KLZ.State} \rightarrow \{KLZ.State} \rightarrow \{KLZ.State}$ $$\{R\textunderscore G1}(n, h) := \begin{cases} \{R\textunderscore Cohesion}(n, h) & \{if } \{K\textunderscore LZ}(\{join}(n)) \leq \{c\textunderscore grounding} \\ \{R\textunderscore Reduction}(n) & \{otherwise} \end{cases}$$
+$\text{R\textunderscore G1} : \text{List KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State}$
+$$\text{R\textunderscore G1}(n, h) := \begin{cases} \text{R\textunderscore Cohesion}(n, h) & \text{if } \text{K\textunderscore LZ}(\text{join}(n)) \leq \text{c\textunderscore grounding} \\ \text{R\textunderscore Reduction}(n) & \text{otherwise} \end{cases}$$
 
-$\{coherent\textunderscore state} : \{KLZ.State} \rightarrow \{Prop}$
-$$\{coherent\textunderscore state}(s) := \{K\textunderscore LZ}(s) \leq \{c\textunderscore grounding}$$
+$\text{coherent\textunderscore state} : \text{KLZ.State} \rightarrow \text{Prop}$
+$$\text{coherent\textunderscore state}(s) := \text{K\textunderscore LZ}(s) \leq \text{c\textunderscore grounding}$$
 
 ---
 
 ### CA PRESERVATION THEOREMS
 
 #### P3 (C6 Preservation)
-$\forall n, h.$
-$$\{coherent\textunderscore state}(\{join}(n)) \rightarrow \{K\textunderscore LZ}(\{R\textunderscore G1}(n, h)) = \{K\textunderscore LZ}(h)$$
+$$\forall n, h. \text{coherent\textunderscore state}(\text{join}(n)) \rightarrow \text{K\textunderscore LZ}(\text{R\textunderscore G1}(n, h)) = \text{K\textunderscore LZ}(h)$$
 
-**R\textunderscoreG1\textunderscoregrounding\textunderscorereduction**
-$\forall n, h. \{K\textunderscore LZ}(\{join}(n)) > \{c\textunderscore grounding} \rightarrow$
-$$\{K\textunderscore LZ}(\{R\textunderscore G1}(n, h)) < \{K\textunderscore LZ}(\{join}(n)) + \{c\textunderscore grounding}$$
+**R\_G1\_grounding\_reduction**
+$$\forall n, h. \text{K\textunderscore LZ}(\text{join}(n)) > \text{c\textunderscore grounding} \rightarrow \text{K\textunderscore LZ}(\text{R\textunderscore G1}(n, h)) < \text{K\textunderscore LZ}(\text{join}(n)) + \text{c\textunderscore grounding}$$
 
-**R\textunderscoreG1\textunderscorepreserves\textunderscoretime\textunderscorearrow**
-$\forall \{hist}, n, h.$
-$$\{K\textunderscore LZ}(\{join}(\{R\textunderscore G1}(n, h)::\{hist})) \leq \{K\textunderscore LZ}(\{join}(\{hist})) + \{c\textunderscore time}$$
-$$\{where } \{c\textunderscore time} := \max(\{c\textunderscore time\textunderscore reduction}, \{c\textunderscore time\textunderscore cohesion})$$
-
+**R\_G1\_preserves\_time\_arrow**
+$$\forall \text{hist}, n, h. \text{K\textunderscore LZ}(\text{join}(\text{R\textunderscore G1}(n, h)::\text{hist})) \leq \text{K\textunderscore LZ}(\text{Jjoin}(\text{hist})) + \text{c\textunderscore time}$$
+$$\text{where } \text{c\textunderscore time} := \max(\text{c\textunderscore time\textunderscore reduction}, \text{c\textunderscore time\textunderscore cohesion})$$
 ---
 
 ### FUNDAMENTAL THEOREMS
