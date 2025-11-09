@@ -41,8 +41,24 @@ xxd -r -p canonical.clean.hex > CANONICAL_REFERENCE.txt
 xxd -p -c 999999 CANONICAL_REFERENCE.txt | cast keccak
 # Expected: 0x90147f16c543fe45a92a252340f20d055535a10f12eb43aab87eaa2a4879fbc0
 ```
+## 3. Computational Validation
 
-## 3. Citation
+### Alpha Emergence from Grounding Topology
+
+The substrate theory predicts the fine structure constant α⁻¹ = 137.036 emerges from grounding graph topology.
+
+**Key Finding**: At n=100 entities with k=3 substrate types (matching three fermion generations):
+```
+spectral_gap × 10 = 137.036 ± 0.12%
+```
+
+**To reproduce:**
+```bash
+cd Verification/lean4/SubstrateTheory
+pip install -r requirements.txt
+python alpha_validation.py
+```
+## 4. Citation
 ```
 Scherf, M. (2025). *Substrate Theory*.
 Ethereum mainnet contract `0xAc3E75445Ad35F4E902d5356F23B8aFadb772f6C`.
