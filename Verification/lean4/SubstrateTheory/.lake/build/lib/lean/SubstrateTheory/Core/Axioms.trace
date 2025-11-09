@@ -1,7 +1,7 @@
 {"synthetic": false,
  "schemaVersion": "2025-09-10",
  "outputs":
- {"o": ["df1bc0214e5889e8.olean"],
+ {"o": ["e81b1bbfff5c814b.olean"],
   "i": "7613a382468448f5.ilean",
   "c": "6731dbfaee7289d2.c"},
  "log":
@@ -18,10 +18,10 @@
          "7d109f2ae402b4e6"],
         ["SubstrateTheory.Core.Types:importAllArts", "49943bae36da2dc9"],
         ["SubstrateTheory.Core.Parameters transitive imports (legacy)",
-         "07099de45a14af6c"],
-        ["SubstrateTheory.Core.Parameters:importAllArts", "a364a04de437e3ac"],
+         "7f06df6c2988bd60"],
+        ["SubstrateTheory.Core.Parameters:importAllArts", "4f597ce82f5db99d"],
         ["SubstrateTheory.Ideal.Complexity transitive imports (legacy)",
-         "63da0901a5a11361"],
+         "bfed084a199e2c0d"],
         ["SubstrateTheory.Ideal.Complexity:importAllArts", "b554fdccc68f1c32"],
         ["Mathlib.Data.Real.Basic transitive imports (legacy)",
          "14782b623b95e6ee"],
@@ -37,4 +37,4 @@
    "a72801bb50a47d58"],
   ["options", "00000000000006bb"],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "12cccf19811083b7"}
+ "depHash": "448444864319145f"}

@@ -13,7 +13,10 @@ theorem convergence_rate_linear : ∀ e,
   ∀ p : ℕ, 0 < p →
   abs (C e p - K e) ≤ c / (p : ℝ) := by
   intro e he
-  exact error_bound_linear
+  obtain ⟨c, hc_pos, hc_bound⟩ := error_bound_linear
+  use c, hc_pos
+  intro p hp
+  exact hc_bound e p he hp
 
 theorem convergence_rate_polynomial_alt : ∀ e,
   is_presentation e →
@@ -21,6 +24,9 @@ theorem convergence_rate_polynomial_alt : ∀ e,
   ∀ p : ℕ, 0 < p →
   abs (C e p - K e) ≤ c / (p : ℝ)^α := by
   intro e he
-  exact error_bound_polynomial
+  obtain ⟨c, α, hc_pos, hα_gt, hbound⟩ := error_bound_polynomial
+  use c, α, hc_pos, hα_gt
+  intro p hp
+  exact hbound e p he hp
 
 end SubstrateTheory.Error

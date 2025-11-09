@@ -2,6 +2,7 @@ import SubstrateTheory.Core.Types
 import Mathlib
 
 namespace SubstrateTheory
+def c_grounding : ℝ := 50
 
 axiom c : ℝ
 axiom c_value : c = 299792458
@@ -131,7 +132,6 @@ noncomputable def ε_static : ℝ := 1e-10
 noncomputable def δ_variation : ℝ := 1e-5
 noncomputable def δ_quantum : ℝ := ℏ / E_Planck
 
-axiom c_grounding : ℝ
 axiom c_grounding_value : c_grounding = 50
 
 axiom c_margin : ℝ

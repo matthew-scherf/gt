@@ -13,6 +13,26 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+LEAN_EXPORT lean_object* l_SubstrateTheory_c__grounding;
+static lean_object* l_SubstrateTheory_c__grounding___closed__0;
+lean_object* l_Nat_cast___at___Nat_cast___at___Nat_cast___at___Real_instInhabitedAngle_spec__0_spec__0_spec__0(lean_object*);
+static lean_object* _init_l_SubstrateTheory_c__grounding___closed__0() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = lean_unsigned_to_nat(50u);
+x_2 = l_Nat_cast___at___Nat_cast___at___Nat_cast___at___Real_instInhabitedAngle_spec__0_spec__0_spec__0(x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_SubstrateTheory_c__grounding() {
+_start:
+{
+lean_object* x_1; 
+x_1 = l_SubstrateTheory_c__grounding___closed__0;
+return x_1;
+}
+}
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_SubstrateTheory_Core_Types(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib(uint8_t builtin, lean_object*);
@@ -30,6 +50,10 @@ lean_dec_ref(res);
 res = initialize_Mathlib(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
+l_SubstrateTheory_c__grounding___closed__0 = _init_l_SubstrateTheory_c__grounding___closed__0();
+lean_mark_persistent(l_SubstrateTheory_c__grounding___closed__0);
+l_SubstrateTheory_c__grounding = _init_l_SubstrateTheory_c__grounding();
+lean_mark_persistent(l_SubstrateTheory_c__grounding);
 return lean_io_result_mk_ok(lean_box(0));
 }
 #ifdef __cplusplus

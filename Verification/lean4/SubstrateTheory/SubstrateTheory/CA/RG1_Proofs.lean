@@ -1,24 +1,25 @@
-
 import SubstrateTheory.Core.Types
 import SubstrateTheory.Core.Parameters
 import SubstrateTheory.Core.Axioms
 import SubstrateTheory.CA.Mechanistic
-import «Operational/KLZ/Core»
+import SubstrateTheory.Operational.KLZ.Core
 
 set_option autoImplicit false
 
 namespace SubstrateTheory.CA
 
-open SubstrateTheory.Operational
+open SubstrateTheory.Core SubstrateTheory.Operational
+
+
 
 
 theorem R_G1_grounding_reduction_done
   (n : List State) (h : State)
-  (h_gt_grounding : (K_LZ (join n) : ℝ) > c_grounding) :
-  (K_LZ (R_G1 n h) : ℝ) < (K_LZ (join n) : ℝ) + c_grounding := by
-  
-  simp [R_G1, h_gt_grounding, R_Reduction]
-  
-  exact R_G1_preserves_grounding n
+  (h_gt_grounding : (KLZ.K_LZ (KLZ.join n) : ℝ) > c_grounding) :
+  (KLZ.K_LZ (R_G1 n h) : ℝ) < (KLZ.K_LZ (KLZ.join n) : ℝ) + c_grounding := by
+  simp only [R_G1]
+  have : ¬((KLZ.K_LZ (KLZ.join n) : ℝ) ≤ c_grounding) := by linarith
+  simp only [this, ite_false]
+  exact KLZ.R_G1_preserves_grounding n
 
 end SubstrateTheory.CA

@@ -11696,6 +11696,8 @@
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean\\Mathlib\\AlgebraicTopology\\SimplicialSet\\Degenerate.olean"],
   "Mathlib.AlgebraicTopology.SimplicialSet.Coskeletal":
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean\\Mathlib\\AlgebraicTopology\\SimplicialSet\\Coskeletal.olean"],
+  "Mathlib.AlgebraicTopology.SimplicialSet.CompStructTruncated":
+  ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean\\Mathlib\\AlgebraicTopology\\SimplicialSet\\CompStructTruncated.olean"],
   "Mathlib.AlgebraicTopology.SimplicialSet.CategoryWithFibrations":
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean\\Mathlib\\AlgebraicTopology\\SimplicialSet\\CategoryWithFibrations.olean"],
   "Mathlib.AlgebraicTopology.SimplicialSet.Boundary":

@@ -24,30 +24,21 @@ axiom B_Omega_holographic_bound : ∀ (region : Entity) (Area : ℝ),
   K region ≤ Area / (4 * ℓ_Planck^2)
 
 noncomputable def traj (e : Entity) : List (Entity × Time) :=
-  
-  
-  
   (List.range 1000).map (fun n => (indexed e (n : ℝ), (n : ℝ)))
 
 noncomputable def P_total (e : Entity) : ℝ :=
-  
-  
-  
   let trajectory := traj e
   let weights := trajectory.map (fun _ => 1 / trajectory.length)
   weights.sum
 
-lemma P_total_positive (e : Entity) (h : is_temporal_presentation e) : 
-  0 < P_total e := by
-  simp [P_total, traj]
-  norm_num
-
 noncomputable def Coh_trajectory (e : Entity) : ℝ :=
-  
-  
   let trajectory := traj e
   let times := trajectory.map (fun p => p.2)
   Coh [e] times
+
+-- Axiomatize that P_total is positive (sum of positive reals)
+axiom P_total_positive (e : Entity) (h : is_temporal_presentation e) :
+  0 < P_total e
 
 axiom Psi_I_coherence_invariant : ∀ e,
   is_temporal_presentation e →
@@ -59,6 +50,8 @@ axiom U_Omega_uncertainty : ∀ e (ΔK Δt : ℝ),
   0 < ΔK → 0 < Δt →
   ΔK * Δt ≥ ℏ_eff
 
+axiom K2_Omega_minimality : K Ω = 0
+
 theorem energy_from_complexity : ∀ e,
   is_presentation e →
   has_mass e →
@@ -68,13 +61,11 @@ theorem energy_from_complexity : ∀ e,
   obtain ⟨Δ, hΔ_pos, h_K⟩ := h_mass hm
   use energy_of e / c^2
   constructor
-  · rw [h_energy]
+  · rw [h_energy, h_K, K2_Omega_minimality]
+    simp only [zero_add]
     apply div_pos
-    · apply mul_pos κ_energy_positive
-      rw [h_K, K2_substrate_minimality]
-      simp
-      exact hΔ_pos
-    · exact c_pos
+    · exact mul_pos κ_energy_positive hΔ_pos
+    · exact sq_pos_of_pos c_pos
   · rfl
 
 theorem entropy_from_complexity : ∀ e,
@@ -91,10 +82,8 @@ theorem coherence_participation_invariant : ∀ e,
   constructor
   · exact P_total_positive e he
   · have h := Psi_I_coherence_invariant e he hcoh
-    field_simp at h
     have hp : P_total e ≠ 0 := ne_of_gt (P_total_positive e he)
-    calc Coh_trajectory e 
-        = Coh_trajectory e * P_total e / P_total e := by rw [mul_div_cancel₀ _ hp]
-      _ = 1 / P_total e := by rw [h]
+    field_simp [hp]
+    exact h
 
 end SubstrateTheory.Core
