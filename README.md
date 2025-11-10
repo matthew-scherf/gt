@@ -8,7 +8,7 @@ $$energy\textunderscore of(e) = E_{\text{Planck}} \cdot K(e)$$
 
 ## $\text { 1. Verification (Lean 4)}$
  
-$\text { **Requirements: Lean 4 (4.24.0), mathlib4, Lake.}$
+$\text {Requirements: Lean 4 (4.24.0), mathlib4, Lake.}$
 
 ```bash
 cd Verification/lean4/SubstrateTheory
