@@ -278,16 +278,16 @@ $$\left| \frac{\{Coh\textunderscore op}([e], [t+\delta], p) - \{Coh\textundersco
 $F : \text{KLZ.State} \rightarrow \text{KLZ.State} \text{ (noncomputable)}$
 $\text{merge} : \text{KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State} \text{ (noncomputable)}$
 
-$\{R\textunderscore Cohesion} : \text{List KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State} \text{ (noncomputable axiom)}$
-$$\{R\textunderscore Cohesion}(n, h) := \text{merge}(F(\text{join}(n)), h)$$
+${R\textunderscore Cohesion}$ : $\text{List KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State} \text{ (noncomputable axiom)}$
+$${R\textunderscore Cohesion}(n, h) := \text{merge}(F(\text{join}(n)), h)$$
 
-${R\textunderscore Reduction} : \text{List KLZ.State} \rightarrow \text{KLZ.State}$
+${R\textunderscore Reduction}$ : $\text{List KLZ.State} \rightarrow \text{KLZ.State}$
 $${R\textunderscore Reduction}(n) := \text{mode}(\text{join}(n))$$
 
-${R\textunderscore G1} : \text{List KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State}$
-$${R\textunderscore G1}(n, h) := \begin{cases} {R\textunderscore Cohesion}(n, h) & \text{if } {K\textunderscore LZ}(\text{join}(n)) \leq {c\textunderscore grounding}{R\textunderscore Reduction}(n) & \text{otherwise} \end{cases}$$
+${R\textunderscore G1}$ : $\text{List KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State}$
+$${R\textunderscore G1}(n, h) := \begin{cases} {R\textunderscore Cohesion}(n, h) & \text{if } {K\textunderscore LZ}(\text{join}(n)) \leq {c\textunderscore grounding} \\ {R\textunderscore Reduction}(n) & \text{otherwise} \end{cases}$$
 
-${coherent\textunderscore state} : \text{KLZ.State} \rightarrow \text{Prop}$
+${coherent\textunderscore state}$ : $\text{KLZ.State} \rightarrow \text{Prop}$
 $${coherent\textunderscore state}(s) := {K\textunderscore LZ}(s) \leq {c\textunderscore grounding}$$
 
 ---
@@ -297,12 +297,12 @@ $${coherent\textunderscore state}(s) := {K\textunderscore LZ}(s) \leq {c\textund
 #### P3 (C6 Preservation)
 $$\forall n, h. {coherent\textunderscore state}(\text{join}(n)) \rightarrow {K\textunderscore LZ}({R\textunderscore G1}(n, h)) = {K\textunderscore LZ}(h)$$
 
-**R\_G1\_grounding\_reduction**
+**${R\textunderscore G1\textunderscore grounding\textunderscore reduction}$**
 $$\forall n, h. {K\textunderscore LZ}(\text{join}(n)) > {c\textunderscore grounding} \rightarrow {K\textunderscore LZ}({R\textunderscore G1}(n, h)) < {K\textunderscore LZ}(\text{join}(n)) + {c\textunderscore grounding}$$
 
-**R\_G1\_preserves\_time\_arrow**
-$$\forall \text{hist}, n, h. {K\textunderscore LZ}(\text{join}({R\textunderscore G1}(n, h)::\text{hist})) \leq {K\textunderscore LZ}(\text{Jjoin}(\text{hist})) + {c\textunderscore time}$$
-$$\text{where } {c\textunderscore time} := \max({c\textunderscore time\textunderscore reduction}, \text{c\textunderscore time\textunderscore cohesion})$$
+**${R\textunderscore G1\textunderscore preserves\textunderscore time\textunderscore arrow}$**
+$$\forall \text{hist}, n, h. {K\textunderscore LZ}(\text{join}({R\textunderscore G1}(n, h)::\text{hist})) \leq {K\textunderscore LZ}(\text{join}(\text{hist})) + {c\textunderscore time}$$
+$$\text{where } {c\textunderscore time} := \max({c\textunderscore time\textunderscore reduction}, {c\textunderscore time\textunderscore cohesion})$$
 ---
 
 ### FUNDAMENTAL THEOREMS
