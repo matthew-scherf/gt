@@ -15,14 +15,14 @@
        [["@SubstrateTheory:extraDep", "00000000000006bb"]]],
       ["imports",
        [["SubstrateTheory.Bridge.Convergence transitive imports (legacy)",
-         "276e935e84f03720"],
+         "94665e94138cfeb9"],
         ["SubstrateTheory.Bridge.Convergence:importAllArts",
          "153c2c0e0f90d1a8"],
         ["SubstrateTheory.Core.Grounding transitive imports (legacy)",
-         "7a824aca36865269"],
+         "c82563af99db9f05"],
         ["SubstrateTheory.Core.Grounding:importAllArts", "8fd3030be19ee03f"],
         ["Mathlib.Data.Real.Basic transitive imports (legacy)",
-         "14782b623b95e6ee"],
+         "578ed878876c9b3b"],
         ["Mathlib.Data.Real.Basic:importAllArts", "d94a8c86272d2e03"]]]]],
     ["libs",
      [["import dynlibs", "00000000000006bb"],
@@ -35,4 +35,4 @@
    "c2678f8727f8b3e6"],
   ["options", "00000000000006bb"],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "906b4e4fa1d1e97d"}
+ "depHash": "6e811c389a1b5855"}

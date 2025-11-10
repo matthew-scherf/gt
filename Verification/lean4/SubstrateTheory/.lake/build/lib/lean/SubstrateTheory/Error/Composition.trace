@@ -21,10 +21,10 @@
        [["@SubstrateTheory:extraDep", "00000000000006bb"]]],
       ["imports",
        [["SubstrateTheory.Error.Bounds transitive imports (legacy)",
-         "eed0b669accbe7f7"],
+         "1a44ad47ce61ee4f"],
         ["SubstrateTheory.Error.Bounds:importAllArts", "73415be6f7d03939"],
         ["Mathlib.Analysis.SpecialFunctions.Exp transitive imports (legacy)",
-         "d249bcb77ed8cbb6"],
+         "1b603c1cb547a67d"],
         ["Mathlib.Analysis.SpecialFunctions.Exp:importAllArts",
          "940e4aeef520fac7"]]]]],
     ["libs",
@@ -38,4 +38,4 @@
    "d3a5ce18e7ea1e18"],
   ["options", "00000000000006bb"],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "194033dae5250dba"}
+ "depHash": "e3c309e5d3c7d525"}

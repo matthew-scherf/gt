@@ -11720,6 +11720,8 @@
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean\\Mathlib\\AlgebraicTopology\\SimplicialSet\\Boundary.olean"],
   "Mathlib.AlgebraicTopology.SimplicialSet.Basic":
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean\\Mathlib\\AlgebraicTopology\\SimplicialSet\\Basic.olean"],
+  "Mathlib.AlgebraicTopology.SimplicialSet.AnodyneExtensions.PairingCore":
+  ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean\\Mathlib\\AlgebraicTopology\\SimplicialSet\\AnodyneExtensions\\PairingCore.olean"],
   "Mathlib.AlgebraicTopology.SimplicialSet.AnodyneExtensions.Pairing":
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean\\Mathlib\\AlgebraicTopology\\SimplicialSet\\AnodyneExtensions\\Pairing.olean"],
   "Mathlib.AlgebraicTopology.SimplicialSet.AnodyneExtensions.IsUniquelyCodimOneFace":
@@ -11778,6 +11780,8 @@
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean\\Mathlib\\AlgebraicTopology\\ModelCategory\\RightHomotopy.olean"],
   "Mathlib.AlgebraicTopology.ModelCategory.PathObject":
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean\\Mathlib\\AlgebraicTopology\\ModelCategory\\PathObject.olean"],
+  "Mathlib.AlgebraicTopology.ModelCategory.Opposite":
+  ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean\\Mathlib\\AlgebraicTopology\\ModelCategory\\Opposite.olean"],
   "Mathlib.AlgebraicTopology.ModelCategory.LeftHomotopy":
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean\\Mathlib\\AlgebraicTopology\\ModelCategory\\LeftHomotopy.olean"],
   "Mathlib.AlgebraicTopology.ModelCategory.JoyalTrick":
@@ -14663,6 +14667,11 @@
    "C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean\\Batteries\\Tactic\\HelpCmd.ir",
    "C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean\\Batteries\\Tactic\\HelpCmd.olean.server",
    "C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean\\Batteries\\Tactic\\HelpCmd.olean.private"],
+  "Batteries.Tactic.GeneralizeProofs":
+  ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean\\Batteries\\Tactic\\GeneralizeProofs.olean",
+   "C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean\\Batteries\\Tactic\\GeneralizeProofs.ir",
+   "C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean\\Batteries\\Tactic\\GeneralizeProofs.olean.server",
+   "C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean\\Batteries\\Tactic\\GeneralizeProofs.olean.private"],
   "Batteries.Tactic.Exact":
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean\\Batteries\\Tactic\\Exact.olean",
    "C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean\\Batteries\\Tactic\\Exact.ir",

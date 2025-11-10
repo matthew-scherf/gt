@@ -285,7 +285,8 @@ ${R\textunderscore Reduction}$ : $\text{List KLZ.State} \rightarrow \text{KLZ.St
 $${R\textunderscore Reduction}(n) := \text{mode}(\text{join}(n))$$
 
 ${R\textunderscore G1}$ : $\text{List KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State}$
-$${R\textunderscore G1}(n, h) := \begin{cases} {R\textunderscore Cohesion}(n, h) & \text{if } {K\textunderscore LZ}(\text{join}(n)) \leq {c\textunderscore grounding} \\ {R\textunderscore Reduction}(n) & \text{otherwise} \end{cases}$$
+
+$${R\textunderscore G1}(n, h) := \begin{cases} R\textunderscore Cohesion(n, h) & \text{if } K\textunderscore LZ(\text{join}(n)) \leq c\textunderscore grounding \\ R\textunderscore Reduction(n) & \text{otherwise} \end{cases}$$
 
 ${coherent\textunderscore state}$ : $\text{KLZ.State} \rightarrow \text{Prop}$
 $${coherent\textunderscore state}(s) := {K\textunderscore LZ}(s) \leq {c\textunderscore grounding}$$
@@ -297,7 +298,7 @@ $${coherent\textunderscore state}(s) := {K\textunderscore LZ}(s) \leq {c\textund
 #### P3 (C6 Preservation)
 $$\forall n, h. {coherent\textunderscore state}(\text{join}(n)) \rightarrow {K\textunderscore LZ}({R\textunderscore G1}(n, h)) = {K\textunderscore LZ}(h)$$
 
-**${R\textunderscore G1\textunderscore grounding\textunderscore reduction}$**
+${R\textunderscore G1\textunderscore grounding\textunderscore reduction}$
 $$\forall n, h. {K\textunderscore LZ}(\text{join}(n)) > {c\textunderscore grounding} \rightarrow {K\textunderscore LZ}({R\textunderscore G1}(n, h)) < {K\textunderscore LZ}(\text{join}(n)) + {c\textunderscore grounding}$$
 
 **${R\textunderscore G1\textunderscore preserves\textunderscore time\textunderscore arrow}$**
