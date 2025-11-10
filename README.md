@@ -19,7 +19,7 @@ lake build
 ## $\text { 2. On-Chain Record }$
 
 - $\text {Network: Ethereum mainnet}$
-- $\text {Contract: `0xAc3E75445Ad35F4E902d5356F23B8aFadb772f6C` }$
+- $\text {Contract: 0xAc3E75445Ad35F4E902d5356F23B8aFadb772f6C }$
 - $\text {Block: 23760274}$
  
 ### $\text { Retrieve }$
