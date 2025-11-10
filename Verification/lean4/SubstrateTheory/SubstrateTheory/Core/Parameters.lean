@@ -109,7 +109,6 @@ noncomputable def ε_static : ℝ := 1e-10
 noncomputable def δ_variation : ℝ := 1e-5
 noncomputable def δ_quantum : ℝ := ℏ / E_Planck
 
-axiom c_grounding_value : c_grounding = 50
 axiom c_margin : ℝ
 axiom c_margin_value : c_margin = 5
 axiom c_margin_bounds : c_margin < c_grounding / 5

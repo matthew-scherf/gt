@@ -6,8 +6,6 @@ import Mathlib.Data.Real.Basic
 namespace SubstrateTheory.Core
 open SubstrateTheory SubstrateTheory.Ideal
 
-axiom K2_substrate_minimality : K Substrate = 0
-
 def is_grounded (e ctx : Entity) : Prop :=
   K_cond ctx e < K e - K ctx + c_grounding
 

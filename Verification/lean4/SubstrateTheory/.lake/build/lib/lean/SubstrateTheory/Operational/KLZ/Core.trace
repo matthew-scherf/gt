@@ -1,8 +1,8 @@
 {"synthetic": false,
  "schemaVersion": "2025-09-10",
  "outputs":
- {"o": ["66f4654022211301.olean"],
-  "i": "3f9551f4937e3c37.ilean",
+ {"o": ["987daf217a64d8cf.olean"],
+  "i": "33f663bfc0430623.ilean",
   "c": "ec0bbd33ffb46d8e.c"},
  "log":
  [{"message":
@@ -19,7 +19,7 @@
         ["SubstrateTheory.Core.Types:importAllArts", "98fdf06af43affb4"],
         ["SubstrateTheory.Core.Parameters transitive imports (legacy)",
          "77acf34dd829894f"],
-        ["SubstrateTheory.Core.Parameters:importAllArts", "d9a2a8334c3864c3"],
+        ["SubstrateTheory.Core.Parameters:importAllArts", "537eb16e14990703"],
         ["Mathlib.Data.Real.Basic transitive imports (legacy)",
          "578ed878876c9b3b"],
         ["Mathlib.Data.Real.Basic:importAllArts", "d94a8c86272d2e03"]]]]],
@@ -31,7 +31,7 @@
   ["Lean 4.25.0, commit 744f98064b056ee27fc8c97f524797c8cc96f436",
    "4bbac11c6209e48b"],
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\SubstrateTheory\\Operational\\KLZ\\Core.lean",
-   "cebfd8b9dc014878"],
+   "de2eb12043e04699"],
   ["options", "00000000000006bb"],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "d896278fa22c0b48"}
+ "depHash": "68b05a6de9a08b10"}

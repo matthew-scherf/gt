@@ -15,10 +15,10 @@
        [["@SubstrateTheory:extraDep", "00000000000006bb"]]],
       ["imports",
        [["SubstrateTheory.Ideal.Complexity transitive imports (legacy)",
-         "2ea6a08d7cdc333c"],
+         "62e4ae40486470fe"],
         ["SubstrateTheory.Ideal.Complexity:importAllArts", "f0540d1cca0c7557"],
         ["SubstrateTheory.Operational.Complexity transitive imports (legacy)",
-         "f5dbc758646229d0"],
+         "03a8d51b71ef7232"],
         ["SubstrateTheory.Operational.Complexity:importAllArts",
          "3a280dd7a4295358"],
         ["Mathlib.Data.Real.Basic transitive imports (legacy)",
@@ -35,4 +35,4 @@
    "8ab8bb4cc7335e74"],
   ["options", "00000000000006bb"],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "0d9308f1575fd47e"}
+ "depHash": "6e585fd032768086"}

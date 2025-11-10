@@ -19,7 +19,7 @@
         ["SubstrateTheory.Core.Types:importAllArts", "98fdf06af43affb4"],
         ["SubstrateTheory.Core.Parameters transitive imports (legacy)",
          "77acf34dd829894f"],
-        ["SubstrateTheory.Core.Parameters:importAllArts", "d9a2a8334c3864c3"],
+        ["SubstrateTheory.Core.Parameters:importAllArts", "537eb16e14990703"],
         ["Mathlib.Data.Real.Basic transitive imports (legacy)",
          "578ed878876c9b3b"],
         ["Mathlib.Data.Real.Basic:importAllArts", "d94a8c86272d2e03"],
@@ -38,4 +38,4 @@
    "67a0cedde97cfe0c"],
   ["options", "00000000000006bb"],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "424f58a27f2b1e42"}
+ "depHash": "19bdf4e8bc0610b1"}

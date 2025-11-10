@@ -15,13 +15,13 @@
        [["@SubstrateTheory:extraDep", "00000000000006bb"]]],
       ["imports",
        [["SubstrateTheory.Core.Axioms transitive imports (legacy)",
-         "3ce3f785bf2ddaf6"],
-        ["SubstrateTheory.Core.Axioms:importAllArts", "ed2ecd65ae85f0c7"],
+         "55dbe3ee66058b55"],
+        ["SubstrateTheory.Core.Axioms:importAllArts", "3dd4c5f87e9a0b33"],
         ["SubstrateTheory.Core.Grounding transitive imports (legacy)",
-         "c82563af99db9f05"],
+         "8cf5d2efb02ff4c7"],
         ["SubstrateTheory.Core.Grounding:importAllArts", "8fd3030be19ee03f"],
         ["SubstrateTheory.Ideal.Complexity transitive imports (legacy)",
-         "2ea6a08d7cdc333c"],
+         "62e4ae40486470fe"],
         ["SubstrateTheory.Ideal.Complexity:importAllArts", "f0540d1cca0c7557"],
         ["Mathlib.Data.Real.Basic transitive imports (legacy)",
          "578ed878876c9b3b"],
@@ -37,4 +37,4 @@
    "f09dd79fc130ba22"],
   ["options", "00000000000006bb"],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "9d254b58ddf162c7"}
+ "depHash": "042e57d83ab254e0"}

@@ -7,7 +7,7 @@ set_option autoImplicit false
 
 namespace SubstrateTheory.CA
 open SubstrateTheory.Core SubstrateTheory.Operational
-abbrev State := KLZ.State
+abbrev State := KLZ.KLZState
 
 axiom K_LZ_cohesion_preserves_h : ∀ (n : List State) (h : State),
   (KLZ.K_LZ (KLZ.join n) : ℝ) ≤ c_grounding →

@@ -1,8 +1,8 @@
 {"synthetic": false,
  "schemaVersion": "2025-09-10",
  "outputs":
- {"o": ["b6516d658c12894c.olean"],
-  "i": "a65be7dc3f7a8daa.ilean",
+ {"o": ["e9fe3bd943c1a39d.olean"],
+  "i": "f96da6c444204798.ilean",
   "c": "ce564ee551cd98da.c"},
  "log":
  [{"message":
@@ -15,14 +15,14 @@
        [["@SubstrateTheory:extraDep", "00000000000006bb"]]],
       ["imports",
        [["SubstrateTheory.Ideal.Complexity transitive imports (legacy)",
-         "2ea6a08d7cdc333c"],
+         "62e4ae40486470fe"],
         ["SubstrateTheory.Ideal.Complexity:importAllArts", "f0540d1cca0c7557"],
         ["SubstrateTheory.Operational.Complexity transitive imports (legacy)",
-         "f5dbc758646229d0"],
+         "03a8d51b71ef7232"],
         ["SubstrateTheory.Operational.Complexity:importAllArts",
          "3a280dd7a4295358"],
         ["SubstrateTheory.Core.Grounding transitive imports (legacy)",
-         "c82563af99db9f05"],
+         "8cf5d2efb02ff4c7"],
         ["SubstrateTheory.Core.Grounding:importAllArts", "8fd3030be19ee03f"],
         ["Mathlib.Data.Finset.Basic transitive imports (legacy)",
          "648491c1c8b766d8"],
@@ -43,7 +43,7 @@
   ["Lean 4.25.0, commit 744f98064b056ee27fc8c97f524797c8cc96f436",
    "4bbac11c6209e48b"],
   ["C:\\Users\\matts\\Documents\\GitHub\\Substrate\\Verification\\lean4\\SubstrateTheory\\SubstrateTheory\\Bridge\\Convergence.lean",
-   "d88629f5f9b9b09d"],
+   "5426284914d8f78b"],
   ["options", "00000000000006bb"],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "a8e0489f03694267"}
+ "depHash": "f11af393c03baf36"}
