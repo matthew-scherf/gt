@@ -285,7 +285,7 @@ $\{R\textunderscore Reduction} : \text{List KLZ.State} \rightarrow \text{KLZ.Sta
 $$\{R\textunderscore Reduction}(n) := \text{mode}(\text{join}(n))$$
 
 $\{R\textunderscore G1} : \text{List KLZ.State} \rightarrow \text{KLZ.State} \rightarrow \text{KLZ.State}$
-$$\{R\textunderscore G1}(n, h) := \begin{cases} \{R\textunderscore Cohesion}(n, h) & \text{if } \{K\textunderscore LZ}(\text{join}(n)) \leq \{c\textunderscore grounding} \\ \{R\textunderscore Reduction}(n) & \text{otherwise} \end{cases}$$
+$$\{R\textunderscore G1}(n, h) := \begin{cases} {R\textunderscore Cohesion}(n, h) & \text{if } {K\textunderscore LZ}(\text{join}(n)) \leq {c\textunderscore grounding} \\ {R\textunderscore Reduction}(n) & \text{otherwise} \end{cases}$$
 
 $\text{coherent\textunderscore state} : \text{KLZ.State} \rightarrow \text{Prop}$
 $$\text{coherent\textunderscore state}(s) := \text{K\textunderscore LZ}(s) \leq \text{c\textunderscore grounding}$$
