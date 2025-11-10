@@ -9,7 +9,7 @@ Physical constants emerge from Kolmogorov complexity relationships between an on
 ### Core (Axioms, Types, Parameters, MasterTheorem, Grounding)
 
 Seven substrate axioms:
-- K2: Substrate minimality (K(Ω) = 0)
+- K2: Substrate minimality  ${(K(Ω) = 0)}$
 - G1: Universal grounding (all presentations ground to substrate via conditional complexity)
 - T7: Time arrow (complexity monotonicity in temporal sequences)
 - T4: Emergence collapse (classical emerges from quantum via complexity inversion)
@@ -22,9 +22,9 @@ Master theorem derives energy from complexity, entropy from complexity, establis
 ### Bridge (Convergence, Extended)
 
 Eight convergence theorems connecting ideal K (Kolmogorov complexity) to operational C (computable approximations at precision p):
-- BRIDGE1: Point convergence (∀ε>0 ∃p₀: |C(e,p) - K(e)| < ε)
+- BRIDGE1: Point convergence  ${(∀ε>0 ∃p₀: |C(e,p) - K(e)| < ε)}$
 - BRIDGE2: Uniform convergence over finite sets
-- BRIDGE3: Partition function convergence (Z_op → Z_ideal)
+- BRIDGE3: Partition function convergence  ${(Z_op → Z_ideal)}$
 - BRIDGE4: Grounding relation preservation
 - BRIDGE5: Ranking preservation
 - BRIDGE6: Coherence measure convergence
@@ -36,7 +36,7 @@ Eight convergence theorems connecting ideal K (Kolmogorov complexity) to operati
 Computable complexity measures:
 - C: Precision-dependent operational complexity
 - K_LZ: Lempel-Ziv compression as substrate complexity proxy
-- Quantum/classical threshold: is_quantum ≡ K_LZ(join(nbhd)) ≤ c_grounding
+- Quantum/classical threshold: is_quantum ≡  ${K_LZ(join(nbhd)) ≤ c_grounding}$
 - Subadditivity, monotonicity axioms for LZ complexity
 
 ### Error (Bounds, Convergence, Composition)
@@ -54,7 +54,7 @@ Dual-layer architecture:
 2. Operational theory: Computable C converges to K as precision increases, enabling empirical validation
 3. Bridge theorems: Formal proofs all ideal predictions survive transition to operational regime
 
-Grounding via conditional complexity: e grounds e' iff K(e'|e) < K(e') - K(e) + c_grounding. Provides information-theoretic foundation replacing spacetime manifolds.
+Grounding via conditional complexity:  ${e grounds e' iff K(e'|e) < K(e') - K(e) + c_grounding}$. Provides information-theoretic foundation replacing spacetime manifolds.
 
 ## Technical Details
 
@@ -69,7 +69,7 @@ Entity type: Opaque with substrate constant Ω ≡ Substrate. Presentations clas
 ## Key Theorems
 
 - energy_from_complexity: Mass-energy derived from presentation complexity
-- joint_le_sum: Information compression theorem (K_joint ≤ K_sum)
+- joint_le_sum: Information compression theorem  ${(K_joint ≤ K_sum)}$
 - compression_ratio_ge_one: Lower bound on multi-entity information compression
 - R_G1_preserves_grounding: Operational mode operation preserves grounding relations
 - generation_set_has_three_elements: Exactly three fermion generations from complexity ranking
