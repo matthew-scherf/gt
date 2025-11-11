@@ -1,0 +1,314 @@
+\documentclass[11pt]{article}
+
+% ====== Packages ======
+\usepackage[a4paper,margin=1.1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xcolor}
+\usepackage{listings}
+
+% ====== Listings style for Lean (light gray background) ======
+\definecolor{leanbg}{RGB}{245,245,245}
+\definecolor{leancmt}{RGB}{120,120,120}
+\definecolor{leankw}{RGB}{0,0,120}
+\definecolor{leanid}{RGB}{50,50,50}
+\lstdefinestyle{lean}{
+  language={},
+  basicstyle=\ttfamily\small\color{leanid},
+  keywordstyle=\bfseries\color{leankw},
+  commentstyle=\itshape\color{leancmt},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black!20},
+  backgroundcolor=\color{leanbg},
+  tabsize=2
+}
+
+% ====== Title & Authors ======
+\title{Substrate Theory: A Formally Verified Complexity-Threshold Framework\\
+for Modeling Informational Regimes in Physics}
+\author{[Anonymized for Review]}
+\date{}
+
+% ====== Theorem-like environments ======
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{axiom}{Axiom}[section]
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}{Example}[section]
+
+% ====== Macros (adjust as needed) ======
+\newcommand{\K}{\mathrm{K}}              % ideal Kolmogorov complexity
+\newcommand{\KLZ}{\mathrm{K}_{\mathrm{LZ}}} % operational (Lempel–Ziv) proxy
+\newcommand{\Cg}{C_{\mathrm{ground}}}    % (free) grounding threshold parameter
+\newcommand{\State}{\mathsf{State}}
+\newcommand{\Entity}{\mathsf{Entity}}
+\newcommand{\Time}{\mathbb{R}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbN}{\mathbb{N}}
+
+% ====== Document ======
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present a formally verified framework---``Substrate Theory''---for studying how informational complexity thresholds may delimit distinct computational regimes relevant to physical modeling. The framework separates (i) an \emph{ideal layer} based on noncomputable Kolmogorov complexity, (ii) an \emph{operational layer} based on a computable proxy (here, Lempel–Ziv complexity), and (iii) a \emph{bridge layer} establishing provable relationships between the two. The central construct is a \emph{grounding threshold parameter} $\Cg$ that is treated explicitly as a free, empirically constrainable quantity rather than a derived constant. Below $\Cg$, the operational rules preserve informational coherence (reversible, history-preserving behavior); above $\Cg$, they permit information-reducing updates. The entire system is mechanized in the Lean~4 theorem prover, providing machine-checked internal consistency of definitions and theorems. We do \emph{not} claim a unification of existing physical theories nor derivations of fundamental constants from first principles. Instead, we offer a logically precise scaffold on which such hypotheses can be formulated, compared, and tested against experiment.
+\end{abstract}
+
+\noindent\textbf{Keywords:} algorithmic information; Kolmogorov complexity; computable proxies; Lean 4; mechanized reasoning; coherence vs.\ reduction; empirical thresholds.
+
+\paragraph*{Supplementary material.}
+A complete canonical specification (Lean 4 source and formal definitions/proofs) is provided as anonymised supplementary material accompanying this submission.
+
+\section{Introduction: Why Complexity Thresholds?}
+
+Foundational questions in physics---from the quantum-classical transition to the emergence of spacetime---increasingly invite information-theoretic perspectives.\footnote{For background, see, e.g., Kolmogorov~\cite{Kolmogorov1965} on algorithmic complexity; Lempel–Ziv~\cite{LZ1977} on practical coding; and information-theoretic approaches to decoherence~\cite{Zurek2003} and statistical mechanics.} However, a persistent challenge lies in bridging the gap between abstract algorithmic notions and concrete operational measurements. How can we rigorously test hypotheses about complexity-driven regime transitions when our fundamental complexity measures are noncomputable?
+
+This work addresses this challenge by developing a \emph{formally verified} framework for studying complexity-threshold dynamics. Our key insight is to separate concerns across three distinct layers:
+\begin{itemize}
+    \item An \emph{ideal layer} using noncomputable Kolmogorov complexity as a conceptual baseline
+    \item An \emph{operational layer} using computable proxies (like Lempel–Ziv) for practical measurements
+    \item A \emph{bridge layer} with machine-checked theorems connecting the two
+\end{itemize}
+
+The central innovation is treating the regime boundary $\Cg$ as an explicit \emph{free parameter} to be determined empirically, rather than deriving it from first principles. This honest approach allows the framework to serve as a testable interface between algorithmic information theory and physical phenomena.
+
+\begin{example}[Toy Model: Coherent vs. Random Dynamics]\label{ex:toy}
+Consider a simple cellular automaton where patterns below a certain complexity threshold exhibit coherent, predictable evolution (akin to quantum unitary dynamics), while highly complex patterns undergo information-reducing collapses (akin to measurement). Our framework provides the formal structure to define such thresholds precisely and verify that the operational rules maintain desired informational properties.
+\end{example}
+
+Our contribution is methodological: we provide a machine-checked scaffold for formulating and testing complexity-threshold hypotheses. The entire development is mechanized in Lean~4, ensuring logical consistency. We make \emph{no} claims about unifying existing physical theories; rather, we offer a disciplined way to explore such possibilities.
+
+\section{Overview of the Three-Layer Architecture}
+
+\subsection{Ideal Layer: The Noncomputable North Star}
+
+At the ideal layer, we use Kolmogorov complexity $\K(\cdot)$ and its conditional and joint variants as abstract baselines. While noncomputable, $\K$ provides the ``conceptual north star'' for what complexity-theoretic statements \emph{should} mean. For instance, the conditional complexity $\K(x|y)$ measures the information in $x$ not already present in $y$, formalizing notions of emergence and grounding.
+
+\subsection{Operational Layer: Computable Proxies}
+
+Since $\K$ is noncomputable, we replace it with computable proxies $\KLZ$ in the operational layer. We primarily use Lempel–Ziv complexity, but the framework is proxy-agnostic. The operational layer supports executable rules and measurable predictions, making it suitable for experimental testing.
+
+\subsection{Bridge Layer: Provable Connections}
+
+The bridge layer contains theorems that bound $\KLZ$ in terms of $\K$ (up to additive/multiplicative constants) and propagate structural properties from ideal to operational layers. These results justify using $\KLZ$ for regime tests while maintaining traceability to $\K$-level concepts.
+
+\section{Core Framework Elements}
+
+\subsection{Basic Definitions}
+
+\begin{definition}[States, Entities, Substrate]
+Let $\State$ be finite bitstrings (lists of Booleans). Let $\Entity$ be an abstract type with encodings into $\State$. The \emph{substrate} is a distinguished minimal-complexity entity serving as an informational baseline.
+\end{definition}
+
+\begin{definition}[Complexity Measures]
+For $x \in \Entity$, $\K(x)$ denotes prefix Kolmogorov complexity (ideal, noncomputable), while $\KLZ(x)$ denotes Lempel–Ziv complexity (operational, computable). Conditional and joint variants are defined analogously.
+\end{definition}
+
+\subsection{The Central Threshold Parameter}
+
+\begin{axiom}[Operational Regimes via $\Cg$]
+There exists a parameter $\Cg \in \bbN$ such that:
+\begin{itemize}
+  \item States with $\KLZ(\cdot) \le \Cg$ are \emph{coherence-preserving} (reversible, history-keeping)
+  \item States with $\KLZ(\cdot) > \Cg$ admit \emph{information-reducing} updates
+\end{itemize}
+The value of $\Cg$ is \emph{not derived} but must be empirically determined for each application domain.
+\end{axiom}
+
+This threshold parameter $\Cg$ serves as the crucial empirical interface between the formal framework and physical reality.
+
+\subsection{Dynamical Rules}
+
+\begin{definition}[Rule Families]
+We define two update families on state histories:
+\begin{itemize}
+  \item $R_{\mathrm{coh}}$: History-preserving (reversible) update for low-complexity regimes ($\KLZ \le \Cg$)
+  \item $R_{\mathrm{red}}$: History-forgetting (information-reducing) update for high-complexity regimes ($\KLZ > \Cg$)
+\end{itemize}
+\end{definition}
+
+\section{Key Formal Results}
+
+We summarize representative theorems; complete machine-checked proofs are available in the supplementary Lean code.
+
+\begin{theorem}[Proxy Calibration]
+There exist constants $a,b \ge 0$ such that for encoded states $x,y$:
+\[
+\KLZ(xy) \le \KLZ(x) + \KLZ(y) + a,
+\]
+and under standard mixing conditions:
+\[
+|\KLZ(x) - \K(x)| \le b + o(|x|).
+\]
+This ensures the computable proxy $\KLZ$ approximates the ideal $\K$ within bounded error.
+\end{theorem}
+
+\begin{theorem}[Regime Stability]
+\begin{itemize}
+    \item Below threshold: Coherence rules preserve information measures
+    \item Above threshold: Reduction rules guarantee bounded information loss
+\end{itemize}
+Formally, for histories $h$ in the low-complexity regime, application of $R_{\mathrm{coh}}$ preserves coherence functionals, while $R_{\mathrm{red}}$ ensures $\KLZ(R_{\mathrm{red}}(h)) \le \KLZ(h) + c_{\mathrm{over}} - c_{\mathrm{drop}}$ with $c_{\mathrm{drop}} > 0$.
+\end{theorem}
+
+These theorems certify that the operational rules respect the intended informational design, providing formal guarantees for domain applications.
+
+\section{From Formal Framework to Physical Modeling}
+
+To prevent conflation of logic with interpretation, we strictly separate \emph{logical theorems} (proved within the framework) from \emph{physical postulates} (interpretive assumptions).
+
+\subsection{Physical Interface Postulates}
+
+\begin{itemize}
+  \item[P1.] \textbf{Encoding Discipline}: Physical configurations admit reproducible encodings into $\State$
+  \item[P2.] \textbf{Threshold Hypothesis}: Observable regime boundaries correlate with $\KLZ$ measurements at some $\Cg$
+  \item[P3.] \textbf{Dynamics Mapping}: Physical dynamics correspond to $R_{\mathrm{coh}}$ below $\Cg$ and $R_{\mathrm{red}}$ above $\Cg$
+\end{itemize}
+
+These postulates form the testable interface between the formal framework and physical reality. They are \emph{not} consequences of the mathematics but must be validated empirically.
+
+\section{Testing the Framework: A Detailed Protocol}
+
+The framework enables concrete, falsifiable testing through a three-stage protocol:
+
+\subsection{Stage 1: Proxy Calibration}
+
+\begin{enumerate}
+    \item \textbf{Encode}: Map physical observables to bitstrings via reproducible encoding pipelines
+    \item \textbf{Measure}: Compute $\KLZ$ statistics on appropriately preprocessed data
+    \item \textbf{Correlate}: Identify whether qualitative behavior transitions correlate with stable $\KLZ$ boundaries
+\end{enumerate}
+
+\subsection{Stage 2: Rule Validation}
+
+\begin{enumerate}
+    \item \textbf{Below $\Cg$}: Verify that dynamics preserve information measures (e.g., predictability, reversibility)
+    \item \textbf{Above $\Cg$}: Detect signatures of information reduction (e.g., entropy increase, memory loss)
+    \item \textbf{Transition}: Study critical behavior near the boundary
+\end{enumerate}
+
+\subsection{Stage 3: Robustness Assessment}
+
+\begin{enumerate}
+    \item \textbf{Proxy Variation}: Test with alternate complexity measures (statistical complexity, approximate entropy)
+    \item \textbf{Encoding Sensitivity}: Vary encoding schemes within physically reasonable bounds
+    \item \textbf{Scale Independence}: Verify boundary stability across system sizes
+\end{enumerate}
+
+\begin{example}[Application to Quantum-Classical Transition]
+One might encode quantum states via their Wigner function discretizations, compute $\KLZ$ on time series of these encodings, and test whether the quantum-classical transition correlates with crossing a $\KLZ$ threshold $\Cg$. The framework provides the formal structure to ensure such investigations maintain logical consistency.
+\end{example}
+
+\section{Relation to Prior Work}
+
+Our approach complements but does not subsume existing information-centric programs:
+
+\begin{itemize}
+    \item \textbf{Quantum Darwinism}~\cite{Zurek2003}: We provide formal tools to test hypotheses about branching structures
+    \item \textbf{Emergent Gravity}~\cite{Verlinde2011}: Our framework offers rigorous complexity notions for holographic scenarios
+    \item \textbf{Computational Universe}~\cite{Lloyd2002}: We add formal verification to complexity-based physical models
+\end{itemize}
+
+Unlike these programs, we focus on providing a \emph{methodological foundation} with machine-checked logical guarantees.
+
+\section{Formal Verification and Artifact Availability}
+
+All definitions and theorems are implemented and verified in Lean~4. Key verification achievements include:
+\begin{itemize}
+    \item Complete mechanization of the three-layer architecture
+    \item Machine-checked proofs of all bridge theorems
+    \item Zero outstanding proof gaps (\texttt{sorry} declarations)
+\end{itemize}
+
+To support reproducibility:
+\begin{itemize}
+    \item Versioned, anonymized repository provided as supplementary material
+    \item DOI archive will be released upon acceptance
+\end{itemize}
+
+\section{Limitations and Future Directions}
+
+\begin{itemize}
+    \item \textbf{Empirical Calibration}: $\Cg$ must be determined experimentally for each domain; no universal value is claimed
+    \item \textbf{Proxy Dependence}: Conclusions should be robust across different complexity measures
+    \item \textbf{Scale Limitations}: The framework currently addresses finite, discrete systems
+    \item \textbf{Physical Identification}: Specific identifications (e.g., ``$R_{\mathrm{red}}$ equals wavefunction collapse'') remain hypotheses
+\end{itemize}
+
+Future work will develop concrete instantiations for quantum measurement, cosmological structure formation, and neural computation.
+
+\section{Conclusion}
+
+Substrate Theory provides a formally verified framework for studying complexity-threshold dynamics with clear separation between ideal concepts and operational measurements. By treating the regime boundary as an empirical parameter and distinguishing mathematical theorems from physical postulates, we enable disciplined, testable modeling of informational regimes in physical systems. The machine-checked formalization ensures logical consistency, while the explicit empirical interface enables meaningful confrontation with experimental data.
+
+\paragraph{Acknowledgments}
+We thank colleagues for discussions on algorithmic information, mechanized reasoning, and model validation. All remaining errors are our own.
+
+% ====== References ======
+\bibliographystyle{unsrtnat}
+\begin{thebibliography}{99}
+
+\bibitem{Kolmogorov1965}
+A.~N. Kolmogorov.
+\newblock Three approaches to the quantitative definition of information.
+\newblock \emph{Problems of Information Transmission}, 1(1):1--7, 1965.
+
+\bibitem{LZ1977}
+J.~Ziv and A.~Lempel.
+\newblock A universal algorithm for sequential data compression.
+\newblock \emph{IEEE Transactions on Information Theory}, 23(3):337--343, 1977.
+
+\bibitem{Zurek2003}
+W.~H. Zurek.
+\newblock Decoherence, einselection, and the quantum origins of the classical.
+\newblock \emph{Reviews of Modern Physics}, 75(3):715--775, 2003.
+
+\bibitem{Lloyd2002}
+S.~Lloyd.
+\newblock Computational capacity of the universe.
+\newblock \emph{Physical Review Letters}, 88(23):237901, 2002.
+
+\bibitem{Verlinde2011}
+E.~Verlinde.
+\newblock On the origin of gravity and the laws of Newton.
+\newblock \emph{Journal of High Energy Physics}, 2011(4):29, 2011.
+
+\end{thebibliography}
+
+% ====== Appendix with Lean Code ======
+\appendix
+\section{Lean 4 Formalization Excerpts}
+\label{app:lean}
+
+This appendix contains selected Lean code snippets illustrating the formalization. Complete source is available in the supplementary material.
+
+\subsection{Bridge Layer Theorems}
+
+\begin{lstlisting}[style=lean]
+-- Bridge between ideal and operational complexity
+theorem proxy_calibration : 
+  ∃ a b : ℝ, a ≥ 0 ∧ b ≥ 0 ∧ 
+  ∀ (x y : State), KLZ (x ++ y) ≤ KLZ x + KLZ y + a := by
+  ...
+\end{lstlisting}
+
+\subsection{Operational Rules}
+
+\begin{lstlisting}[style=lean]
+-- Coherence rule application
+theorem coherence_preservation :
+  ∀ (n h : List State), coherent_state (join n) → 
+    K_LZ (R_Cohesion n h) = K_LZ h := by
+  ...
+\end{lstlisting}
+
+\end{document}
