@@ -14,8 +14,9 @@ noncomputable def Z_ideal (S : Finset SubstrateTheory.Entity) : ℝ :=
 
 noncomputable def Z_op (S : Finset SubstrateTheory.Entity) (p : ℕ) : ℝ :=
   Finset.sum S (fun e => two_to_neg (C e p))
-
+noncomputable axiom Coh : List SubstrateTheory.Entity → List ℝ → ℝ
 noncomputable axiom Coh_op : List SubstrateTheory.Entity → List ℝ → ℕ → ℝ
+noncomputable axiom dCoh_dt : SubstrateTheory.Entity → ℝ → ℝ
 
 def grounds_K (e₁ e₂ : SubstrateTheory.Entity) : Prop :=
   K_cond e₁ e₂ < K e₂ - K e₁ + c_grounding

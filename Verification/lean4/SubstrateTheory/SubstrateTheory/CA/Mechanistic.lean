@@ -7,7 +7,7 @@ import SubstrateTheory.Operational.KLZ.TimeArrow
 
 namespace SubstrateTheory.CA
 open SubstrateTheory SubstrateTheory.Operational
-abbrev State := KLZ.KLZState
+abbrev State := KLZ.State
 
 noncomputable def F (s : State) : State := s
 noncomputable def merge (s1 s2 : State) : State := s2

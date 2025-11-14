@@ -9,8 +9,3 @@ import SubstrateTheory.Bridge.Convergence
 import SubstrateTheory.CA.Mechanistic
 import SubstrateTheory.Error.Bounds
 import SubstrateTheory.Error.Composition
-import SubstrateTheory.Topology.Manifolds
-import SubstrateTheory.Topology.Stability
-import SubstrateTheory.Topology.Complexity
-import SubstrateTheory.Topology.Grounding
-import SubstrateTheory.Topology.Generations
