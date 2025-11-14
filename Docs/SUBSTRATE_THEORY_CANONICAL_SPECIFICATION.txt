@@ -1,4 +1,4 @@
-SUBSTRATE THEORY — FORMAL SPECIFICATION (LEAN 4 VERIFIED)
+SUBSTRATE THEORY — SYMBOLIC LOGIC CANONICAL REFERENCE
 Matthew Scherf 2025
 ────────────────────────────────────────────────────────────────────────────
 
@@ -12,8 +12,6 @@ Time := ℝ
 Phase := ℝ
 Nbhd := List State
 Precision := ℕ
-
-KLZ.State : Type (axiom)
 
 ────────────────────────────────────────────────────────────────────────────
 
@@ -35,9 +33,7 @@ C_joint : List Entity → ℕ → ℝ (noncomputable axiom)
 C_cond : Entity → Entity → ℕ → ℝ
 C_cond(e₁,e₂,p) := C_joint([e₁,e₂],p) - C(e₁,p)
 
-K_LZ : State → ℕ (noncomputable axiom, operational)
-K_LZ : KLZ.State → ℕ (noncomputable axiom, KLZ module)
-
+K_LZ : State → ℕ (axiom)
 K_toy : State → ℕ
 K_toy(s) := |dedup(s)|
 
@@ -57,24 +53,23 @@ temporal_slice : List Entity → Time → List Entity
 slice : List (Entity × Time) → Time → List Entity
 
 join : List State → State (axiom)
-join : List KLZ.State → KLZ.State (axiom, KLZ module)
-
-mode : KLZ.State → KLZ.State (noncomputable axiom)
+mode : State → State (noncomputable constant)
 
 traj : Entity → List (Entity × Time)
-traj(e) := (List.range 1000).map (λn. (indexed e n, n))
-
 P_total : Entity → ℝ
-P_total(e) := 1 (sum of uniform weights over trajectory)
 
 ────────────────────────────────────────────────────────────────────────────
 
 COHERENCE FUNCTIONS
 
-Coh : List Entity → List Time → ℝ (noncomputable axiom)
-Coh_op : List Entity → List Time → ℕ → ℝ (noncomputable axiom)
+Coh : List Entity → List Time → ℝ
+Coh(es,times) := 1 - K_joint(slice(es,times))/K_sum(slice(es,times))
+
+Coh_op : List Entity → List Time → ℕ → ℝ
+Coh_op(es,times,p) := 1 - C_joint(slice(es,times),p)/C_sum(slice(es,times),p)
+
 Coh_trajectory : Entity → ℝ
-dCoh_dt : Entity → Time → ℝ (noncomputable axiom)
+dCoh_dt : Entity → Time → ℝ
 
 compression_ratio : List Entity → List Time → ℝ
 
@@ -92,16 +87,22 @@ Z_op(S,p) := ∑ e ∈ S, 2^(-C(e,p))
 
 GROUNDING FUNCTIONS
 
-grounds : Entity → Entity → Prop (axiom)
-temporal_grounds : Entity → Time → Entity → Time → Prop (axiom)
-bfs_depth_C : Entity → ℕ → Finset Entity → ℕ (noncomputable axiom)
+grounds_graph : Finset Entity → ℕ → Finset (Entity × Entity)
+parents_C : Entity → Finset Entity → ℕ → Finset Entity
+bfs_depth_C : Entity → ℕ → Finset Entity → ℕ
 bfs_grounding_path : Entity → Finset Entity → ℕ → Option (List Entity)
 
 ────────────────────────────────────────────────────────────────────────────
 
-PHYSICAL CONSTANTS
+CONSTANTS
 
-c := 299792458 m/s
+c_grounding := 50
+c_margin := 5
+c_sub : ℝ (constant)
+c_single : ℝ (constant)
+C_mode : ℝ (constant)
+
+c ≈ 299792458 m/s
 ℏ : ℝ (axiom, ℏ > 0)
 G : ℝ (axiom, G > 0)
 k_B : ℝ (axiom, k_B > 0)
@@ -119,10 +120,6 @@ T_Planck := E_Planck/k_B
 ℏ_eff : ℝ (axiom, ℏ_eff > 0)
 ε_geom : ℝ (axiom, ε_geom > 0)
 
-────────────────────────────────────────────────────────────────────────────
-
-COSMOLOGICAL PARAMETERS
-
 H₀ : ℝ (67 < H₀ < 74)
 Ω_m : ℝ (0.3 < Ω_m < 0.32)
 Ω_Λ : ℝ (0.68 < Ω_Λ < 0.70)
@@ -130,49 +127,7 @@ H₀ : ℝ (67 < H₀ < 74)
 Ω_k : ℝ (|Ω_k| < 0.01)
 Ω_DM : ℝ (0.25 < Ω_DM < 0.27)
 Ω_baryon : ℝ (0.04 < Ω_baryon < 0.05)
-t_universe : ℝ (13.7×10⁹ < t_universe < 13.9×10⁹ years)
-
-N_e : ℝ (50 < N_e < 70, e-folds of inflation)
-n_s : ℝ (0.96 < n_s < 0.97, scalar spectral index)
-r_s : ℝ (0 ≤ r_s < 0.036, tensor-to-scalar ratio)
-z_transition : ℝ (0.6 < z_transition < 0.8, matter-Λ transition)
-
-────────────────────────────────────────────────────────────────────────────
-
-GROUNDING CONSTANTS
-
-c_grounding := 50 (bits)
-c_margin := 5 (bits)
-
-────────────────────────────────────────────────────────────────────────────
-
-KLZ CONSTANTS
-
-c_sub : ℝ (constant)
-c_single : ℝ (constant)
-C_mode : ℝ (constant)
-C_coh : ℝ (constant)
-
-c_time_reduction := c_sub + C_mode
-c_time_cohesion := c_sub + C_coh
-
-────────────────────────────────────────────────────────────────────────────
-
-THRESHOLD PARAMETERS
-
-measured_inseparability_threshold : ℝ (0 < · < 1)
-strong_compression_threshold : ℝ (0 < · < measured_inseparability_threshold)
-temporal_coherence_threshold : ℝ (0 < · < 1)
-phase_coupling_threshold : ℝ (0 < · ≤ 1)
-baseline_maximal_compression : ℝ (1 < ·)
-
-weak_coupling_threshold : ℝ
-moderate_coupling_threshold : ℝ
-strong_coupling_threshold : ℝ
-
-Hierarchy:
-1 < weak_coupling_threshold < moderate_coupling_threshold < 
-strong_coupling_threshold < baseline_maximal_compression
+t_universe : ℝ (13.7×10⁹ < t_universe < 13.9×10⁹)
 
 ────────────────────────────────────────────────────────────────────────────
 
@@ -187,23 +142,18 @@ G1 (Substrate Grounds All)
 where is_grounded(e,ctx) := K_cond(ctx,e) < K(e) - K(ctx) + c_grounding
 
 T7 (Time Arrow)
-∀hist next. hist.length ≥ 2 → 
-  (∀ e ∈ hist. is_temporal_presentation(e)) →
-  is_temporal_presentation(next) →
-  K_joint(next::hist) - K_joint(hist) ≤ 
-    K_joint([hist.last,hist.init]) - K(hist.init)
+∀hist next. hist.length ≥ 2 →
+  K_joint(next::hist) - K_joint(hist) ≤ K_joint([hist.last,hist.init]) - K(hist.init)
 
 T4 (Emergence/Collapse)
-∀e_classical e_quantum. 
-  is_presentation(e_classical) →
-  is_quantum_state(e_quantum) →
-  emergent(e_classical,e_quantum) → 
+∀e_classical e_quantum.
+  emergent(e_classical,e_quantum) →
   is_measurement_device(e_classical) ∨ is_observable(e_classical)
 where emergent(e_classical,e_quantum) := K_cond(Substrate,e_classical) < K(e_quantum)
 
 C6 (Coherence Preservation)
 ∀e. is_quantum_state(e) → coherent(e)
-where coherent(e) := ∀t₁ t₂. t₁ < t₂ → 
+where coherent(e) := ∀t₁ t₂. t₁ < t₂ →
   K_cond(indexed(e,t₁),indexed(e,t₂)) = K_cond(indexed(e,t₂),indexed(e,t₁))
 
 ────────────────────────────────────────────────────────────────────────────
@@ -222,9 +172,6 @@ decoherence_implies_classical :
 measurement_breaks_coherence :
 ∀e_q e_c. is_quantum_state(e_q) ∧ coherent(e_q) ∧ emergent(e_c,e_q) →
   ¬coherent(e_c)
-
-indexed_preserves_presentation :
-∀e t. is_presentation(e) → is_presentation(indexed(e,t))
 
 ────────────────────────────────────────────────────────────────────────────
 
@@ -274,20 +221,20 @@ BRIDGE8 (Continuum Limit)
 
 CA RULES
 
-F : KLZ.State → KLZ.State (noncomputable)
-merge : KLZ.State → KLZ.State → KLZ.State (noncomputable)
+F : State → State (noncomputable)
+merge : State → State → State (noncomputable)
 
-R_Cohesion : List KLZ.State → KLZ.State → KLZ.State (noncomputable axiom)
+R_Cohesion : List State → State → State
 R_Cohesion(n,h) := merge(F(join(n)),h)
 
-R_Reduction : List KLZ.State → KLZ.State
+R_Reduction : List State → State
 R_Reduction(n) := mode(join(n))
 
-R_G1 : List KLZ.State → KLZ.State → KLZ.State
+R_G1 : List State → State → State
 R_G1(n,h) := if K_LZ(join(n)) ≤ c_grounding then R_Cohesion(n,h)
              else R_Reduction(n)
 
-coherent_state : KLZ.State → Prop
+coherent_state : State → Prop
 coherent_state(s) := K_LZ(s) ≤ c_grounding
 
 ────────────────────────────────────────────────────────────────────────────
@@ -298,12 +245,11 @@ P3 (C6 Preservation)
 ∀n h. coherent_state(join(n)) → K_LZ(R_G1(n,h)) = K_LZ(h)
 
 R_G1_grounding_reduction
-∀n h. K_LZ(join(n)) > c_grounding → 
+∀n h. K_LZ(join(n)) > c_grounding →
   K_LZ(R_G1(n,h)) < K_LZ(join(n)) + c_grounding
 
 R_G1_preserves_time_arrow
-∀hist n h. K_LZ(join(R_G1(n,h)::hist)) ≤ K_LZ(join(hist)) + c_time
-where c_time := max(c_time_reduction, c_time_cohesion)
+∀hist n h. K_LZ(join(R_G1(n,h)::hist)) ≤ K_LZ(join(hist)) + c_margin
 
 ────────────────────────────────────────────────────────────────────────────
 
@@ -381,11 +327,12 @@ OPERATIONAL BOUNDS
 
 C_nonneg : ∀e p. 0 ≤ C(e,p)
 C_monotone : ∀e p₁ p₂. p₁ ≤ p₂ → C(e,p₂) ≤ C(e,p₁)
+C_upper_bound : ∀e p. is_presentation(e) → K(e) ≤ C(e,p)
 
 C_joint_nonneg : ∀es p. 0 ≤ C_joint(es,p)
 
 K_LZ_nonneg : ∀s. 0 ≤ K_LZ(s)
-K_LZ_empty : K_LZ(join([])) = 0
+K_LZ_empty : K_LZ([]) = 0
 K_LZ_monotone : ∀s₁ s₂. s₁.length ≤ s₂.length → K_LZ(s₁) ≤ K_LZ(s₂)
 
 ────────────────────────────────────────────────────────────────────────────
@@ -411,26 +358,8 @@ K_LZ_singleton_bound :
 K_LZ_mode_le :
 ∀s. K_LZ(mode(s)) ≤ K_LZ(s) + C_mode
 
-K_LZ_mode_absolute_bound :
-∀s. K_LZ(mode(s)) ≤ C_mode
-
 C_mode_lt_c_grounding :
 C_mode < c_grounding
-
-K_LZ_cohesion_bound_raw :
-∀n h. K_LZ(R_Cohesion(n,h)) ≤ C_coh
-
-────────────────────────────────────────────────────────────────────────────
-
-TIME ARROW THEOREMS
-
-time_arrow_reduction :
-∀hist n. K_LZ(join(mode(join(n)) :: hist)) ≤ 
-         K_LZ(join(hist)) + c_time_reduction
-
-time_arrow_cohesion :
-∀hist n h. K_LZ(join(R_Cohesion(n,h) :: hist)) ≤ 
-           K_LZ(join(hist)) + c_time_cohesion
 
 ────────────────────────────────────────────────────────────────────────────
 
@@ -443,22 +372,6 @@ coherence_bounds :
 compression_ratio_ge_one :
 ∀es times. (∀e∈es. is_presentation(e)) →
   1 ≤ compression_ratio(es,times)
-
-────────────────────────────────────────────────────────────────────────────
-
-ERROR BOUNDS
-
-error_bound_linear :
-∃c>0. ∀e p. is_presentation(e) → 0<p →
-  |C(e,p) - K(e)| ≤ c/p
-
-error_bound_polynomial :
-∃c α. 0<c ∧ 1<α ∧ ∀e p. is_presentation(e) → 0<p →
-  |C(e,p) - K(e)| ≤ c/p^α
-
-error_bound_general :
-∃M>0. ∀e p. is_presentation(e) →
-  |C(e,p) - K(e)| ≤ M/(p+1)
 
 ────────────────────────────────────────────────────────────────────────────
 
@@ -500,9 +413,7 @@ stable : Entity → Prop
 
 is_quantum : List State → Prop
 is_classical : List State → Prop
-coherent_state : KLZ.State → Prop
-
-is_grounded : Entity → Entity → Prop
+coherent_state : State → Prop
 
 ────────────────────────────────────────────────────────────────────────────
 
@@ -548,62 +459,3 @@ join_associative :
 ∀s₁ s₂ s₃. join([join([s₁,s₂]),s₃]) = join([s₁,join([s₂,s₃])])
 
 ────────────────────────────────────────────────────────────────────────────
-
-VERIFIED THEOREMS
-
-energy_from_complexity :
-∀e. is_presentation(e) → has_mass(e) →
-  ∃m>0. m = energy_of(e)/c²
-
-entropy_from_complexity :
-∀e. is_presentation(e) →
-  ∃S. S = k_B · log(2) · K(e)
-
-coherence_participation_invariant :
-∀e. is_temporal_presentation(e) → coherent(e) →
-  0 < P_total(e) ∧ Coh_trajectory(e) = 1/P_total(e)
-
-joint_le_sum :
-∀es. (∀e∈es. is_presentation(e)) → K_joint(es) ≤ K_sum(es)
-
-complexity_subadditive :
-∀e₁ e₂. is_presentation(e₁) → is_presentation(e₂) →
-  K_joint([e₁,e₂]) ≤ K(e₁) + K(e₂)
-
-compression_ratio_ge_one :
-∀es times. (∀e∈es. is_presentation(e)) →
-  1 ≤ compression_ratio(es,times)
-
-R_G1_preserves_grounding :
-∀n. K_LZ(mode(join(n))) < K_LZ(join(n)) + c_grounding
-
-time_arrow_reduction :
-∀hist n. K_LZ(join(mode(join(n))::hist)) ≤ 
-         K_LZ(join(hist)) + c_time_reduction
-
-time_arrow_cohesion :
-∀hist n h. K_LZ(join(R_Cohesion(n,h)::hist)) ≤ 
-           K_LZ(join(hist)) + c_time_cohesion
-
-P3_C6_preservation :
-∀n h. coherent_state(join(n)) → K_LZ(R_G1(n,h)) = K_LZ(h)
-
-R_G1_grounding_reduction :
-∀n h. K_LZ(join(n)) > c_grounding →
-  K_LZ(R_G1(n,h)) < K_LZ(join(n)) + c_grounding
-
-R_G1_preserves_time_arrow :
-∀hist n h. K_LZ(join(R_G1(n,h)::hist)) ≤ 
-           K_LZ(join(hist)) + max(c_time_reduction,c_time_cohesion)
-
-planck_units_positive :
-0 < ℓ_Planck ∧ 0 < t_Planck ∧ 0 < M_Planck ∧ 0 < E_Planck ∧ 0 < T_Planck
-
-error_bound_exists :
-∀e p. is_presentation(e) →
-  ∃ε. |C(e,p) - K(e)| ≤ ε.absolute
-
-────────────────────────────────────────────────────────────────────────────
-END OF CANONICAL SPECIFICATION 
-────────────────────────────────────────────────────────────────────────────
-
